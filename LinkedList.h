@@ -17,7 +17,7 @@ public:
   struct Node {
     T data;             /**< struct data */
     struct Node *next;  /**< struct next pointer */
-  }
+  };
 
   /**
    * Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
