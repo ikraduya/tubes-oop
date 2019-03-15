@@ -1,7 +1,5 @@
 #ifndef _PRODUCTS_H_
 #define _PRODUCTS_H_
-
-#include <iostream>
 /**
  * Kelas Products untuk menyediakan abstrak kelas bagi side products dan farm products
  */
