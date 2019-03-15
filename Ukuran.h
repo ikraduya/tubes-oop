@@ -9,10 +9,10 @@ public:
   Ukuran(int x, int y);
 
   //getter X
-  int getX();
+  int getX() const;
 
   //getter Y
-  int getY();
+  int getY() const;
 
   //setter X
   void setX(int x);

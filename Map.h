@@ -23,11 +23,6 @@ public:
 
   //dtor
   ~Map();
-
-  //menampilkan visualisasi map, cek priority symbol
-  //cara cek priority symbol?
-  //perlu include ncurses?
-  void printMap();
 };
 
 #endif

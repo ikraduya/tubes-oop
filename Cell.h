@@ -5,11 +5,14 @@ class Cell{
 private:
   char symbol;
 public:
+  //ctor default
+  Cell();
+
   //ctor parameter
   Cell(char symbol);
 
   //getter symbol
-  char getSymbol();
+  char getSymbol() const;
 
   //setter symbol
   void setSymbol(char symbol);
