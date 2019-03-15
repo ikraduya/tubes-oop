@@ -8,7 +8,7 @@
 template <class T>
 class LinkedList {
 private:
-  struct Node* head = NULL; /**< head of linkedlist */
+  struct Node* head; /**< head of linkedlist */
 
 public:
   /**
