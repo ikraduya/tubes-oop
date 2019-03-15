@@ -1,7 +1,6 @@
 #ifndef _FARMPRODUCTS_H_
 #define _FARMPRODUCTS_H_
 
-#include <iostream>
 #include "Products.h"
 /**
  * Kelas FarmProducts yang menyimpan kelas-kelas produk mentah peternakan
