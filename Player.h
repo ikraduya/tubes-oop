@@ -33,8 +33,8 @@ class Player {
 		int getWadahAir(); // Get jumlah air
 		void setUang(int); // Set nilai uang
 		int getUang(); // Get nilai uang
-		void setArah(arahEnum);
-		arahEnum getArah();
+		void setArah(arahEnum); // Set arah player menghadap
+		arahEnum getArah(); // Get arah player menghadap
 		void setAbsis(int); // Set posisi absis player
 		int getAbsis(); // Get posisi absis player
 		void setOrdinat(int); // Set posisi ordinat player
