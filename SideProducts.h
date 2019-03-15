@@ -1,7 +1,6 @@
 #ifndef _SIDEPRODUCTS_H_
 #define _SIDEPRODUCTS_H_
 
-#include <iostream>
 #include "Products.h"
 #include "FarmProducts.h"
 
