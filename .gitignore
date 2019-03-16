@@ -1,1 +1,6 @@
+# vs code IDE files
 .vscode
+
+# doxygen generated files
+html
+latex
