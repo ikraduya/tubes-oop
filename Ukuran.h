@@ -12,7 +12,7 @@
  */
 class Ukuran{
 private:
-  int x, y; /*!< x: panjang, y: tinggi */ 
+  int x, y; /**< x: panjang, y: tinggi */ 
 public:
   /**
    * @brief ctor parameter

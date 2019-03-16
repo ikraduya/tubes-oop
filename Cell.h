@@ -12,7 +12,7 @@
  */
 class Cell{
 private:
-  char symbol;  /*!< Char symbol */  
+  char symbol;  /**< Char symbol */  
 public:
   /**
    * Konstruktor default

@@ -11,10 +11,10 @@
 #include "FarmAnimal.h"
 
 enum ArahEnum {
-	UP,  /*!< Enum value Up. */  
-	DOWN,  /*!< Enum value Down. */ 
-	LEFT,  /*!< Enum value Left. */ 
-	RIGHT /*!< Enum value Right. */ 
+	UP,  /**< Enum value Up. */  
+	DOWN,  /**< Enum value Down. */ 
+	LEFT,  /**< Enum value Left. */ 
+	RIGHT /**< Enum value Right. */ 
 };
 
 /**

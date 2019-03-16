@@ -17,15 +17,15 @@
  */
 class Farm {
 private:
-  Player player;  /*!< Objek player */  
-  Map map;  /*!< Objek map */  
-  LinkedList<FarmAnimal> farmAnimals;  /*!< List farmAnimals */  
-  Truck truckFacility;  /*!< Objek Fasilitas Truck */  
-  Mixer mixerFacility;  /*!< Objek Fasilitas Mixer */  
-  Well wellFacility;  /*!< Objek Fasilitas Well */
+  Player player;  /**< Objek player */  
+  Map map;  /**< Objek map */  
+  LinkedList<FarmAnimal> farmAnimals;  /**< List farmAnimals */  
+  Truck truckFacility;  /**< Objek Fasilitas Truck */  
+  Mixer mixerFacility;  /**< Objek Fasilitas Mixer */  
+  Well wellFacility;  /**< Objek Fasilitas Well */
 
 public:
-  int globalTick; /*!< Variabel tick global */
+  int globalTick; /**< Variabel tick global */
 
   /**
    * Konstruktor dengan parameter

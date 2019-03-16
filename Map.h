@@ -24,8 +24,8 @@ using namespace std;
  */
 class Map{
 private:
-  Ukuran px;  /*!< ukuran map */  
-  Cell** zone;  /*!< array of array of Cell */  
+  Ukuran px;  /**< ukuran map */  
+  Cell** zone;  /**< array of array of Cell */  
 public:
   /**
    * @brief ctor parameter

@@ -14,7 +14,7 @@
  */
 class Land : public Cell{
 private:
-  bool hasGrass;  /*!< bool ditumbuhi grass */
+  bool hasGrass;  /**< bool ditumbuhi grass */
 public:
   /**
    * @brief ctor parameter, setSymbol(symbol)

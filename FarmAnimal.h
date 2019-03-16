@@ -24,7 +24,7 @@ class FarmAnimal{
     int poxY; /**< Posisi Koordinat Y */
 
   public:
-    static int jumlahHewan;
+    static int jumlahHewan; /**< Jumlah hewan di suatu waktu */
 
     /**
 	   * ctor default

@@ -11,7 +11,7 @@
 
 class Truck : public Facility{
 private:
-  int remainingTick;  /*!< Tick > 0 apabila Truck tidak berada di tempat */ 
+  int remainingTick;  /**< Tick > 0 apabila Truck tidak berada di tempat */ 
 public:
   /**
    * @brief ctor, Facility('T')

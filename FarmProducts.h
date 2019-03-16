@@ -8,6 +8,7 @@
 #define _FARMPRODUCTS_H_
 
 #include "Products.h"
+
 /**
  * @brief Kelas FarmProducts yang menyimpan kelas-kelas produk mentah peternakan
  */
@@ -28,6 +29,7 @@ class DuckEgg : public FarmProducts{
 		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
+		
 };
 
 /**
