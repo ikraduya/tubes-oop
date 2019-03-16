@@ -1,17 +1,32 @@
+/**
+ * @file Grassland.h
+ * @author Rakhmad
+ * @date 2019-03-15
+ */
+
 #include "Land.h"
 
 #ifndef GRASSLAND_H
 #define GRASSLAND_H
 
+/**
+ * @brief Kelas Grassland digunakan untuk beternak hewan penghasil susu
+ */
 class Grassland : public Land{
 public:
-  //ctor, Land('-')
+  /**
+   * @brief ctor, Land('-')
+   */
   Grassland();
 
-  //growGrass(), setSymbol('#')
+  /**
+   * @brief growGrass(), setSymbol('#')
+   */
   void grow();
 
-  //removeGrass(), setSymbol('-')
+  /**
+   * @brief removeGrass(), setSymbol('-')
+   */
   void eaten();
 };
 

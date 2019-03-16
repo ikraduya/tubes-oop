@@ -1,11 +1,17 @@
-#ifndef "FARMANIMAL_H"
-#define "FARMANIMAL_H"
+/**
+ * @file FarmAnimal.h
+ * @author Azhar
+ * @date 2019-03-15
+ */
 
-#include FarmProducts.h
+#ifndef FARMANIMAL_H
+#define FARMANIMAL_H
+
+#include "FarmProducts.h"
+
 /**
  * Kelas FarmAnimal menyimpan semua jenis hewan
  */
-
 class FarmAnimal{
   protected:
     bool isProduceEgg; /**< Mengahasilkan telur atau tidak */
@@ -24,9 +30,14 @@ class FarmAnimal{
 	   * ctor default
 	   */
     FarmAnimal();
+
     /**
-	   * ctor dengan parameter
-	   */
+     * @brief Construct a new Farm Animal object
+     * 
+     * @param _posX posisi X
+     * @param _posY posisi Y
+     * @param _HungryTime waktu lapar hewan
+     */
     FarmAnimal(int _posX, int _posY, int _HungryTime);
     /**
 	   * dtor
@@ -45,15 +56,15 @@ class FarmAnimal{
     /**
 	   * Pure virtual makan
 	   */
-    void Makan() = 0;
+    virtual void Makan() = 0;
     /**
 	   * Hewan bergerak
 	   */
-    void Move();
+    virtual void Move();
     /**
 	   * Pure virtual bersuara
 	   */
-    void Bersuara() = 0;
+    virtual void Bersuara() = 0;
     /**
 	   * Menghitung waktu hingga lapar
 	   */
@@ -63,19 +74,26 @@ class FarmAnimal{
 	   * Pure virtual interract.
      * Menghasilkan susu atau telur
 	   */
-    FarmProducts Interact() = 0;
+    virtual FarmProducts Interact() = 0;
     /**
 	   * Pure virtual kill. 
      * Menghasilkan daging
 	   */
-    FarmProducts Kill() = 0;
+    virtual FarmProducts Kill() = 0;
 };
 
+/**
+ * @brief Kelas Ayam diturunkan dari FarmAnimal
+ */
 class Ayam : public FarmAnimal{
   public:
     /**
-	   * ctor dengan parameter
-	   */
+     * @brief ctor dengan parameter
+     * 
+     * @param _posX Posisi X
+     * @param _posY Posisi Y
+     * @param _HungryTime Waktu lapar hewan
+     */
     Ayam(int _posX, int _posY, int _HungryTime);
 
     /**
@@ -97,37 +115,57 @@ class Ayam : public FarmAnimal{
     FarmProducts Kill();
 };
 
+/**
+ * @brief Kelas Sapi diturunkan dari FarmAnimal
+ */
 class Sapi : public FarmAnimal{
   public:
     /**
-	   * ctor dengan parameter
-	   */
+     * @brief ctor dengan parameter
+     * 
+     * @param _posX Posisi X
+     * @param _posY Posisi Y
+     * @param _HungryTime Waktu lapar hewan
+     */
     Sapi(int _posX, int _posY, int _HungryTime);
 
     /**
 	   * Sapi bersuara
 	   */
     void Bersuara();
+
     /**
 	   * Sapi makan
 	   */
     void Makan();
 
     /**
-	   * Sapi menghasilkan susu
-	   */
+     * @brief Sapi menghasilkan susu
+     * 
+     * @return FarmProducts 
+     */
     FarmProducts Interact();
+    
     /**
-	   * Sapi menghasilkan daging dan mati
-	   */
+     * @brief Sapi menghasilkan daging dan mati
+     * 
+     * @return FarmProducts 
+     */
     FarmProducts Kill();
 };
 
+/**
+ * @brief Kelas Kambing diturunkan dari FarmAnimal
+ */
 class Kambing : public FarmAnimal{
   public:
     /**
-	   * ctor dengan parameter
-	   */
+     * @brief ctor dengan parameter
+     * 
+     * @param _posX Posisi X
+     * @param _posY Posisi Y
+     * @param _HungryTime Waktu lapar hewan
+     */
     Kambing(int _posX, int _posY, int _HungryTime);
 
     /**
@@ -140,20 +178,32 @@ class Kambing : public FarmAnimal{
     void Makan();
 
     /**
-	   * Kambing menghasilkan susu
-	   */
+     * @brief Kambing menghasilkan susu
+     * 
+     * @return FarmProducts 
+     */
     FarmProducts Interact();
+
     /**
-	   * Kambing menghasilkan daging dan mati
-	   */
+     * @brief Kambing menghasilkan daging dan mati
+     * 
+     * @return FarmProducts 
+     */
     FarmProducts Kill();
 };
 
+/**
+ * @brief Kelas Kuda diturunkan dari FarmAnimal
+ */
 class Kuda : public FarmAnimal{
   public:
     /**
-	   * ctor dengan parameter
-	   */
+     * @brief ctor dengan parameter
+     * 
+     * @param _posX Posisi X
+     * @param _posY Posisi Y
+     * @param _HungryTime Waktu lapar hewan
+     */
     Kuda(int _posX, int _posY, int _HungryTime);
 
     /**
@@ -166,20 +216,32 @@ class Kuda : public FarmAnimal{
     void Makan();
 
     /**
-	   * Kuda menghasilkan susu
-	   */
+     * @brief Kuda menghasilkan susu
+     * 
+     * @return FarmProducts 
+     */
     FarmProducts Interact();
+
     /**
-	   * Kuda menghasilkan daging dan mati
-	   */
-    FarmProducts Kill():
+     * @brief Kuda menghasilkan daging dan mati
+     * 
+     * @return FarmProducts 
+     */
+    FarmProducts Kill();
 };
 
+/**
+ * @brief Kelas Bebek diturunkan dari FarmAnimal
+ */
 class Bebek : public FarmAnimal{
   public:
     /**
-	   * ctor dengan parameter
-	   */
+     * @brief ctor dengan parameter
+     * 
+     * @param _posX 
+     * @param _posY 
+     * @param _HungryTime 
+     */
     Bebek(int _posX, int _posY, int _HungryTime);
 
     /**
@@ -192,12 +254,17 @@ class Bebek : public FarmAnimal{
     void Makan();
 
     /**
-	   * Bebek menghasilkan telur
-	   */
+     * @brief Bebek menghasilkan telur
+     * 
+     * @return FarmProducts 
+     */
     FarmProducts Interact();
+
     /**
-	   * Bebek menghasilkan daging dan mati
-	   */
+     * @brief Bebek menghasilkan daging dan mati
+     * 
+     * @return FarmProducts 
+     */
     FarmProducts Kill();
 };
 #endif

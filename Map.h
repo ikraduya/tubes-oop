@@ -1,3 +1,9 @@
+/**
+ * @file Map.h
+ * @author Rakhmad
+ * @date 2019-03-13
+ */
+
 #include "Ukuran.h"
 #include "Cell.h"
 #include "Barn.h"
@@ -13,15 +19,24 @@ using namespace std;
 #ifndef MAP_H
 #define MAP_H
 
+/**
+ * @brief Kelas Map menyimpan Ukuran map dan object Cell yaitu zone
+ */
 class Map{
 private:
-  Ukuran px;
-  Cell** zone;
+  Ukuran px;  /*!< ukuran map */  
+  Cell** zone;  /*!< array of array of Cell */  
 public:
-  //ctor parameter
+  /**
+   * @brief ctor parameter
+   * 
+   * @param filename Nama file yang berisi map
+   */
   Map(char* filename);
 
-  //dtor
+  /**
+   * @brief Destroy the Map object
+   */
   ~Map();
 };
 

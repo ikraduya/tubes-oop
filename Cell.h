@@ -1,20 +1,40 @@
+/**
+ * @file Cell.h
+ * @author Rakhmad
+ * @date 2019-03-13
+ */
+
 #ifndef CELL_H
 #define CELL_H
 
+/**
+ * Kelas Cell yang merupakan petak tanah, akan diturunkan menjadi Land atau Facility
+ */
 class Cell{
 private:
-  char symbol;
+  char symbol;  /*!< Char symbol */  
 public:
-  //ctor default
+  /**
+   * Konstruktor default
+   */
   Cell();
 
-  //ctor parameter
+  /**
+   * Konstruktor dengan parameter
+   * @param symbol Char simbol
+   */
   Cell(char symbol);
 
-  //getter symbol
+  /**
+   * Getter symbol
+   * @returns char symbol
+   */
   char getSymbol() const;
 
-  //setter symbol
+  /**
+   * Setter symbol
+   * @param symbol Char simbol
+   */
   void setSymbol(char symbol);
 };
 

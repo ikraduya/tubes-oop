@@ -1,12 +1,16 @@
+/**
+ * @file Player.h
+ * @author Akhmal
+ * @date 2019-03-13
+ */
+
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "EngisFarm.h"
+#include "Products.h"
+#include "LinkedList.h"
+#include "FarmAnimal.h"
 
-/**
-* Kelas Player untuk segala aksi dan atribut yang dimiliki player
-*/
-
-enum arahEnum {
+enum ArahEnum {
 	UP,  /*!< Enum value Up. */  
 	DOWN,  /*!< Enum value Down. */ 
 	LEFT,  /*!< Enum value Left. */ 
@@ -22,6 +26,9 @@ const int MaxInventory = 20;
 */
 const int MaxWater = 20;
 
+/**
+* Kelas Player untuk segala aksi dan atribut yang dimiliki player
+*/
 class Player {
 	private:
 		/**
@@ -32,7 +39,8 @@ class Player {
 		/**
 		* Array Inventori
 		*/
-		LinkedList<Product> inventori; 
+
+		LinkedList<Products> inventori; 
 
 		/**
 		* Wadah air yang sudah terisi
@@ -47,7 +55,7 @@ class Player {
 		/**
 		* Arah player menghadap
 		*/
-		arahEnum arah; 
+		ArahEnum arah; 
 
 		/**
 		* Position X
@@ -74,7 +82,7 @@ class Player {
 		* Getter dan setter
 		* Set jumlah inventori
 		*/
-		void setJumlahInventori(int); 
+		void setJumlahInventori(int jumlah); 
 		/**
 		* Get jumlah inventori
 		*/
@@ -82,7 +90,7 @@ class Player {
 		/**
 		* Set jumlah air
 		*/
-		void setWadahAir(int); 
+		void setWadahAir(int jumlah); 
 		/**
 		* Get jumlah air
 		*/
@@ -90,7 +98,7 @@ class Player {
 		/**
 		* Set nilai uang
 		*/
-		void setUang(int); 
+		void setUang(int nilai); 
 		/**
 		* Get nilai uang
 		*/
@@ -98,15 +106,15 @@ class Player {
 		/**
 		* Set arah player menghadap
 		*/
-		void setArah(arahEnum); 
+		void setArah(ArahEnum arah); 
 		/**
 		* Get arah player menghadap
 		*/
-		arahEnum getArah(); 
+		ArahEnum getArah(); 
 		/**
 		* Set posisi absis player
 		*/
-		void setAbsis(int); 
+		void setAbsis(int absis); 
 		/**
 		* Get posisi absis player
 		*/
@@ -114,7 +122,7 @@ class Player {
 		/**
 		* Set posisi ordinat player
 		*/
-		void setOrdinat(int); 
+		void setOrdinat(int ordinat); 
 		/**
 		* Get posisi ordinat player
 		*/
@@ -163,7 +171,7 @@ class Player {
 		/**
 		* Berinteraksi dengan Farm Animal
 		*/
-		void interact(FarmAnimal &x);
+		void interact(FarmAnimal &animal);
 		/**
 		* User memberi perintah kill
 		*/

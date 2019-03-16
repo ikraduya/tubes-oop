@@ -1,3 +1,9 @@
+/**
+ * @file Truck.h
+ * @author Rakhmad
+ * @date 2019-03-13
+ */
+
 #include "Facility.h"
 
 #ifndef TRUCK_H
@@ -5,19 +11,26 @@
 
 class Truck : public Facility{
 private:
-  int remainingTick;
+  int remainingTick;  /*!< Tick > 0 apabila Truck tidak berada di tempat */ 
 public:
-  //ctor, Facility('T')
+  /**
+   * @brief ctor, Facility('T')
+   */
   Truck();
 
-  //jual seluruh product pada inventory, menambah uang
-  //global variabel uang?
+  /**
+   * @brief Jual seluruh product pada inventory, menambah uang
+   */
   void jualBarangHasilTernak();
 
-  //getter remainingTick
+  /**
+   * @brief getter remainingTick
+   */
   int getRemainingTick();
 
-  //setter remainingTick
+  /**
+   * @brief setter remainingTick
+   */
   void setRemainingTick(int remainingTick);
 };
 

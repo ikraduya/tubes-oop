@@ -1,17 +1,32 @@
+/**
+ * @file Barn.h
+ * @author Rakhmad
+ * @date 2019-03-13
+ */
+
 #include "Land.h"
 
 #ifndef BARN_H
 #define BARN_H
 
-class Barn : public Land{
+/**
+ * Kelas Barn digunakan untuk beternak hewan penghasil daging
+ */
+class Barn : public Land {
 public:
-  //ctor, Land('x')
+  /**
+   * Default Constructor, Land('x')
+   */
   Barn();
 
-  //growGrass(), setSymbol('@')
+  /**
+   * growGrass(), setSymbol('@') 
+   */
   void grow();
 
-  //removeGrass(), setSymbol('x')
+  /**
+   * removeGrass(), setSymbol('x') 
+   */
   void eaten();
 };
 

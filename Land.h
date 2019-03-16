@@ -1,27 +1,53 @@
+/**
+ * @file Land.h
+ * @author Rakhmad
+ * @date 2019-03-13
+ */
+
 #include "Cell.h"
 
 #ifndef LAND_H
 #define LAND_H
 
+/**
+ * @brief Kelas Land adalah daerah untuk beternak hewan
+ */
 class Land : public Cell{
 private:
-  bool hasGrass;
+  bool hasGrass;  /*!< bool ditumbuhi grass */
 public:
-  //ctor parameter, setSymbol(symbol)
+  /**
+   * @brief ctor parameter, setSymbol(symbol)
+   * 
+   * @param symbol Char symbol
+   */
   Land(char symbol);
-
-  //merubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar.
-  //grow() saat hasGrass = false, eaten() saat hasGrass = true
+  
+  /**
+   * @brief merubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. grow() saat hasGrass = false
+   */
   virtual void grow() = 0;
+
+  /**
+   * @brief merubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. eaten() saat hasGrass = true
+   */
   virtual void eaten() = 0;
 
-  //getter hasGrass
+  //
+
+  /**
+   * @brief getter hasGrass
+   */
   bool getHasGrass();
 
-  //setter hasGrass = false
+  /**
+   * @brief hasGrass = false 
+   */
   void removeGrass();
 
-  //setter hasGrass = true
+  /**
+   * @brief setter hasGrass = true
+   */
   void growGrass();
 };
 

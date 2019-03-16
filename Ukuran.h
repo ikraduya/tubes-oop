@@ -1,23 +1,45 @@
+/**
+ * @file Ukuran.h
+ * @author Rakhmad
+ * @date 2019-03-13
+ */
+
 #ifndef UKURAN_H
 #define UKURAN_H
 
+/**
+ * @brief Kelas Ukuran berisi atribut integer x dan y
+ */
 class Ukuran{
 private:
-  int x, y;
+  int x, y; /*!< x: panjang, y: tinggi */ 
 public:
-  //ctor parameter
+  /**
+   * @brief ctor parameter
+   * 
+   * @param x panjang
+   * @param y tinggi
+   */
   Ukuran(int x, int y);
 
-  //getter X
+  /**
+   * @brief getter X
+   */
   int getX() const;
 
-  //getter Y
+  /**
+   * @brief getter Y
+   */
   int getY() const;
 
-  //setter X
+  /**
+   * @brief setter X
+   */
   void setX(int x);
 
-  //setter Y
+  /**
+   * @brief setter Y
+   */
   void setY(int y);
 };
 

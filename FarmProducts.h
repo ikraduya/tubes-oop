@@ -1,29 +1,38 @@
+/**
+ * @file FarmProducts.h
+ * @author Altera
+ * @date 2019-03-15
+ */
+
 #ifndef _FARMPRODUCTS_H_
 #define _FARMPRODUCTS_H_
 
 #include "Products.h"
 /**
- * Kelas FarmProducts yang menyimpan kelas-kelas produk mentah peternakan
+ * @brief Kelas FarmProducts yang menyimpan kelas-kelas produk mentah peternakan
  */
+class FarmProducts : public Products{};
 
-class FarmProducts : public Products{
-
-};
-
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class DuckEgg : public FarmProducts{
 	public:
-	/**
-	 * ctor default
-	 */
+		/**
+		 * ctor default
+		 */
 		DuckEgg();
-	/**
-	 * getter price
-	 */	
-		static long getPrice(){return price;}
+		/**
+		 * getter price
+		 */	
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class DuckMeat : public FarmProducts{
 	public:
 	/**
@@ -33,11 +42,14 @@ class DuckMeat : public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class GoatMilk : public FarmProducts{
 	public:	
 	/**
@@ -47,11 +59,14 @@ class GoatMilk : public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class GoatMeat : public FarmProducts{
 	public:	
 	/**
@@ -61,11 +76,14 @@ class GoatMeat : public FarmProducts{
 	/**
 	 * getter price
 	 */			
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class HorseMilk : public FarmProducts{
 	public:	
 	/**
@@ -75,11 +93,14 @@ class HorseMilk : public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class HorseMeat : public FarmProducts{
 	public:	
 	/**
@@ -89,11 +110,14 @@ class HorseMeat : public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class CowMilk : public FarmProducts{
 	public:	
 	/**
@@ -103,11 +127,14 @@ class CowMilk : public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class CowMeat: public FarmProducts{ 
 	public:	
 	/**
@@ -117,11 +144,14 @@ class CowMeat: public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class ChickenEgg : public FarmProducts{
 	public:	
 	/**
@@ -131,11 +161,14 @@ class ChickenEgg : public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price;/**< Harga dari produk */
 };
 
+/**
+ * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ */
 class ChickenMeat : public FarmProducts{
 	public:
 	/**
@@ -145,7 +178,7 @@ class ChickenMeat : public FarmProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	private:
 		static const long price; /**< Harga dari produk */
 };

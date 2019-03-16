@@ -1,3 +1,9 @@
+/**
+ * @file SideProducts.h
+ * @author Altera
+ * @date 2019-03-15
+ */
+
 #ifndef _SIDEPRODUCTS_H_
 #define _SIDEPRODUCTS_H_
 
@@ -7,11 +13,11 @@
 /**
  * Header untuk kelas kelas produk olahan hasil peternakan
  */
-	
-class SideProducts : public Products{
+class SideProducts : public Products{};
 
-};
-
+/**
+ * @brief Kelas RicaKuda diturunkan dari SideProducts
+ */
 class RicaKuda : public SideProducts{
 	public:
 	/**
@@ -25,7 +31,7 @@ class RicaKuda : public SideProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	/**
 	 * menunujukan resep pencampuran untuk produk
 	 */			
@@ -35,6 +41,9 @@ class RicaKuda : public SideProducts{
 		static const FarmProducts* req; /**< Resep daging kuda + daging sapi */
 };
 
+/**
+ * @brief Kelas SusuKudaLiar diturunkan dari SideProducts
+ */
 class SusuKudaLiar : public SideProducts{
 	
 	public:
@@ -49,7 +58,7 @@ class SusuKudaLiar : public SideProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	/**
 	 * menunujukan resep pencampuran untuk produk
 	 */		
@@ -59,6 +68,9 @@ class SusuKudaLiar : public SideProducts{
 		static const FarmProducts* req; /**< Resep susu kuda + daging kuda */
 };
 
+/**
+ * @brief Kelas Keju diturunkan dari SideProducts
+ */
 class Keju : public SideProducts{
 
 	public:
@@ -73,7 +85,7 @@ class Keju : public SideProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	/**
 	 * menunujukan resep pencampuran untuk produk
 	 */		
@@ -83,6 +95,9 @@ class Keju : public SideProducts{
 		static const FarmProducts* req; /**< Resep susu  sapi + susu sapi*/
 };
 
+/**
+ * @brief Kelas SuplemenSuper diturunkan dari SideProducts
+ */
 class SuplemenSuper: public SideProducts{
 
 	public:
@@ -97,7 +112,7 @@ class SuplemenSuper: public SideProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	/**
 	 * menunujukan resep pencampuran untuk produk
 	 */		
@@ -107,6 +122,9 @@ class SuplemenSuper: public SideProducts{
 		static const FarmProducts* req; /**< Resep susu sapi + daging kuda +  telor ayam + daging bebek*/
 };
 
+/**
+ * @brief Kelas TelorDadarWow diturunkan dari SideProducts
+ */
 class TelorDadarWow: public SideProducts{
 
 	public:
@@ -121,7 +139,7 @@ class TelorDadarWow: public SideProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	/**
 	 * menunujukan resep pencampuran untuk produk
 	 */		
@@ -131,6 +149,9 @@ class TelorDadarWow: public SideProducts{
 		static const FarmProducts* req; /**< Resep susu kambing + daging kuda + telor bebek*/
 };
 
+/**
+ * @brief Kelas ObatSuperChenLong diturunkan dari SideProducts
+ */
 class ObatSuperChenLong: public SideProducts{
 
 	public:
@@ -145,7 +166,7 @@ class ObatSuperChenLong: public SideProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	/**
 	 * menunujukan resep pencampuran untuk produk
 	 */		
@@ -155,6 +176,9 @@ class ObatSuperChenLong: public SideProducts{
 		static const FarmProducts* req; /**< Resep daging kambing + daging kuda*/
 };
 
+/**
+ * @brief Kelas SopKambing diturunkan dari SideProducts
+ */
 class SopKambing : public SideProducts{
 
 	public:
@@ -169,7 +193,7 @@ class SopKambing : public SideProducts{
 	/**
 	 * getter price
 	 */		
-		static long getPrice(){return price;}
+		static long getPrice();
 	/**
 	 * menunujukan resep pencampuran untuk produk
 	 */		
