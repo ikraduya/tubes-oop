@@ -9,12 +9,16 @@
 
 #include "Facility.h"
 
+/**
+ * @brief kelas Truck digunakan untuk menjual inventory
+ */
 class Truck : public Facility{
 private:
   int remainingTick;  /**< Tick > 0 apabila Truck tidak berada di tempat */
 public:
   /**
-   * Konstruktor dengan parameter, inisialisasi simbol 'T'
+   * @brief ctor parameter, inisialisasi simbol 'T'
+   *
    * @param x absis petak, dan y ordinat petak
    */
   Truck(int x, int y);
@@ -26,6 +30,8 @@ public:
 
   /**
    * @brief getter remainingTick
+   *
+   * @return int remainingTick
    */
   int getRemainingTick();
 

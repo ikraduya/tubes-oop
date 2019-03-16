@@ -18,27 +18,28 @@ private:
   Coordinate coordinate; /**< Koordinat setiap petak */
 public:
   /**
-   * Konstruktor default
-   */
-  Cell();
-
-  /**
-   * Konstruktor dengan parameter
-   * @param symbol karakter petak, x absis petak, dan y ordinat petak
-   */
-  Cell(char symbol, int x, int y);
-
-  /**
-   * Getter symbol
-   * @returns char symbol
+   * @brief Getter symbol
+   *
+   * @return char symbol
    */
   char getSymbol() const;
 
   /**
-   * Setter symbol
-   * @param symbol Char simbol
+   * @brief Setter symbol
    */
   void setSymbol(char symbol);
+
+  /**
+   * @brief Getter coordinate
+   *
+   * @return coordinate
+   */
+  char getCoordinate() const;
+
+  /**
+   * @brief Setter coordinate
+   */
+  void setCoordinate(Coordinate coordinate);
 };
 
 #endif

@@ -16,6 +16,7 @@ class Mixer : public Facility{
 public:
   /**
    * Konstruktor dengan parameter, inisialisasi simbol 'M'
+   *
    * @param x absis petak, dan y ordinat petak
    */
   Mixer(int x, int y);

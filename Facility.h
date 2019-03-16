@@ -10,15 +10,10 @@
 #include "Cell.h"
 
 /**
- * Kelas Facility merupakan fasilitas peternakan
+ * @brief Kelas Facility merupakan fasilitas peternakan
  */
 class Facility : public Cell{
 public:
-  /**
-   * Konstruktor dengan parameter, setSymbol(symbol)
-   * @param symbol Char symbol
-   */
-  Facility(char symbol);
 };
 
 #endif

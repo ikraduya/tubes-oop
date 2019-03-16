@@ -8,6 +8,7 @@
 #define MAP_H
 
 #include "Ukuran.h"
+#include "Coordinate.h"
 #include "Cell.h"
 #include "Barn.h"
 #include "Coop.h"
@@ -28,7 +29,7 @@ public:
   /**
    * @brief ctor parameter
    *
-   * @param filename Nama file yang berisi map
+   * @param mapFilename Nama file yang berisi map
    */
   Map(char* mapFilename);
 

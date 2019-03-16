@@ -15,18 +15,19 @@
 class Grassland : public Land{
 public:
   /**
-   * Konstruktor dengan parameter, inisialisasi simbol '-'
-   * @param x absis petak, dan y ordinat petak
+   * @brief ctor parameter, inisialisasi simbol '-'
+   *
+   * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
-  Grassland(int x, int y);
+  Grassland(Coordinate coordinateCell);
 
   /**
-   * @brief growGrass(), setSymbol('#')
+   * @brief memanggil fungsi growGrass, mengubah char symbol menjadi '#'
    */
   void grow();
 
   /**
-   * @brief removeGrass(), setSymbol('-')
+   * @brief memanggil fungsi removeGrass, mengubah char symbol menjadi '-'
    */
   void eaten();
 };

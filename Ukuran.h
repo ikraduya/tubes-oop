@@ -24,11 +24,15 @@ public:
 
   /**
    * @brief getter P
+   *
+   * @return int p
    */
   int getP() const;
 
   /**
    * @brief getter L
+   *
+   * @return int l
    */
   int getL() const;
 

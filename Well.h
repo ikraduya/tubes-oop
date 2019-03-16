@@ -16,6 +16,7 @@ class Well : public Facility{
 public:
   /**
    * Konstruktor dengan parameter, inisialisasi simbol 'W'
+   *
    * @param x absis petak, dan y ordinat petak
    */
   Well(int x, int y);

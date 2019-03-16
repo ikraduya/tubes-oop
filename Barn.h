@@ -10,23 +10,24 @@
 #include "Land.h"
 
 /**
- * Kelas Barn digunakan untuk beternak hewan penghasil daging
+ * @brief Kelas Barn digunakan untuk beternak hewan penghasil daging
  */
 class Barn : public Land {
 public:
   /**
-   * Konstruktor dengan parameter, inisialisasi simbol 'x'
-   * @param x absis petak, dan y ordinat petak
+   * @brief ctor parameter, inisialisasi simbol 'x'
+   *
+   * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
-  Barn(int x, int y);
+  Barn(Coordinate coordinateCell);
 
   /**
-   * growGrass(), setSymbol('@')
+   * @brief memanggil fungsi growGrass, mengubah char symbol menjadi '@'
    */
   void grow();
 
   /**
-   * removeGrass(), setSymbol('x')
+   * @brief memanggil fungsi remove Grass, mengubah char symbol menjadi 'x'
    */
   void eaten();
 };

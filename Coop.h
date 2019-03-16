@@ -10,23 +10,24 @@
 #include "Land.h"
 
 /**
- * Kelas Coop digunakan untuk beternak hewan penghasil telur
+ * @brief Kelas Coop digunakan untuk beternak hewan penghasil telur
  */
 class Coop : public Land{
 public:
   /**
-   * Konstruktor dengan parameter, inisialisasi simbol 'o'
-   * @param x absis petak, dan y ordinat petak
+   * @brief ctor parameter, inisialisasi simbol 'o'
+   *
+   * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
-  Coop(int x, int y);
+  Coop(Coordinate coordinateCell);
 
   /**
-   * growGrass(), setSymbol('*')
+   * @brief memanggil fungsi growGrass, mengubah char symbol menjadi '*'
    */
   void grow();
 
   /**
-   * removeGrass(), setSymbol('o')
+   * @brief memanggil fungsi removeGrass, mengubah char symbol menjadi 'o'
    */
   void eaten();
 };

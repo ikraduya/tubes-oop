@@ -17,31 +17,23 @@ private:
   bool hasGrass;  /**< bool ditumbuhi grass */
 public:
   /**
-   * @brief ctor parameter, setSymbol(symbol)
-   *
-   * @param symbol Char symbol
-   */
-  Land(char symbol);
-
-  /**
-   * @brief merubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. grow() saat hasGrass = false
+   * @brief mengubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. grow() saat hasGrass = false
    */
   virtual void grow() = 0;
 
   /**
-   * @brief merubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. eaten() saat hasGrass = true
+   * @brief mengubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. eaten() saat hasGrass = true
    */
   virtual void eaten() = 0;
 
-  //
-
   /**
    * @brief getter hasGrass
+   * @return bool hasGrass
    */
   bool getHasGrass();
 
   /**
-   * @brief hasGrass = false
+   * @brief setter hasGrass = false
    */
   void removeGrass();
 

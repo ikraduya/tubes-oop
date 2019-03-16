@@ -2,7 +2,7 @@
 #define COORDINATE_H
 
 /**
- * @brief Kelas Ukuran berisi atribut integer x dan y
+ * @brief Kelas Coordinate berisi atribut integer x dan y
  */
 class Coordinate{
 private:
@@ -18,11 +18,15 @@ public:
 
   /**
    * @brief getter X
+   *
+   * @return int x
    */
   int getX() const;
 
   /**
    * @brief getter Y
+   *
+   * @return int y
    */
   int getY() const;
 
