@@ -1,6 +1,6 @@
 /**
  * @file Products.h
- * @author Altera
+ * @author Al Terra
  * @date 2019-03-15
  */
 
@@ -9,12 +9,14 @@
 #define _PRODUCTS_H_
 
 /**
- * Kelas Products untuk menyediakan abstrak kelas bagi side products dan farm products
+ * @brief Kelas Products untuk menyediakan abstrak kelas bagi side products dan farm products
  */
 class Products{
 	public:
 		/**
-		 * Getter name
+		 * @brief Getter name
+		 *
+		 * @return char* nama dari produk tersebut 
 		 */		
 		char* getName();
 	private:
