@@ -4,10 +4,10 @@
  * @date 2019-03-13
  */
 
-#include "Cell.h"
-
 #ifndef LAND_H
 #define LAND_H
+
+#include "Cell.h"
 
 /**
  * @brief Kelas Land adalah daerah untuk beternak hewan
@@ -18,11 +18,11 @@ private:
 public:
   /**
    * @brief ctor parameter, setSymbol(symbol)
-   * 
+   *
    * @param symbol Char symbol
    */
   Land(char symbol);
-  
+
   /**
    * @brief merubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. grow() saat hasGrass = false
    */
@@ -41,7 +41,7 @@ public:
   bool getHasGrass();
 
   /**
-   * @brief hasGrass = false 
+   * @brief hasGrass = false
    */
   void removeGrass();
 

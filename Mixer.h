@@ -4,10 +4,10 @@
  * @date 2019-03-13
  */
 
-#include "Facility.h"
-
 #ifndef MIXER_H
 #define MIXER_H
+
+#include "Facility.h"
 
 /**
  * @brief kelas Mixer digunakan untuk membuat produk sampingan dari produk hewan
@@ -15,10 +15,10 @@
 class Mixer : public Facility{
 public:
   /**
-   * @brief ctor, Facility('M')
-   * 
+   * Konstruktor dengan parameter, inisialisasi simbol 'M'
+   * @param x absis petak, dan y ordinat petak
    */
-  Mixer();
+  Mixer(int x, int y);
 };
 
 #endif

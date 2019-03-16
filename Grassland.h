@@ -4,10 +4,10 @@
  * @date 2019-03-15
  */
 
-#include "Land.h"
-
 #ifndef GRASSLAND_H
 #define GRASSLAND_H
+
+#include "Land.h"
 
 /**
  * @brief Kelas Grassland digunakan untuk beternak hewan penghasil susu
@@ -15,9 +15,10 @@
 class Grassland : public Land{
 public:
   /**
-   * @brief ctor, Land('-')
+   * Konstruktor dengan parameter, inisialisasi simbol '-'
+   * @param x absis petak, dan y ordinat petak
    */
-  Grassland();
+  Grassland(int x, int y);
 
   /**
    * @brief growGrass(), setSymbol('#')

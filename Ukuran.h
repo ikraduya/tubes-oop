@@ -8,39 +8,39 @@
 #define UKURAN_H
 
 /**
- * @brief Kelas Ukuran berisi atribut integer x dan y
+ * @brief Kelas Ukuran berisi atribut integer p dan l
  */
 class Ukuran{
 private:
-  int x, y; /**< x: panjang, y: tinggi */ 
+  int p, l; /**< p: panjang, l: tinggi */
 public:
   /**
    * @brief ctor parameter
-   * 
-   * @param x panjang
-   * @param y tinggi
+   *
+   * @param p panjang
+   * @param l tinggi
    */
-  Ukuran(int x, int y);
+  Ukuran(int p, int l);
 
   /**
-   * @brief getter X
+   * @brief getter P
    */
-  int getX() const;
+  int getP() const;
 
   /**
-   * @brief getter Y
+   * @brief getter L
    */
-  int getY() const;
+  int getL() const;
 
   /**
-   * @brief setter X
+   * @brief setter P
    */
-  void setX(int x);
+  void setP(int x);
 
   /**
-   * @brief setter Y
+   * @brief setter L
    */
-  void setY(int y);
+  void setL(int y);
 };
 
 #endif

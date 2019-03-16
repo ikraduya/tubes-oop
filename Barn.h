@@ -4,10 +4,10 @@
  * @date 2019-03-13
  */
 
-#include "Land.h"
-
 #ifndef BARN_H
 #define BARN_H
+
+#include "Land.h"
 
 /**
  * Kelas Barn digunakan untuk beternak hewan penghasil daging
@@ -15,17 +15,18 @@
 class Barn : public Land {
 public:
   /**
-   * Default Constructor, Land('x')
+   * Konstruktor dengan parameter, inisialisasi simbol 'x'
+   * @param x absis petak, dan y ordinat petak
    */
-  Barn();
+  Barn(int x, int y);
 
   /**
-   * growGrass(), setSymbol('@') 
+   * growGrass(), setSymbol('@')
    */
   void grow();
 
   /**
-   * removeGrass(), setSymbol('x') 
+   * removeGrass(), setSymbol('x')
    */
   void eaten();
 };
