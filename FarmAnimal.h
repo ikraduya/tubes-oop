@@ -27,7 +27,7 @@ class FarmAnimal{
     static int jumlahHewan; /**< Jumlah hewan di suatu waktu */
 
     /**
-	   * ctor default
+	   * @brief ctor default
 	   */
     FarmAnimal();
 
@@ -40,7 +40,7 @@ class FarmAnimal{
      */
     FarmAnimal(int _posX, int _posY, int _HungryTime);
     /**
-	   * dtor
+	   * @brief dtor
 	   */
     ~FarmAnimal();
 

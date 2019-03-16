@@ -19,9 +19,8 @@ private:
 
 public:
   /**
-   * Node untuk menyimpan tiap elemen
+   * @brief Node untuk menyimpan tiap elemen
    */
-
   struct Node {
     T data;             /**< struct data */
     struct Node *next;  /**< struct next pointer */
@@ -36,7 +35,10 @@ public:
   int find(T el) const;
 
   /**
-   * Mengembalikan True jika linked list kosong
+   * @brief Mengembalikan True jika linked list kosong
+   * 
+   * @return true LinkedList kosong
+   * @return false LinkedList tidak kosong
    */
   bool isEmpty() const;
 
