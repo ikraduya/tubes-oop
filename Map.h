@@ -4,7 +4,11 @@
  * @date 2019-03-13
  */
 
+#ifndef MAP_H
+#define MAP_H
+
 #include "Ukuran.h"
+#include "Coordinate.h"
 #include "Cell.h"
 #include "Barn.h"
 #include "Coop.h"
@@ -13,26 +17,21 @@
 #include "Mixer.h"
 #include "Well.h"
 #include <fstream>
-#include <iostream>
-using namespace std;
-
-#ifndef MAP_H
-#define MAP_H
 
 /**
- * @brief Kelas Map menyimpan Ukuran map dan object Cell yaitu zone
+ * @brief Kelas Map menyimpan Ukuran map dan object Cell yaitu cell
  */
 class Map{
 private:
-  Ukuran px;  /**< ukuran map */  
-  Cell** zone;  /**< array of array of Cell */  
+  Ukuran px;  /**< ukuran map */
+  Cell** cell;  /**< array of array of Cell */
 public:
   /**
    * @brief ctor parameter
-   * 
-   * @param filename Nama file yang berisi map
+   *
+   * @param mapFilename Nama file yang berisi map
    */
-  Map(char* filename);
+  Map(char* mapFilename);
 
   /**
    * @brief Destroy the Map object

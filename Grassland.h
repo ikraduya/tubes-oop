@@ -4,10 +4,10 @@
  * @date 2019-03-15
  */
 
-#include "Land.h"
-
 #ifndef GRASSLAND_H
 #define GRASSLAND_H
+
+#include "Land.h"
 
 /**
  * @brief Kelas Grassland digunakan untuk beternak hewan penghasil susu
@@ -15,17 +15,19 @@
 class Grassland : public Land{
 public:
   /**
-   * @brief ctor, Land('-')
+   * @brief ctor parameter, inisialisasi simbol '-'
+   *
+   * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
-  Grassland();
+  Grassland(Coordinate coordinateCell);
 
   /**
-   * @brief growGrass(), setSymbol('#')
+   * @brief memanggil fungsi growGrass, mengubah char symbol menjadi '#'
    */
   void grow();
 
   /**
-   * @brief removeGrass(), setSymbol('-')
+   * @brief memanggil fungsi removeGrass, mengubah char symbol menjadi '-'
    */
   void eaten();
 };

@@ -7,35 +7,39 @@
 #ifndef CELL_H
 #define CELL_H
 
+#include "Coordinate.h"
+
 /**
  * Kelas Cell yang merupakan petak tanah, akan diturunkan menjadi Land atau Facility
  */
 class Cell{
 private:
-  char symbol;  /**< Char symbol */  
+  char symbol;  /**< Karaktek simbol disetiap petak */
+  Coordinate coordinate; /**< Koordinat setiap petak */
 public:
   /**
-   * Konstruktor default
-   */
-  Cell();
-
-  /**
-   * Konstruktor dengan parameter
-   * @param symbol Char simbol
-   */
-  Cell(char symbol);
-
-  /**
-   * Getter symbol
-   * @returns char symbol
+   * @brief Getter symbol
+   *
+   * @return char symbol
    */
   char getSymbol() const;
 
   /**
-   * Setter symbol
-   * @param symbol Char simbol
+   * @brief Setter symbol
    */
   void setSymbol(char symbol);
+
+  /**
+   * @brief Getter coordinate
+   *
+   * @return coordinate
+   */
+  char getCoordinate() const;
+
+  /**
+   * @brief Setter coordinate
+   */
+  void setCoordinate(Coordinate coordinate);
 };
 
 #endif

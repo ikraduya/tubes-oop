@@ -4,29 +4,30 @@
  * @date 2019-03-13
  */
 
-#include "Land.h"
-
 #ifndef COOP_H
 #define COOP_H
 
+#include "Land.h"
+
 /**
- * Kelas Coop digunakan untuk beternak hewan penghasil telur
+ * @brief Kelas Coop digunakan untuk beternak hewan penghasil telur
  */
 class Coop : public Land{
 public:
   /**
-   * Default Constructor
-   * Land('o')
+   * @brief ctor parameter, inisialisasi simbol 'o'
+   *
+   * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
-  Coop();
+  Coop(Coordinate coordinateCell);
 
   /**
-   * growGrass(), setSymbol('*') 
+   * @brief memanggil fungsi growGrass, mengubah char symbol menjadi '*'
    */
   void grow();
 
   /**
-   * removeGrass(), setSymbol('o')
+   * @brief memanggil fungsi removeGrass, mengubah char symbol menjadi 'o'
    */
   void eaten();
 };

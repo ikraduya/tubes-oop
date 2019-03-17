@@ -4,28 +4,30 @@
  * @date 2019-03-13
  */
 
-#include "Land.h"
-
 #ifndef BARN_H
 #define BARN_H
 
+#include "Land.h"
+
 /**
- * Kelas Barn digunakan untuk beternak hewan penghasil daging
+ * @brief Kelas Barn digunakan untuk beternak hewan penghasil daging
  */
 class Barn : public Land {
 public:
   /**
-   * Default Constructor, Land('x')
+   * @brief ctor parameter, inisialisasi simbol 'x'
+   *
+   * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
-  Barn();
+  Barn(Coordinate coordinateCell);
 
   /**
-   * growGrass(), setSymbol('@') 
+   * @brief memanggil fungsi growGrass, mengubah char symbol menjadi '@'
    */
   void grow();
 
   /**
-   * removeGrass(), setSymbol('x') 
+   * @brief memanggil fungsi remove Grass, mengubah char symbol menjadi 'x'
    */
   void eaten();
 };

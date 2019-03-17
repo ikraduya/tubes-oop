@@ -1,6 +1,6 @@
 /**
  * @file FarmProducts.h
- * @author Altera
+ * @author Al Terra
  * @date 2019-03-15
  */
 
@@ -20,11 +20,13 @@ class FarmProducts : public Products{};
 class DuckEgg : public FarmProducts{
 	public:
 		/**
-		 * ctor default
+		 * @brief ctor default
 		 */
 		DuckEgg();
 		/**
-		 * getter price
+		 * @brief getter price
+		 *
+		 * @return long price dari produk farm tersebut
 		 */	
 		static long getPrice();
 	private:
@@ -38,11 +40,13 @@ class DuckEgg : public FarmProducts{
 class DuckMeat : public FarmProducts{
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		DuckMeat();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:
@@ -55,11 +59,13 @@ class DuckMeat : public FarmProducts{
 class GoatMilk : public FarmProducts{
 	public:	
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		GoatMilk();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:
@@ -72,11 +78,13 @@ class GoatMilk : public FarmProducts{
 class GoatMeat : public FarmProducts{
 	public:	
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		GoatMeat();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */			
 		static long getPrice();
 	private:
@@ -89,11 +97,13 @@ class GoatMeat : public FarmProducts{
 class HorseMilk : public FarmProducts{
 	public:	
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		HorseMilk();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:
@@ -106,11 +116,13 @@ class HorseMilk : public FarmProducts{
 class HorseMeat : public FarmProducts{
 	public:	
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		HorseMeat();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:
@@ -123,11 +135,13 @@ class HorseMeat : public FarmProducts{
 class CowMilk : public FarmProducts{
 	public:	
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		CowMilk();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:
@@ -140,11 +154,13 @@ class CowMilk : public FarmProducts{
 class CowMeat: public FarmProducts{ 
 	public:	
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		CowMeat();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:
@@ -157,11 +173,13 @@ class CowMeat: public FarmProducts{
 class ChickenEgg : public FarmProducts{
 	public:	
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		ChickenEgg();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:
@@ -174,11 +192,13 @@ class ChickenEgg : public FarmProducts{
 class ChickenMeat : public FarmProducts{
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		ChickenMeat();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long price dari produk farm tersebut 
 	 */		
 		static long getPrice();
 	private:

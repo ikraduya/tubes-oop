@@ -1,7 +1,7 @@
 /**
  * @file Player.h
  * @author Akhmal
- * @date 2019-03-13
+ * @date 2019-03-16
  */
 
 #ifndef PLAYER_H
@@ -9,6 +9,7 @@
 #include "Products.h"
 #include "LinkedList.h"
 #include "FarmAnimal.h"
+#include "Coordinate.h"
 
 enum ArahEnum {
 	UP,  /**< Enum value Up. */  
@@ -58,14 +59,9 @@ class Player {
 		ArahEnum arah; 
 
 		/**
-		* Position X
+		* Posisi player
 		*/
-		int absis; 
-
-		/**
-		* Position Y
-		*/
-		int ordinat; 
+		Coordinate posisi; 
 
 	public:
 		/**
@@ -106,27 +102,19 @@ class Player {
 		/**
 		* Set arah player menghadap
 		*/
-		void setArah(ArahEnum arah); 
+		void setArah(ArahEnum); 
 		/**
 		* Get arah player menghadap
 		*/
 		ArahEnum getArah(); 
 		/**
-		* Set posisi absis player
+		* Set posisi player
 		*/
-		void setAbsis(int absis); 
+		void setCoordinate(Coordinate); 
 		/**
 		* Get posisi absis player
 		*/
-		int getAbsis(); 
-		/**
-		* Set posisi ordinat player
-		*/
-		void setOrdinat(int ordinat); 
-		/**
-		* Get posisi ordinat player
-		*/
-		int setOrdinat(); 
+		Coordinate getCoordinate(); 
 		
 		/**
 		* Player bergerak

@@ -1,6 +1,6 @@
 /**
  * @file SideProducts.h
- * @author Altera
+ * @author Al Terra
  * @date 2019-03-15
  */
 
@@ -11,7 +11,7 @@
 #include "FarmProducts.h"
 
 /**
- * Header untuk kelas kelas produk olahan hasil peternakan
+ * @brief Header untuk kelas kelas produk olahan hasil peternakan
  */
 class SideProducts : public Products{};
 
@@ -21,19 +21,24 @@ class SideProducts : public Products{};
 class RicaKuda : public SideProducts{
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		RicaKuda();
 	/**
-	 * checker apakah isi ransel cukup untuk membuat objek
+	 * @brief checker apakah isi ransel cukup untuk membuat objek
+	 * 
+	 * @return true isi ransel cukup
+	 * @return false isi ransel tidak cukup
 	 */
 		static bool isMixValid();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long harga produk
 	 */		
 		static long getPrice();
 	/**
-	 * menunujukan resep pencampuran untuk produk
+	 * @brief menunujukan resep pencampuran untuk produk
 	 */			
 		static void showReq();
 	private:
@@ -48,20 +53,25 @@ class SusuKudaLiar : public SideProducts{
 	
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		SusuKudaLiar();
 	/**
-	 * checker apakah isi ransel cukup untuk membuat objek
+	 * @brief checker apakah isi ransel cukup untuk membuat objek
+	 * 
+	 * @return true isi ransel cukup
+	 * @return false isi ransel tidak cukup
 	 */		
 		static bool isMixValid();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long harga produk
 	 */		
 		static long getPrice();
 	/**
-	 * menunujukan resep pencampuran untuk produk
-	 */		
+	 * @brief menunujukan resep pencampuran untuk produk
+	 */			
 		static void showReq();
 	private:
 		static const long price; /**< Harga dari produk */
@@ -75,19 +85,24 @@ class Keju : public SideProducts{
 
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		Keju();
 	/**
-	 * checker apakah isi ransel cukup untuk membuat objek
+	 * @brief checker apakah isi ransel cukup untuk membuat objek
+	 * 
+	 * @return true isi ransel cukup
+	 * @return false isi ransel tidak cukup
 	 */			
 		static bool isMixValid();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long harga produk
 	 */		
 		static long getPrice();
 	/**
-	 * menunujukan resep pencampuran untuk produk
+	 * @brief menunujukan resep pencampuran untuk produk
 	 */		
 		static void showReq();
 	private:
@@ -102,19 +117,24 @@ class SuplemenSuper: public SideProducts{
 
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		SuplemenSuper();
 	/**
-	 * checker apakah isi ransel cukup untuk membuat objek
+	 * @brief checker apakah isi ransel cukup untuk membuat objek
+	 * 
+	 * @return true isi ransel cukup
+	 * @return false isi ransel tidak cukup
 	 */			
 		static bool isMixValid();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long harga produk
 	 */		
 		static long getPrice();
 	/**
-	 * menunujukan resep pencampuran untuk produk
+	 * @brief menunujukan resep pencampuran untuk produk
 	 */		
 		static void showReq();
 	private:
@@ -129,19 +149,24 @@ class TelorDadarWow: public SideProducts{
 
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		TelorDadarWow();
 	/**
-	 * checker apakah isi ransel cukup untuk membuat objek
+	 * @brief checker apakah isi ransel cukup untuk membuat objek
+	 * 
+	 * @return true isi ransel cukup
+	 * @return false isi ransel tidak cukup
 	 */			
 		static bool isMixValid();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long harga produk
 	 */		
 		static long getPrice();
 	/**
-	 * menunujukan resep pencampuran untuk produk
+	 * @brief menunujukan resep pencampuran untuk produk
 	 */		
 		static void showReq();
 	private:
@@ -156,19 +181,24 @@ class ObatSuperChenLong: public SideProducts{
 
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		ObatSuperChenLong();
 	/**
-	 * checker apakah isi ransel cukup untuk membuat objek
+	 * @brief checker apakah isi ransel cukup untuk membuat objek
+	 * 
+	 * @return true isi ransel cukup
+	 * @return false isi ransel tidak cukup
 	 */			
 		static bool isMixValid();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long harga produk
 	 */		
 		static long getPrice();
 	/**
-	 * menunujukan resep pencampuran untuk produk
+	 * @brief menunujukan resep pencampuran untuk produk
 	 */		
 		static void showReq();
 	private:
@@ -183,19 +213,24 @@ class SopKambing : public SideProducts{
 
 	public:
 	/**
-	 * ctor default
+	 * @brief ctor default
 	 */
 		SopKambing();
 	/**
-	 * checker apakah isi ransel cukup untuk membuat objek
+	 * @brief checker apakah isi ransel cukup untuk membuat objek
+	 * 
+	 * @return true isi ransel cukup
+	 * @return false isi ransel tidak cukup
 	 */			
 		static bool isMixValid();
 	/**
-	 * getter price
+	 * @brief getter price
+	 *
+	 * @return long harga produk
 	 */		
 		static long getPrice();
 	/**
-	 * menunujukan resep pencampuran untuk produk
+	 * @brief menunujukan resep pencampuran untuk produk
 	 */		
 		static void showReq();
 	private:

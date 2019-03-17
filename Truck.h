@@ -4,19 +4,24 @@
  * @date 2019-03-13
  */
 
-#include "Facility.h"
-
 #ifndef TRUCK_H
 #define TRUCK_H
 
+#include "Facility.h"
+
+/**
+ * @brief kelas Truck digunakan untuk menjual inventory
+ */
 class Truck : public Facility{
 private:
-  int remainingTick;  /**< Tick > 0 apabila Truck tidak berada di tempat */ 
+  int remainingTick;  /**< Tick > 0 apabila Truck tidak berada di tempat */
 public:
   /**
-   * @brief ctor, Facility('T')
+   * @brief ctor parameter, inisialisasi simbol 'T'
+   *
+   * @param x absis petak, dan y ordinat petak
    */
-  Truck();
+  Truck(int x, int y);
 
   /**
    * @brief Jual seluruh product pada inventory, menambah uang
@@ -25,6 +30,8 @@ public:
 
   /**
    * @brief getter remainingTick
+   *
+   * @return int remainingTick
    */
   int getRemainingTick();
 
