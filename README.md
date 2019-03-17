@@ -16,8 +16,10 @@ doxygen -g
 Change the following option in Doxyfile:
 ```
 EXTRACT_ALL            = YES
-UML_LOOK               = YES
 EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+UML_LOOK               = YES
+
 ```
 
 ## Create Diagram
