@@ -1,13 +1,14 @@
 /**
  * @file FarmAnimal.h
  * @author Azhar
- * @date 2019-03-15
+ * @date 2019-03-18
  */
 
 #ifndef FARMANIMAL_H
 #define FARMANIMAL_H
 
 #include "FarmProducts.h"
+#include "Coordinate.h"
 
 /**
  * Kelas FarmAnimal menyimpan semua jenis hewan
@@ -18,49 +19,51 @@ class FarmAnimal{
     bool isProduceMeat; /**< Menghasilkan daging atau tidak */
     bool isProduceMilk; /**< Menghasilkan susu atau tidak */
     bool liveStatus; /**< Status hidup atau mati */
-    int remainingHungryTic; /**< Waktu sisa lapar */
+    bool isHungry; /**< Status hewan lapar atau tidak */
+    bool canInteract; /**< Status hewan sudah bisa interact atau belum */
+    int remainingTic; /**< Ketika hewan lapar, akan memberitahu berapa lama lagi hewan itu lapar (HungryTime .. 0). Ketika hewan tidak lapar, akan memberitahu berapa lama lagi hewan itu akan mati (0 .. -5) */
     int HungryTime; /**< Waktu lapar */
-    int posX; /**< Posisi Koordinat X */
-    int poxY; /**< Posisi Koordinat Y */
+    Coordinate posisi; /**< Posisi hewan pada cell */
 
   public:
     static int jumlahHewan; /**< Jumlah hewan di suatu waktu */
 
     /**
-	   * @brief ctor default
-	   */
-    FarmAnimal();
-
-    /**
      * @brief Construct a new Farm Animal object
-     * 
-     * @param _posX posisi X
-     * @param _posY posisi Y
+     *
+     * @param _posisi posisi hewan
      * @param _HungryTime waktu lapar hewan
+     * @param _isProduceEgg menghasilkan telur atau tidak
+     * @param _isProduceMeat menghasilkan daging atau tidak
+     * @param _isProduceMilk menghasilkan susu atau tidak
      */
-    FarmAnimal(int _posX, int _posY, int _HungryTime);
+    FarmAnimal(Coordinate _posisi, int _HungryTime, bool _isProduceEgg, bool _isProduceMeat, bool _isProduceMilk);
     /**
 	   * @brief dtor
 	   */
     ~FarmAnimal();
 
     /**
-	   * True jika hewan KillAble
-	   */
+     * @brief Hewan bisa menghasilkan daging atau tidak
+     *
+     * @return True or False
+     */
     bool isKillAble() const;
     /**
-	   * True jika hewa InteractAble
-	   */
+     * @brief Hewan bisa menghasilkan susu atau telur atau tidak
+     *
+     * @return True or False
+     */
     bool isInteractAble() const;
 
     /**
-	   * Pure virtual makan
+	   * Hewan makan
 	   */
-    virtual void Makan() = 0;
+    void Makan();
     /**
 	   * Hewan bergerak
 	   */
-    virtual void Move();
+    void Move();
     /**
 	   * Pure virtual bersuara
 	   */
@@ -76,7 +79,7 @@ class FarmAnimal{
 	   */
     virtual FarmProducts Interact() = 0;
     /**
-	   * Pure virtual kill. 
+	   * Pure virtual kill.
      * Menghasilkan daging
 	   */
     virtual FarmProducts Kill() = 0;
@@ -89,21 +92,16 @@ class Ayam : public FarmAnimal{
   public:
     /**
      * @brief ctor dengan parameter
-     * 
-     * @param _posX Posisi X
-     * @param _posY Posisi Y
+     *
+     * @param _posisi posisi hewan
      * @param _HungryTime Waktu lapar hewan
      */
-    Ayam(int _posX, int _posY, int _HungryTime);
+    Ayam(Coordinate _posisi, int _HungryTime);
 
     /**
 	   * Ayam bersuara
 	   */
     void Bersuara();
-    /**
-	   * Ayam makan
-	   */
-    void Makan();
 
     /**
 	   * Ayam menghasilkan telur
@@ -122,12 +120,11 @@ class Sapi : public FarmAnimal{
   public:
     /**
      * @brief ctor dengan parameter
-     * 
-     * @param _posX Posisi X
-     * @param _posY Posisi Y
+     *
+     * @param _posisi posisi hewan
      * @param _HungryTime Waktu lapar hewan
      */
-    Sapi(int _posX, int _posY, int _HungryTime);
+    Sapi(Coordinate _posisi, int _HungryTime);
 
     /**
 	   * Sapi bersuara
@@ -135,21 +132,16 @@ class Sapi : public FarmAnimal{
     void Bersuara();
 
     /**
-	   * Sapi makan
-	   */
-    void Makan();
-
-    /**
      * @brief Sapi menghasilkan susu
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Interact();
-    
+
     /**
      * @brief Sapi menghasilkan daging dan mati
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Kill();
 };
@@ -161,33 +153,28 @@ class Kambing : public FarmAnimal{
   public:
     /**
      * @brief ctor dengan parameter
-     * 
-     * @param _posX Posisi X
-     * @param _posY Posisi Y
+     *
+     * @param _posisi posisi hewan
      * @param _HungryTime Waktu lapar hewan
      */
-    Kambing(int _posX, int _posY, int _HungryTime);
+    Kambing(Coordinate _posisi, int _HungryTime);
 
     /**
 	   * Kambing bersuara
 	   */
     void Bersuara();
-    /**
-	   * Kambing makan
-	   */
-    void Makan();
 
     /**
      * @brief Kambing menghasilkan susu
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Interact();
 
     /**
      * @brief Kambing menghasilkan daging dan mati
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Kill();
 };
@@ -199,33 +186,28 @@ class Kuda : public FarmAnimal{
   public:
     /**
      * @brief ctor dengan parameter
-     * 
-     * @param _posX Posisi X
-     * @param _posY Posisi Y
+     *
+     * @param _posisi posisi hewan
      * @param _HungryTime Waktu lapar hewan
      */
-    Kuda(int _posX, int _posY, int _HungryTime);
+    Kuda(Coordinate _posisi, int _HungryTime);
 
     /**
 	   * Kuda bersuara
 	   */
     void Bersuara();
-    /**
-	   * Kuda makan
-	   */
-    void Makan();
 
     /**
      * @brief Kuda menghasilkan susu
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Interact();
 
     /**
      * @brief Kuda menghasilkan daging dan mati
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Kill();
 };
@@ -237,33 +219,28 @@ class Bebek : public FarmAnimal{
   public:
     /**
      * @brief ctor dengan parameter
-     * 
-     * @param _posX 
-     * @param _posY 
-     * @param _HungryTime 
+     *
+     * @param _posisi posisi hewan
+     * @param _HungryTime
      */
-    Bebek(int _posX, int _posY, int _HungryTime);
+    Bebek(Coordinate _posisi, int _HungryTime);
 
     /**
 	   * Bebek bersuara
 	   */
     void Bersuara();
-    /**
-	   * Bebek makan
-	   */
-    void Makan();
 
     /**
      * @brief Bebek menghasilkan telur
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Interact();
 
     /**
      * @brief Bebek menghasilkan daging dan mati
-     * 
-     * @return FarmProducts 
+     *
+     * @return FarmProducts
      */
     FarmProducts Kill();
 };
