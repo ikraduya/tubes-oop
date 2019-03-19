@@ -35,7 +35,7 @@ class DuckEgg : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas DuckMeat yang diturunkan dari FarmProducts
  */
 class DuckMeat : public FarmProducts{
 	public:
@@ -54,7 +54,7 @@ class DuckMeat : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas GoatMilk yang diturunkan dari FarmProducts
  */
 class GoatMilk : public FarmProducts{
 	public:	
@@ -73,7 +73,7 @@ class GoatMilk : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas GoatMeat yang diturunkan dari FarmProducts
  */
 class GoatMeat : public FarmProducts{
 	public:	
@@ -92,7 +92,7 @@ class GoatMeat : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas HorseMilk yang diturunkan dari FarmProducts
  */
 class HorseMilk : public FarmProducts{
 	public:	
@@ -111,7 +111,7 @@ class HorseMilk : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas HorseMeat yang diturunkan dari FarmProducts
  */
 class HorseMeat : public FarmProducts{
 	public:	
@@ -130,7 +130,7 @@ class HorseMeat : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas CowMilk yang diturunkan dari FarmProducts
  */
 class CowMilk : public FarmProducts{
 	public:	
@@ -149,7 +149,7 @@ class CowMilk : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas CowMeat yang diturunkan dari FarmProducts
  */
 class CowMeat: public FarmProducts{ 
 	public:	
@@ -168,7 +168,7 @@ class CowMeat: public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas ChickenEgg yang diturunkan dari FarmProducts
  */
 class ChickenEgg : public FarmProducts{
 	public:	
@@ -187,7 +187,7 @@ class ChickenEgg : public FarmProducts{
 };
 
 /**
- * @brief Kelas DuckEgg yang diturunkan dari FarmProducts
+ * @brief Kelas ChickenMeat yang diturunkan dari FarmProducts
  */
 class ChickenMeat : public FarmProducts{
 	public:
