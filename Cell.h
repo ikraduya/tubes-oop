@@ -34,7 +34,7 @@ public:
    *
    * @return coordinate
    */
-  char getCoordinate() const;
+  Coordinate getCoordinate() const;
 
   /**
    * @brief Setter coordinate
