@@ -9,13 +9,13 @@
 
 #include "Ukuran.h"
 #include "Coordinate.h"
-#include "Cell.h"
-#include "Barn.h"
-#include "Coop.h"
-#include "Grassland.h"
-#include "Truck.h"
-#include "Mixer.h"
-#include "Well.h"
+#include "cell/Cell.h"
+#include "cell/Barn.h"
+#include "cell/Coop.h"
+#include "cell/Grassland.h"
+#include "cell/Truck.h"
+#include "cell/Mixer.h"
+#include "cell/Well.h"
 #include <fstream>
 
 /**

@@ -9,7 +9,7 @@
 
 #include "Player.h"
 #include "Map.h"
-#include "FarmAnimal.h"
+#include "animals/FarmAnimal.h"
 #include "LinkedList.h"
 
 /**

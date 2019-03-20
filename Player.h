@@ -8,7 +8,7 @@
 #define PLAYER_H
 #include "Products.h"
 #include "LinkedList.h"
-#include "FarmAnimal.h"
+#include "animals/FarmAnimal.h"
 #include "Coordinate.h"
 
 enum ArahEnum {

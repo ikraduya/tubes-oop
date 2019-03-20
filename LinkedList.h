@@ -27,6 +27,11 @@ public:
   };
 
   /**
+   * @brief Membuat objek linked list baru sesuai tipe
+   */
+  LinkedList();
+
+  /**
    * @brief Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
    * 
    * @param el Elemen yang dicari
