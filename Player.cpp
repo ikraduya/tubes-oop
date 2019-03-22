@@ -1,5 +1,5 @@
 /**
- * @file Player.h
+ * @file Player.cpp
  * @author Akhmal
  * @date 2019-03-16
  */
@@ -10,7 +10,12 @@
 		/**
 		* default constructor
 		*/
-Player::Player(){}
+Player::Player() : posisi(0,0) {
+	jumlahInventori = 0;
+	wadahAir = 0;
+	uang = 0;
+	arah = UP;
+}
 
 		/**
 		* destructor
@@ -21,36 +26,50 @@ Player::~Player(){}
 		* Getter dan setter
 		* Set jumlah inventori
 		*/
-void Player::setJumlahInventori(int jumlah){} 
+void Player::setJumlahInventori(int jumlah){
+	jumlahInventori = jumlah;
+} 
 		/**
 		* Get jumlah inventori
 		*/
-int Player::getJumlahInventori(){}  
+int Player::getJumlahInventori(){
+	return jumlahInventori;
+}  
 		/**
 		* Set jumlah air
 		*/
-void Player::setWadahAir(int jumlah){} 
+void Player::setWadahAir(int jumlah){
+	wadahAir = jumlah;
+} 
 		/**
 		* Get jumlah air
 		*/
-int Player::getWadahAir(){} 
+int Player::getWadahAir(){
+	return wadahAir;
+} 
 		/**
 		* Set nilai uang
 		*/
-void Player::setUang(int nilai){} 
+void Player::setUang(int nilai){
+	uang = nilai;
+} 
 		/**
 		* Get nilai uang
 		*/
-int Player::getUang(){} 
+int Player::getUang(){
+	return uang;
+} 
 		/**
 		* Set arah player menghadap
 		*/
-void Player::setArah(ArahEnum){} 
+void Player::setArah(ArahEnum _arah){
+	arah = _arah;
+} 
 		/**
 		* Get arah player menghadap
 		*/
 ArahEnum Player::getArah(){
-	
+	return arah;
 } 
 		/**
 		* Set posisi player
@@ -69,71 +88,81 @@ Coordinate Player::getCoordinate(){
 		* Player bergerak
 		* Player pindah ke atas
 		*/
-void up(){} 
+void Player::up(){} 
 		/**
 		* Player pindah ke bawah
 		*/
-void down(){} 
+void Player::down(){} 
 		/**
 		* Player pindah ke kiri
 		*/
-void left(){} 
+void Player::left(){} 
 		/**
 		* Player pindah ke kanan
 		*/
-void right(){}
+void Player::right(){}
 
 		/**
 		* Player menghadap ke atas
 		*/
-void lookUp(){} 
+void Player::lookUp(){
+	arah = UP;
+} 
 		/**
 		* Player menghadap ke bawah
 		*/
-void lookDown(){} 
+void Player::lookDown(){
+	arah = DOWN;
+} 
 		/**
 		* Player menghadap ke kiri
 		*/
-void lookLeft(){} 
+void Player::lookLeft(){
+	arah = LEFT;
+} 
 		/**
 		* Player menghadap ke kanan
 		*/
-void lookRight(){} 
+void Player::lookRight(){
+	arah = RIGHT;
+} 
 
 		/**
 		* Command dengan animal
 		* Berbicara dengan hewan
 		*/
-void talk(){}
+void Player::talk(){}
 		/**
 		* Berinteraksi dengan Farm Animal
 		*/
-void interact(FarmAnimal &animal){}
+void Player::interact(FarmAnimal &animal){}
 		/**
 		* User memberi perintah kill
 		*/
-void cmdKill(){}
+void Player::cmdKill(){}
 		/**
 		* User memberi perintah grow
 		*/
-void cmdGrow(){} 
+void Player::cmdGrow(){} 
 		/**
 		* Command dengan facility
 		* Melihat inventori
 		*/
-void cekInventory(){} 
+void Player::cekInventory(){} 
 		/**
 		* Isi air
 		*/
-void fillWater(){} 
+void Player::fillWater(){
+	wadahAir = MaxWater;
+} 
 		/**
 		* Mengosongkan bag dan jual 
 		*/
-void truck(){}
+void Player::truck(){}
 		/**
 		* Mix dengan mixer
 		*/
-void mixProduct(){} 
+void Player::mixProduct(){} 
 
 /**
 		int jumlahInventori; 
@@ -142,4 +171,4 @@ void mixProduct(){}
 		int uang; 
 		ArahEnum arah; 
 		Coordinate posisi; 
-/*
+*/
