@@ -14,6 +14,7 @@ Player::Player(){
 	jumlahInventori = 0;
 	wadahAir = 0;
 	uang = 0;
+	Coordinate posisi(0, 0);
 	arah = UP;
 }
 
@@ -86,42 +87,42 @@ Coordinate Player::getCoordinate(){
 		* Player bergerak
 		* Player pindah ke atas
 		*/
-void up(){} 
+void Player::up(){} 
 		/**
 		* Player pindah ke bawah
 		*/
-void down(){} 
+void Player::down(){} 
 		/**
 		* Player pindah ke kiri
 		*/
-void left(){} 
+void Player::left(){} 
 		/**
 		* Player pindah ke kanan
 		*/
-void right(){}
+void Player::right(){}
 
 		/**
 		* Player menghadap ke atas
 		*/
-void lookUp(){
+void Player::lookUp(){
 	arah = UP;
 } 
 		/**
 		* Player menghadap ke bawah
 		*/
-void lookDown(){
+void Player::lookDown(){
 	arah = DOWN;
 } 
 		/**
 		* Player menghadap ke kiri
 		*/
-void lookLeft(){
+void Player::lookLeft(){
 	arah = LEFT;
 } 
 		/**
 		* Player menghadap ke kanan
 		*/
-void lookRight(){
+void Player::lookRight(){
 	arah = RIGHT;
 } 
 
@@ -129,36 +130,36 @@ void lookRight(){
 		* Command dengan animal
 		* Berbicara dengan hewan
 		*/
-void talk(){}
+void Player::talk(){}
 		/**
 		* Berinteraksi dengan Farm Animal
 		*/
-void interact(FarmAnimal &animal){}
+void Player::interact(FarmAnimal &animal){}
 		/**
 		* User memberi perintah kill
 		*/
-void cmdKill(){}
+void Player::cmdKill(){}
 		/**
 		* User memberi perintah grow
 		*/
-void cmdGrow(){} 
+void Player::cmdGrow(){} 
 		/**
 		* Command dengan facility
 		* Melihat inventori
 		*/
-void cekInventory(){} 
+void Player::cekInventory(){} 
 		/**
 		* Isi air
 		*/
-void fillWater(){} 
+void Player::fillWater(){} 
 		/**
 		* Mengosongkan bag dan jual 
 		*/
-void truck(){}
+void Player::truck(){}
 		/**
 		* Mix dengan mixer
 		*/
-void mixProduct(){} 
+void Player::mixProduct(){} 
 
 /**
 		int jumlahInventori; 
