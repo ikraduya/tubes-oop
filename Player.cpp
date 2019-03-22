@@ -134,12 +134,3 @@ void truck(){}
 		* Mix dengan mixer
 		*/
 void mixProduct(){} 
-
-/**
-		int jumlahInventori; 
-		LinkedList<Products> inventori; 
-		int wadahAir; 
-		int uang; 
-		ArahEnum arah; 
-		Coordinate posisi; 
-/*

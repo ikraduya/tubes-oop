@@ -6,8 +6,8 @@
 
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "Products.h"
-#include "LinkedList.h"
+#include "products/Products.h"
+#include "../common/LinkedList.h"
 #include "animals/FarmAnimal.h"
 #include "Coordinate.h"
 
