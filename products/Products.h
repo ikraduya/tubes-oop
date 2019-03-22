@@ -16,11 +16,13 @@ class Products{
 		/**
 		 * @brief Getter name
 		 *
-		 * @return char* nama dari produk tersebut 
+		 * @return string nama dari produk tersebut 
 		 */		
-		char* getName();
+		std::string getName() {
+			return name;
+		};
 	private:
-		char* name; /**< Penampung nama produk */
+		std::string name; /**< Penampung nama produk */
 };
 
 

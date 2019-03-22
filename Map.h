@@ -7,6 +7,8 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include <string>
+#include <fstream>
 #include "Ukuran.h"
 #include "Coordinate.h"
 #include "cell/Cell.h"
@@ -16,7 +18,6 @@
 #include "cell/Truck.h"
 #include "cell/Mixer.h"
 #include "cell/Well.h"
-#include <fstream>
 
 /**
  * @brief Kelas Map menyimpan Ukuran map dan object Cell yaitu cell
@@ -31,7 +32,7 @@ public:
    *
    * @param mapFilename Nama file yang berisi map
    */
-  Map(char* mapFilename);
+  Map(std::string mapFilename);
 
   /**
    * @brief Destroy the Map object
