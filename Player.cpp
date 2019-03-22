@@ -10,11 +10,10 @@
 		/**
 		* default constructor
 		*/
-Player::Player(){
+Player::Player() : posisi(0,0) {
 	jumlahInventori = 0;
 	wadahAir = 0;
 	uang = 0;
-	Coordinate posisi(0, 0);
 	arah = UP;
 }
 
@@ -63,7 +62,9 @@ int Player::getUang(){
 		/**
 		* Set arah player menghadap
 		*/
-void Player::setArah(ArahEnum){} 
+void Player::setArah(ArahEnum _arah){
+	arah = _arah;
+} 
 		/**
 		* Get arah player menghadap
 		*/
@@ -151,7 +152,9 @@ void Player::cekInventory(){}
 		/**
 		* Isi air
 		*/
-void Player::fillWater(){} 
+void Player::fillWater(){
+	wadahAir = MaxWater;
+} 
 		/**
 		* Mengosongkan bag dan jual 
 		*/
@@ -168,4 +171,4 @@ void Player::mixProduct(){}
 		int uang; 
 		ArahEnum arah; 
 		Coordinate posisi; 
-/*
+*/
