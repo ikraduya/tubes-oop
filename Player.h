@@ -6,7 +6,7 @@
 
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "Products.h"
+#include "products/Products.h"
 #include "LinkedList.h"
 #include "animals/FarmAnimal.h"
 #include "Coordinate.h"

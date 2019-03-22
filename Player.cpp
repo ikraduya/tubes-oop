@@ -1,5 +1,5 @@
 /**
- * @file Player.h
+ * @file Player.cpp
  * @author Akhmal
  * @date 2019-03-16
  */
@@ -10,7 +10,12 @@
 		/**
 		* default constructor
 		*/
-Player::Player(){}
+Player::Player(){
+	jumlahInventori = 0;
+	wadahAir = 0;
+	uang = 0;
+	arah = UP;
+}
 
 		/**
 		* destructor
@@ -21,27 +26,39 @@ Player::~Player(){}
 		* Getter dan setter
 		* Set jumlah inventori
 		*/
-void Player::setJumlahInventori(int jumlah){} 
+void Player::setJumlahInventori(int jumlah){
+	jumlahInventori = jumlah;
+} 
 		/**
 		* Get jumlah inventori
 		*/
-int Player::getJumlahInventori(){}  
+int Player::getJumlahInventori(){
+	return jumlahInventori;
+}  
 		/**
 		* Set jumlah air
 		*/
-void Player::setWadahAir(int jumlah){} 
+void Player::setWadahAir(int jumlah){
+	wadahAir = jumlah;
+} 
 		/**
 		* Get jumlah air
 		*/
-int Player::getWadahAir(){} 
+int Player::getWadahAir(){
+	return wadahAir;
+} 
 		/**
 		* Set nilai uang
 		*/
-void Player::setUang(int nilai){} 
+void Player::setUang(int nilai){
+	uang = nilai;
+} 
 		/**
 		* Get nilai uang
 		*/
-int Player::getUang(){} 
+int Player::getUang(){
+	return uang;
+} 
 		/**
 		* Set arah player menghadap
 		*/
@@ -50,7 +67,7 @@ void Player::setArah(ArahEnum){}
 		* Get arah player menghadap
 		*/
 ArahEnum Player::getArah(){
-	
+	return arah;
 } 
 		/**
 		* Set posisi player
@@ -86,19 +103,27 @@ void right(){}
 		/**
 		* Player menghadap ke atas
 		*/
-void lookUp(){} 
+void lookUp(){
+	arah = UP;
+} 
 		/**
 		* Player menghadap ke bawah
 		*/
-void lookDown(){} 
+void lookDown(){
+	arah = DOWN;
+} 
 		/**
 		* Player menghadap ke kiri
 		*/
-void lookLeft(){} 
+void lookLeft(){
+	arah = LEFT;
+} 
 		/**
 		* Player menghadap ke kanan
 		*/
-void lookRight(){} 
+void lookRight(){
+	arah = RIGHT;
+} 
 
 		/**
 		* Command dengan animal
