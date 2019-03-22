@@ -7,7 +7,7 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include "../Coordinate.h"
+#include "../common/Coordinate.h"
 
 /**
  * Kelas Cell yang merupakan petak tanah, akan diturunkan menjadi Land atau Facility

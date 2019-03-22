@@ -8,7 +8,7 @@
 #define FARMANIMAL_H
 
 #include "../products/FarmProducts.h"
-#include "../Coordinate.h"
+#include "../common/Coordinate.h"
 
 /**
  * Kelas FarmAnimal menyimpan semua jenis hewan

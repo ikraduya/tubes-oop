@@ -4,10 +4,10 @@
  * @date 2019-03-16
  */
 
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef INVENTORY_H
+#define INVENTORY_H
 #include "products/Products.h"
-#include "LinkedList.h"
+#include "common/LinkedList.h"
 
 /**
 * Konstanta max inventory
