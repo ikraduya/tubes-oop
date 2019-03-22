@@ -7,6 +7,7 @@
 #ifndef _FARM_H
 #define _FARM_H
 
+#include <string>
 #include "Player.h"
 #include "Map.h"
 #include "animals/FarmAnimal.h"
@@ -32,7 +33,7 @@ public:
    * 
    * @param mapFilename Nama file input eksternal untuk konstruksi map
    */
-  Farm(string mapFilename);
+  Farm(std::string mapFilename);
 
   /**
    * Me-render semua grafik (map, player, animal, facilities, jumlah uang, jumlah water)
@@ -55,7 +56,7 @@ public:
    * 
    * @param cmd String perintah
    */
-	void terimaPerintah(string cmd);
+	void terimaPerintah(std::string cmd);
 };
 
 #endif
