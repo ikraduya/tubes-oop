@@ -7,7 +7,7 @@
 #ifndef FARMANIMAL_H
 #define FARMANIMAL_H
 
-#include "FarmProducts.h"
+#include "../products/FarmProducts.h"
 #include "../Coordinate.h"
 
 /**
