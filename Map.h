@@ -25,7 +25,7 @@
 class Map{
 private:
   Ukuran px;  /**< ukuran map */
-  Cell** cell;  /**< array of array of Cell */
+  static Cell** cell;  /**< array of array of Cell */
 public:
   /**
    * @brief ctor parameter

@@ -39,6 +39,13 @@ public:
    * @brief setter Y
    */
   void setY(int y);
+
+  /**
+   * @brief operator overloading +
+   *
+   */
+   Coordinate& operator+(Coordinate& c);
+   friend Coordinate& operator+(Coordinate& c1, Coordinate& c2);
 };
 
 #endif
