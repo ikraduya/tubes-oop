@@ -6,8 +6,7 @@
 
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "products/Products.h"
-#include "LinkedList.h"
+#include "Inventory.h"
 #include "animals/FarmAnimal.h"
 #include "Coordinate.h"
 
@@ -18,10 +17,7 @@ enum ArahEnum {
 	RIGHT /**< Enum value Right. */ 
 };
 
-/**
-* Konstanta max inventory
-*/
-const int MaxInventory = 20;
+
 /**
 * Konstanta max water
 */
@@ -33,18 +29,12 @@ const int MaxWater = 20;
 class Player {
 	private:
 		/**
-		* Jumlah Barang saat ini
+		* Inventory player
 		*/
-		int jumlahInventori; 
+		Inventory inventori;
 
 		/**
-		* Array Inventori
-		*/
-
-		LinkedList<Products> inventori; 
-
-		/**
-		* Wadah air yang sudah terisi
+		* Wadah air
 		*/
 		int wadahAir; 
 
@@ -74,15 +64,6 @@ class Player {
 		*/
 		~Player();
 
-		/**
-		* Getter dan setter
-		* Set jumlah inventori
-		*/
-		void setJumlahInventori(int jumlah); 
-		/**
-		* Get jumlah inventori
-		*/
-		int getJumlahInventori();  
 		/**
 		* Set jumlah air
 		*/

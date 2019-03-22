@@ -23,19 +23,6 @@ Player::Player() : posisi(0,0) {
 Player::~Player(){}
 
 		/**
-		* Getter dan setter
-		* Set jumlah inventori
-		*/
-void Player::setJumlahInventori(int jumlah){
-	jumlahInventori = jumlah;
-} 
-		/**
-		* Get jumlah inventori
-		*/
-int Player::getJumlahInventori(){
-	return jumlahInventori;
-}  
-		/**
 		* Set jumlah air
 		*/
 void Player::setWadahAir(int jumlah){
@@ -88,19 +75,39 @@ Coordinate Player::getCoordinate(){
 		* Player bergerak
 		* Player pindah ke atas
 		*/
-void Player::up(){} 
+void Player::up(){
+	Coordinate translate(0,-1);
+	if (getCoordinate().getY() != 0) {
+		posisi = posisi + translate;
+	}
+} 
 		/**
 		* Player pindah ke bawah
 		*/
-void Player::down(){} 
+void Player::down(){
+	Coordinate translate(0,1);
+	if (getCoordinate().getY() != 0) {
+		posisi = posisi + translate;
+	}
+} 
 		/**
 		* Player pindah ke kiri
 		*/
-void Player::left(){} 
+void Player::left(){
+	Coordinate translate(-1,0);
+	if (getCoordinate().getX() != 0) {
+		posisi = posisi + translate;
+	}
+} 
 		/**
 		* Player pindah ke kanan
 		*/
-void Player::right(){}
+void Player::right(){
+	Coordinate translate(1,0);
+	if (getCoordinate().getY() != 0) {
+		posisi = posisi + translate;
+	}
+}
 
 		/**
 		* Player menghadap ke atas
@@ -148,7 +155,9 @@ void Player::cmdGrow(){}
 		* Command dengan facility
 		* Melihat inventori
 		*/
-void Player::cekInventory(){} 
+void Player::cekInventory(){
+
+} 
 		/**
 		* Isi air
 		*/
