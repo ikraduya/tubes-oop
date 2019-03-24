@@ -11,7 +11,6 @@
 		* default constructor
 		*/
 Player::Player() : posisi(0,0) {
-	jumlahInventori = 0;
 	wadahAir = 0;
 	uang = 0;
 	arah = UP;
@@ -181,3 +180,10 @@ void Player::mixProduct(){}
 		ArahEnum arah; 
 		Coordinate posisi; 
 */
+
+/*int main() {
+	Player akhmal;
+	int i = akhmal.getUang();
+	cout << i << endl;
+	return 0;
+}*/
