@@ -44,6 +44,6 @@ Coordinate Coordinate::operator+(const Coordinate& c){
   return Coordinate(this->getX()+c.getX(), this->getY()+c.getY());
 }
 
-Coordinate operator+(const Coordinate& c1, const Coordinate& c2){
-  return Coordinate(c1.getX()+c2.getX(), c1.getY()+c2.getY());
-}
+//Coordinate operator+(const Coordinate& c1, const Coordinate& c2){
+//  return Coordinate(c1.getX()+c2.getX(), c1.getY()+c2.getY());
+//}
