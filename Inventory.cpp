@@ -5,6 +5,7 @@
  */
 
 #include "Inventory.h"
+#include "products/Products.h"
 
 Inventory::Inventory() {
 	jumlahInventori = 0;
@@ -22,3 +23,15 @@ void Inventory::setJumlahInventori(int jumlah){
 int Inventory::getJumlahInventori(){
 	return jumlahInventori;
 }  
+
+bool Inventory::isProductExist(Products p) {
+	return (inventori.find(p) != 1);
+}
+
+void Inventory::addProduct(Products p) {
+	inventori.add(p);
+}
+
+void Inventory::removeProduct(Products p) {
+	inventori.remove(p);
+}

@@ -7,10 +7,11 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "products/Products.h"
-#include "common/LinkedList.h"
 #include "Inventory.h"
 #include "animals/FarmAnimal.h"
-#include "Coordinate.h"
+#include "common/Coordinate.h"
+#include <iostream>
+using namespace std;
 
 enum ArahEnum {
 	UP,  /**< Enum value Up. */  

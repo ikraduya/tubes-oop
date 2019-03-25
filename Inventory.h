@@ -40,12 +40,22 @@ class Inventory {
 		* Getter dan setter
 		* Set jumlah inventori
 		*/
-		void Inventory::setJumlahInventori(int jumlah); 
+		void setJumlahInventori(int jumlah); 
 		/**
 		* Get jumlah inventori
 		*/
-		int Inventory::getJumlahInventori(); 
-		
-		
+		int getJumlahInventori(); 
+		/**
+		* Is Product exist
+		*/
+		bool isProductExist(Products p);
+		/**
+		* Add Product
+		*/
+		void addProduct(Products p);
+		/**
+		* Is Product exist
+		*/
+		void removeProduct(Products p);
 };
 #endif

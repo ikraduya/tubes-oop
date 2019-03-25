@@ -4,7 +4,7 @@
 /**
  * @brief Kelas Coordinate berisi atribut integer x dan y
  */
-class Coordinate{
+class Coordinate {
 private:
   int x, y; /**< x: absis, y: ordinat */
 public:
@@ -44,8 +44,8 @@ public:
    * @brief operator overloading +
    *
    */
-   Coordinate& operator+(Coordinate& c);
-   friend Coordinate& operator+(Coordinate& c1, Coordinate& c2);
+   Coordinate operator+(const Coordinate& c);
+   //friend Coordinate& operator+(Coordinate& c1, Coordinate& c2);
 };
 
 #endif
