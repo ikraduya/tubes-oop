@@ -19,7 +19,7 @@ public:
    *
    * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
-  Coop(Coordinate coordinateCell);
+  Coop(Coordinate coordinateCell, bool hasGrass);
 
   /**
    * @brief memanggil fungsi growGrass, mengubah char symbol menjadi '*'

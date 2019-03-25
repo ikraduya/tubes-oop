@@ -1,4 +1,12 @@
 #include "Coordinate.h"
+  /**
+   * @brief ctor default
+   *
+   */
+  Coordinate::Coordinate(){
+    x = -1;
+    y = -1;
+  }
 
   /**
    * @brief ctor parameter

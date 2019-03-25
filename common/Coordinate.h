@@ -9,6 +9,12 @@ private:
   int x, y; /**< x: absis, y: ordinat */
 public:
   /**
+   * @brief ctor default
+   *
+   */
+  Coordinate();
+
+  /**
    * @brief ctor parameter
    *
    * @param x absis

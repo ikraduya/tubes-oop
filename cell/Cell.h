@@ -18,6 +18,12 @@ private:
   Coordinate coordinate; /**< Koordinat setiap petak */
 public:
   /**
+   * @brief ctor default
+   *
+   */
+   Cell();
+
+  /**
    * @brief Getter symbol
    *
    * @return char symbol
