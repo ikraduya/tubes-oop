@@ -11,7 +11,7 @@
 #include "Player.h"
 #include "Map.h"
 #include "animals/FarmAnimal.h"
-#include "../common/LinkedList.h"
+#include "common/LinkedList.h"
 
 /**
  * Kelas Farm yang membungkus semua object di game
@@ -26,7 +26,7 @@ private:
   Well wellFacility;  /**< Objek Fasilitas Well */
 
 public:
-  int globalTick; /**< Variabel tick global */
+  static int globalTick; /**< Variabel tick global */
 
   /**
    * Konstruktor dengan parameter

@@ -175,6 +175,21 @@ public:
       throw LinkedListExp("LinkedList kosong!");
     }
   };
+
+  /**
+   * @brief Menghitung panjang jumlah elemen di list
+   * @return int Jumlah elemen di list
+   */
+  int count() {
+    int i = 0;
+    addr<T> pt = head;
+    while (pt->next != nullptr) {
+      pt = pt->next;
+      i++;
+    }
+
+    return i;
+  }
 };
 
 #endif
