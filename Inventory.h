@@ -46,6 +46,10 @@ class Inventory {
 		*/
 		int getJumlahInventori(); 
 		/**
+		* Get Product
+		*/
+		Products getProduct(int idx);
+		/**
 		* Is Product exist
 		*/
 		bool isProductExist(Products p);

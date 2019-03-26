@@ -24,6 +24,10 @@ int Inventory::getJumlahInventori(){
 	return jumlahInventori;
 }  
 
+Products Inventory::getProduct(int idx) {
+	return (inventori.get(idx));
+}
+
 bool Inventory::isProductExist(Products p) {
 	return (inventori.find(p) != 1);
 }
