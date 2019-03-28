@@ -164,7 +164,7 @@ public:
         i++;
       }
       if (i == idx && pt != NULLLinkedList) {
-        std::cout << pt->data << std::endl;
+        //std::cout << pt->data << std::endl;
         return pt->data;
       } else {
         throw LinkedListExp("Element tidak ditemukan");
