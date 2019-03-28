@@ -11,7 +11,13 @@
 #include "Keju.h"
 #include "SideProducts.h"
 #include "FarmProducts.h"
+#include "ObatSuperChenLong.h"
+#include "RicaKuda.h"
+#include "SopKambing.h"
 #include "Products.h"
+#include "SuplemenSuper.h"
+#include "SusuKudaLiar.h"
+#include "TelorDadarWow.h"
 #include "../Inventory.h"
 #include "../common/LinkedList.h"
 
@@ -28,6 +34,12 @@ int main(){
 	CowMilk* i = new CowMilk();
 	CowMeat* j = new CowMeat();
 	Keju* k = new Keju();
+	RicaKuda* r = new RicaKuda();
+	SopKambing* sk = new SopKambing();
+	SuplemenSuper* ss = new SuplemenSuper();
+	ObatSuperChenLong* q = new ObatSuperChenLong();
+	SusuKudaLiar* skl = new SusuKudaLiar();
+	TelorDadarWow* tdw = new TelorDadarWow();
 	std::cout << ChickenEgg::getPrice() << a->getName() <<std::endl;
 	std::cout << HorseMeat::getPrice() << b->getName() << std::endl;
 	std::cout << HorseMilk::getPrice() << c->getName() << std::endl;;
@@ -39,7 +51,19 @@ int main(){
 	std::cout << CowMilk::getPrice() << i->getName() << std::endl;;
 	std::cout << CowMeat::getPrice() << j->getName() << std::endl;;
 	Keju::showReq();
+	ObatSuperChenLong::showReq();
+	RicaKuda::showReq();
+	SopKambing::showReq();
+	SuplemenSuper::showReq();
+	SusuKudaLiar::showReq();
+	TelorDadarWow::showReq();
+	std::cout << ObatSuperChenLong::getPrice() << q->getName() << std::endl;
 	std::cout << Keju::getPrice() << k->getName() << std::endl;
+	std::cout << RicaKuda::getPrice() << r->getName() << std::endl;
+	std::cout << SopKambing::getPrice() << sk->getName() << std::endl;
+	std::cout << SuplemenSuper::getPrice() << ss->getName() << std::endl;
+	std::cout << SusuKudaLiar::getPrice() << skl->getName() << std::endl;
+	std::cout << TelorDadarWow::getPrice() << tdw->getName() << std::endl;
 	if (*a==*o){std::cout << "true" << std::endl;}
 	return 0;
 }

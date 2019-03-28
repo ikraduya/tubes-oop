@@ -39,7 +39,7 @@ class ObatSuperChenLong: public SideProducts{
 		static void showReq();
 	private:
 		static const long price; /**< Harga dari produk */
-		static const FarmProducts* req; /**< Resep daging kambing + daging kuda*/
+		static const FarmProducts* req[]; /**< Resep daging kambing + daging kuda*/
 };
 
 

@@ -1,43 +1,41 @@
 /**
- * @file Keju.cpp
+ * @file ObatSuperChenLong.cpp
  * @author Al Terra
  * @date 2019-03-20
  */
+#include "HorseMeat.h"
+#include "GoatMeat.h"
 #include "FarmProducts.h"
 #include "SideProducts.h"
-#include "Keju.h"
-#include "CowMilk.h"
-//#include "../Inventory.h"
-//#include "../common/LinkedList.h"
+#include "ObatSuperChenLong.h"
 
-const long Keju::price = 100000;
-const FarmProducts* Keju::req[] = {new CowMilk(), new CowMilk()};
-//Keju::req = {CowMeat(), CowMeat()}
+const long ObatSuperChenLong::price = 150000;
+const FarmProducts* ObatSuperChenLong::req[] = {new GoatMeat(), new HorseMeat()};
 
 /**
- * @brief Kelas Keju diturunkan dari SideProducts
+ * @brief Kelas ObatSuperChenLong diturunkan dari SideProducts
  */
 	/**
 	 * @brief ctor default
 	 */
-		Keju::Keju() : SideProducts("Keju"){}
+		ObatSuperChenLong::ObatSuperChenLong() : SideProducts("Obat Super Chen Long"){}
 	/**
 	 * @brief checker apakah isi ransel cukup untuk membuat objek
 	 * 
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		bool Keju::isMixValid(){return false;}
+		bool ObatSuperChenLong::isMixValid(){return false;}
 	/**
 	 * @brief getter price
 	 *
 	 * @return long harga produk
 	 */		
-		long Keju::getPrice(){return price;}
+		long ObatSuperChenLong::getPrice(){return price;}
 	/**
 	 * @brief menunujukan resep pencampuran untuk produk
 	 */		
-		void Keju::showReq(){
+		void ObatSuperChenLong::showReq(){
 			for (int i = 0; i <2; i++){
 				std::cout << req[i]->getName() << std::endl;
 			}

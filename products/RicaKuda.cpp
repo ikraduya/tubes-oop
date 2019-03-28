@@ -1,46 +1,42 @@
 /**
- * @file RicaKuda.h
+ * @file RicaKuda.cpp
  * @author Al Terra
  * @date 2019-03-20
  */
-#ifndef _RICAKUDA_H_
-#define _RICAKUDA_H_
 
+#include "HorseMeat.h"
+#include "CowMeat.h"
 #include "FarmProducts.h"
 #include "SideProducts.h"
+#include "RicaKuda.h"
+const long RicaKuda::price = 86999;
+const FarmProducts* RicaKuda::req[] = {new CowMeat(), new HorseMeat()};
 
 /**
  * @brief Kelas RicaKuda diturunkan dari SideProducts
  */
-class RicaKuda : public SideProducts{
-	public:
 	/**
 	 * @brief ctor default
 	 */
-		RicaKuda();
+		RicaKuda::RicaKuda() : SideProducts("Rica Kuda"){}
 	/**
 	 * @brief checker apakah isi ransel cukup untuk membuat objek
 	 * 
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */
-		static bool isMixValid();
+		bool RicaKuda::isMixValid(){return false;}
 	/**
 	 * @brief getter price
 	 *
 	 * @return long harga produk
 	 */		
-		static long getPrice();
+		long RicaKuda::getPrice(){return price;}
 	/**
 	 * @brief menunujukan resep pencampuran untuk produk
 	 */			
-		static void showReq();
-	private:
-		static const long price; /**< Harga dari produk */
-		static const FarmProducts* req[]; /**< Resep daging kuda + daging sapi */
-};
-
-
-
-
-#endif
+		void RicaKuda::showReq(){
+			for (int i = 0; i <2; i++){
+				std::cout << req[i]->getName() << std::endl;
+			}
+		}

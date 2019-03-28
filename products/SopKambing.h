@@ -39,7 +39,7 @@ class SopKambing : public SideProducts{
 		static void showReq();
 	private:
 		static const long price; /**< Harga dari produk */
-		static const FarmProducts* req; /**< Resep daging kambinig + daging kambing*/
+		static const FarmProducts* req[]; /**< Resep daging kambinig + daging kambing*/
 };
 
 

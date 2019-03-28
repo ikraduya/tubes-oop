@@ -38,7 +38,7 @@ class Keju : public SideProducts{
 		static void showReq();
 	private:
 		static const long price; /**< Harga dari produk */
-		static const Products* req[]; /**< Resep susu  sapi + susu sapi*/
+		static const FarmProducts* req[]; /**< Resep susu  sapi + susu sapi*/
 };
 
 

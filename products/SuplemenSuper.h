@@ -38,7 +38,7 @@ class SuplemenSuper: public SideProducts{
 		static void showReq();
 	private:
 		static const long price; /**< Harga dari produk */
-		static const FarmProducts* req; /**< Resep susu sapi + daging kuda +  telor ayam + daging bebek*/
+		static const FarmProducts* req[]; /**< Resep susu sapi + daging kuda +  telor ayam + daging bebek*/
 };
 
 

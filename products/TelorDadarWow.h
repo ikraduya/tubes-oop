@@ -39,7 +39,7 @@ class TelorDadarWow: public SideProducts{
 		static void showReq();
 	private:
 		static const long price; /**< Harga dari produk */
-		static const FarmProducts* req; /**< Resep susu kambing + daging kuda + telor bebek*/
+		static const FarmProducts* req[]; /**< Resep susu kambing + daging kuda + telor bebek*/
 };
 
 

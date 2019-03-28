@@ -1,43 +1,41 @@
 /**
- * @file Keju.cpp
+ * @file SusuKudaLiar.cpp
  * @author Al Terra
  * @date 2019-03-20
  */
+#include "HorseMeat.h"
+#include "HorseMilk.h"
 #include "FarmProducts.h"
 #include "SideProducts.h"
-#include "Keju.h"
-#include "CowMilk.h"
-//#include "../Inventory.h"
-//#include "../common/LinkedList.h"
+#include "SusuKudaLiar.h"
+const long SusuKudaLiar::price = 13444;
+const FarmProducts* SusuKudaLiar::req[] = {new HorseMeat(), new HorseMilk()};
 
-const long Keju::price = 100000;
-const FarmProducts* Keju::req[] = {new CowMilk(), new CowMilk()};
-//Keju::req = {CowMeat(), CowMeat()}
 
 /**
- * @brief Kelas Keju diturunkan dari SideProducts
+ * @brief Kelas SusuKudaLiar diturunkan dari SideProducts
  */
 	/**
 	 * @brief ctor default
 	 */
-		Keju::Keju() : SideProducts("Keju"){}
+		SusuKudaLiar::SusuKudaLiar() : SideProducts("Susu Kuda Liar"){}
 	/**
 	 * @brief checker apakah isi ransel cukup untuk membuat objek
 	 * 
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
-	 */			
-		bool Keju::isMixValid(){return false;}
+	 */		
+		bool SusuKudaLiar::isMixValid(){return false;}
 	/**
 	 * @brief getter price
 	 *
 	 * @return long harga produk
 	 */		
-		long Keju::getPrice(){return price;}
+		long SusuKudaLiar::getPrice(){return price;}
 	/**
 	 * @brief menunujukan resep pencampuran untuk produk
-	 */		
-		void Keju::showReq(){
+	 */			
+		void SusuKudaLiar::showReq(){
 			for (int i = 0; i <2; i++){
 				std::cout << req[i]->getName() << std::endl;
 			}
