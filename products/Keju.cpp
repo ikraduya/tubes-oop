@@ -1,47 +1,43 @@
 /**
- * @file Keju.h
+ * @file Keju.cpp
  * @author Al Terra
  * @date 2019-03-20
  */
-#ifndef _KEJU_H_
-#define _KEJU_H_
-
 #include "FarmProducts.h"
+#include "CowMilk.h"
 #include "SideProducts.h"
+#include "Keju.h"
+#include "../Inventory.h"
+
+const long Keju::price = 100000;
+const Products* Keju::req[] = {new CowMilk(), new CowMilk()};
+//Keju::req = {CowMeat(), CowMeat()}
 
 /**
  * @brief Kelas Keju diturunkan dari SideProducts
  */
-class Keju : public SideProducts{
-
-	public:
 	/**
 	 * @brief ctor default
 	 */
-		Keju();
+		Keju::Keju() : SideProducts("Keju"){}
 	/**
 	 * @brief checker apakah isi ransel cukup untuk membuat objek
 	 * 
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		static bool isMixValid();
+		bool Keju::isMixValid(){return false;}
 	/**
 	 * @brief getter price
 	 *
 	 * @return long harga produk
 	 */		
-		static long getPrice();
+		long Keju::getPrice(){return price;}
 	/**
 	 * @brief menunujukan resep pencampuran untuk produk
 	 */		
-		static void showReq();
-	private:
-		static const long price; /**< Harga dari produk */
-		static const Products* req[]; /**< Resep susu  sapi + susu sapi*/
-};
-
-
-
-
-#endif
+		void Keju::showReq(){
+			for (int i = 0; i <2; i++){
+				std::cout << req[i]->getName() << std::endl;
+			}
+		}

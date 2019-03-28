@@ -1,22 +1,22 @@
 /**
- * @file HorseMilk.h
+ * @file GoatMeat.h
  * @author Al Terra
  * @date 2019-03-20
  */
-#ifndef _HORSEMILK_H_
-#define _HORSEMILK_H_
+#ifndef _GOATMEAT_H_
+#define _GOATMEAT_H_
 
 #include "FarmProducts.h"
 
 /**
  * @brief Kelas HorseMilk yang diturunkan dari FarmProducts
  */
-class HorseMilk : public FarmProducts{
+class GoatMeat : public FarmProducts{
 	public:	
 	/**
 	 * @brief ctor default
 	 */
-		HorseMilk();
+		GoatMeat();
 	/**
 	 * @brief getter price
 	 *

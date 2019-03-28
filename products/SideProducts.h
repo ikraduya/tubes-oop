@@ -9,10 +9,16 @@
 
 #include "Products.h"
 #include "FarmProducts.h"
+#include <cstring>
+#include <iostream>
 
 /**
  * @brief Header untuk kelas kelas produk olahan hasil peternakan
  */
-class SideProducts : public Products{};
+class SideProducts : public Products{
+	public:
+		SideProducts() : Products(){}
+		SideProducts(std::string name) : Products(name){}
+};
 
 #endif
