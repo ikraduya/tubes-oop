@@ -68,6 +68,10 @@ class Player {
 		~Player();
 
 		/**
+		* Get inventori
+		*/
+		Inventory& getInventori();
+		/**
 		* Set jumlah air
 		*/
 		void setWadahAir(int jumlah); 

@@ -22,6 +22,12 @@ Player::Player() : posisi(0,0) {
 Player::~Player(){}
 
 		/**
+		* Get inventori
+		*/
+Inventory& Player::getInventori() {
+	return inventori;
+}
+		/**
 		* Set jumlah air
 		*/
 void Player::setWadahAir(int jumlah){
