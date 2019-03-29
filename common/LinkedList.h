@@ -181,14 +181,17 @@ public:
    * @return int Jumlah elemen di list
    */
   int count() {
-    int i = 0;
-    addr<T> pt = head;
-    while (pt->next != nullptr) {
-      pt = pt->next;
-      i++;
-    }
+    if (head != nullptr) {
+      int i = 0;
+      addr<T> pt = head;
+      while (pt->next != nullptr) {
+        pt = pt->next;
+        i++;
+      }
 
-    return i;
+      return i;
+    }
+    return 0;
   }
 };
 
