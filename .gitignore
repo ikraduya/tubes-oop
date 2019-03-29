@@ -7,4 +7,6 @@ latex
 
 # compiled files
 *.o
+*.out
 *.gch
+*.exe
