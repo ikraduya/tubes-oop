@@ -8,6 +8,8 @@
 #include "FarmProducts.h"
 #include "SideProducts.h"
 #include "SusuKudaLiar.h"
+#include "../Inventory.h"
+#include "../common/LinkedList.h"
 const long SusuKudaLiar::price = 13444;
 const FarmProducts* SusuKudaLiar::req[] = {new HorseMeat(), new HorseMilk()};
 
@@ -25,7 +27,13 @@ const FarmProducts* SusuKudaLiar::req[] = {new HorseMeat(), new HorseMilk()};
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */		
-		bool SusuKudaLiar::isMixValid(){return false;}
+		bool SusuKudaLiar::isMixValid(Inventory& a){
+			if (a.isProductExist(*req[0]) && a.isProductExist(*req[1])){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	/**
 	 * @brief getter price
 	 *

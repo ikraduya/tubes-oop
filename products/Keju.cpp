@@ -7,8 +7,8 @@
 #include "SideProducts.h"
 #include "Keju.h"
 #include "CowMilk.h"
-//#include "../Inventory.h"
-//#include "../common/LinkedList.h"
+#include "../Inventory.h"
+#include "../common/LinkedList.h"
 
 const long Keju::price = 100000;
 const FarmProducts* Keju::req[] = {new CowMilk(), new CowMilk()};
@@ -27,7 +27,21 @@ const FarmProducts* Keju::req[] = {new CowMilk(), new CowMilk()};
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		bool Keju::isMixValid(){return false;}
+		bool Keju::isMixValid(Inventory& a){
+			int count = 0;
+			if (a.getJumlahInventori() == 0){
+				return false;
+			}else{
+				for(int i = 0; i < a.getJumlahInventori(); i++){
+					if (count >= 2){
+						return true;
+					}
+					if (a.getProduct(i) == *req[0]){
+						count++;
+					}
+				}
+			}
+		}
 	/**
 	 * @brief getter price
 	 *

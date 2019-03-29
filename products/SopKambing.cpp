@@ -24,7 +24,21 @@ const FarmProducts* SopKambing::req[] = {new GoatMeat(), new GoatMeat()};
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		bool SopKambing::isMixValid(){return false;}
+		bool SopKambing::isMixValid(Inventory& a){
+			int count = 0;
+			if (a.getJumlahInventori() == 0){
+				return false;
+			}else{
+				for(int i = 0; i < a.getJumlahInventori(); i++){
+					if (count >= 2){
+						return true;
+					}
+					if (a.getProduct(i) == *req[0]){
+						count++;
+					}
+				}
+			}
+		}
 	/**
 	 * @brief getter price
 	 *

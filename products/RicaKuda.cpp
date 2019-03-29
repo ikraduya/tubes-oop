@@ -9,6 +9,8 @@
 #include "FarmProducts.h"
 #include "SideProducts.h"
 #include "RicaKuda.h"
+#include "../Inventory.h"
+#include "../common/LinkedList.h"
 const long RicaKuda::price = 86999;
 const FarmProducts* RicaKuda::req[] = {new CowMeat(), new HorseMeat()};
 
@@ -25,7 +27,13 @@ const FarmProducts* RicaKuda::req[] = {new CowMeat(), new HorseMeat()};
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */
-		bool RicaKuda::isMixValid(){return false;}
+		bool RicaKuda::isMixValid(Inventory& a){
+			if (a.isProductExist(*req[0]) && a.isProductExist(*req[1])){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	/**
 	 * @brief getter price
 	 *

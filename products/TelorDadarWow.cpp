@@ -9,6 +9,8 @@
 #include "FarmProducts.h"
 #include "SideProducts.h"
 #include "TelorDadarWow.h"
+#include "../Inventory.h"
+#include "../common/LinkedList.h"
 const long TelorDadarWow::price = 99999;
 const FarmProducts* TelorDadarWow::req[] = {new HorseMeat(), new GoatMilk(), new DuckEgg()};
 
@@ -25,7 +27,13 @@ const FarmProducts* TelorDadarWow::req[] = {new HorseMeat(), new GoatMilk(), new
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		bool TelorDadarWow::isMixValid(){return false;}
+		bool TelorDadarWow::isMixValid(Inventory& a){
+			if (a.isProductExist(*req[0]) && a.isProductExist(*req[1]) && a.isProductExist(*req[2])){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	/**
 	 * @brief getter price
 	 *

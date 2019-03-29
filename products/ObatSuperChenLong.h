@@ -8,6 +8,8 @@
 
 #include "FarmProducts.h"
 #include "SideProducts.h"
+#include "../Inventory.h"
+#include "../common/LinkedList.h"
 
 
 /**
@@ -26,7 +28,7 @@ class ObatSuperChenLong: public SideProducts{
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		static bool isMixValid();
+		static bool isMixValid(Inventory& a);
 	/**
 	 * @brief getter price
 	 *

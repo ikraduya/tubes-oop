@@ -10,6 +10,8 @@
 #include "FarmProducts.h"
 #include "SideProducts.h"
 #include "SuplemenSuper.h"
+#include "../Inventory.h"
+#include "../common/LinkedList.h"
 const long SuplemenSuper::price = 47329;
 const FarmProducts* SuplemenSuper::req[] = {new ChickenEgg(), new CowMilk(), new DuckMeat(), new HorseMeat()};
 
@@ -26,7 +28,13 @@ const FarmProducts* SuplemenSuper::req[] = {new ChickenEgg(), new CowMilk(), new
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		bool SuplemenSuper::isMixValid(){return false;}
+		bool SuplemenSuper::isMixValid(Inventory& a){
+			if (a.isProductExist(*req[0]) && a.isProductExist(*req[1]) && a.isProductExist(*req[2]) && a.isProductExist(*req[3])){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	/**
 	 * @brief getter price
 	 *

@@ -8,6 +8,8 @@
 #include "FarmProducts.h"
 #include "SideProducts.h"
 #include "ObatSuperChenLong.h"
+#include "../Inventory.h"
+#include "../common/LinkedList.h"
 
 const long ObatSuperChenLong::price = 150000;
 const FarmProducts* ObatSuperChenLong::req[] = {new GoatMeat(), new HorseMeat()};
@@ -25,7 +27,13 @@ const FarmProducts* ObatSuperChenLong::req[] = {new GoatMeat(), new HorseMeat()}
 	 * @return true isi ransel cukup
 	 * @return false isi ransel tidak cukup
 	 */			
-		bool ObatSuperChenLong::isMixValid(){return false;}
+		bool ObatSuperChenLong::isMixValid(Inventory& a){
+			if (a.isProductExist(*req[0]) && a.isProductExist(*req[1])){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	/**
 	 * @brief getter price
 	 *
