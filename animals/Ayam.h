@@ -26,20 +26,24 @@ class Ayam : public FarmAnimal{
     /**
 	   * @brief Ayam bersuara
 	   */
-    void Bersuara();
+    void Bersuara() const;
 
     /**
 	   * @brief Ayam menghasilkan telur
      *
      * @return FarmProducts berupa telur ayam
 	   */
-    FarmProducts Interact();
+    FarmProducts& Interact();
     /**
 	   * @brief Ayam menghasilkan daging dan mati
      *
      * @return FarmProducts berupa daging ayam
 	   */
-    FarmProducts Kill();
+    FarmProducts& Kill();
+    /**
+     * Menggambar Ayam dengan A
+     */
+    void Render() const;
 };
 
 #endif

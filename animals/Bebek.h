@@ -25,20 +25,24 @@ class Bebek : public FarmAnimal{
     /**
 	   * Bebek bersuara
 	   */
-    void Bersuara();
+    void Bersuara() const;
 
     /**
      * @brief Bebek menghasilkan telur
      *
      * @return FarmProducts berupa telur bebek
      */
-    FarmProducts Interact();
+    FarmProducts& Interact();
 
     /**
      * @brief Bebek menghasilkan daging dan mati
      *
      * @return FarmProducts berupa daging bebek
      */
-    FarmProducts Kill();
+    FarmProducts& Kill();
+    /**
+     * Menggambar Bebek dengan B
+     */
+    void Render() const;
 };
 #endif

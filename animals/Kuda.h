@@ -26,20 +26,24 @@ class Kuda : public FarmAnimal{
     /**
 	   * @brief Kuda bersuara
 	   */
-    void Bersuara();
+    void Bersuara() const;
 
     /**
      * @brief Kuda menghasilkan susu
      *
      * @return FarmProducts berupa susu kuda
      */
-    FarmProducts Interact();
+    FarmProducts& Interact();
 
     /**
      * @brief Kuda menghasilkan daging dan mati
      *
      * @return FarmProducts berupa daging kuda
      */
-    FarmProducts Kill();
+    FarmProducts& Kill();
+    /**
+     * Menggambar Kuda dengan H
+     */
+    void Render() const;
 };
 #endif

@@ -26,20 +26,24 @@ class Sapi : public FarmAnimal{
     /**
 	   * @brief Sapi bersuara
 	   */
-    void Bersuara();
+    void Bersuara() const;
 
     /**
      * @brief Sapi menghasilkan susu
      *
      * @return FarmProducts berupa susu sapi
      */
-    FarmProducts Interact();
+    FarmProducts& Interact();
 
     /**
      * @brief Sapi menghasilkan daging dan mati
      *
      * @return FarmProducts berupa daging sapi
      */
-    FarmProducts Kill();
+    FarmProducts& Kill();
+    /**
+     * Menggambar Sapi dengan S
+     */
+    void Render() const;
 };
 #endif

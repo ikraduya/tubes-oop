@@ -9,6 +9,7 @@
 
 #include "../products/FarmProducts.h"
 #include "../common/Coordinate.h"
+#include "../cell/Cell.h"
 
 /**
  * Kelas FarmAnimal menyimpan semua jenis hewan
@@ -24,10 +25,14 @@ class FarmAnimal{
     int remainingTic; /**< Ketika hewan lapar, akan memberitahu berapa lama lagi hewan itu lapar (HungryTime .. 0). Ketika hewan tidak lapar, akan memberitahu berapa lama lagi hewan itu akan mati (0 .. -5) */
     int HungryTime; /**< Waktu lapar */
     Coordinate posisi; /**< Posisi hewan pada cell */
+    Coordinate *gerak; /**< Gerak atas, bawah, kanan kiri */
 
   public:
     static int jumlahHewan; /**< Jumlah hewan di suatu waktu */
-
+    /**
+     * @brief Construct a new Farm Animal object
+     */
+    FarmAnimal();
     /**
      * @brief Construct a new Farm Animal object
      *
@@ -59,29 +64,48 @@ class FarmAnimal{
     /**
 	   * Hewan makan
 	   */
-    void Makan();
+    void Makan(Cell** cell);
     /**
 	   * Hewan bergerak
 	   */
-    void Move();
+    void Move(Cell** cell);
     /**
 	   * Pure virtual bersuara
 	   */
-    virtual void Bersuara() = 0;
+    virtual void Bersuara() const;
+    /**
+     * Aksi hewan setiap Tic
+     */
+    void RespondToTic(Cell **cell);
     /**
 	   * Menghitung waktu hingga lapar
+     * ======================Diubah dari int menjadi void karena tidak perlu return int
 	   */
-    int countHungry();
+    void countHungry();
 
     /**
 	   * Pure virtual interract.
      * Menghasilkan susu atau telur
 	   */
-    virtual FarmProducts Interact() = 0;
+    virtual FarmProducts& Interact();
     /**
 	   * Pure virtual kill.
      * Menghasilkan daging
 	   */
-    virtual FarmProducts Kill() = 0;
+    virtual FarmProducts& Kill();
+    /**
+     * Status hewan mati atau tidak
+     * ================Diubah karena tidak ada getter
+     */
+    bool isAlive() const;
+    /**
+     * Mengembalikkan posisi hewan
+     * ================Diubah karena tidak ada getter
+     */
+    Coordinate getPos() const;
+    /**
+     * pure virtual Menggambar Hewan
+     */
+    virtual void Render() const;
 };
 #endif
