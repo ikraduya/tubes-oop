@@ -15,17 +15,13 @@
 /**
  * @brief Node untuk menyimpan tiap elemen
  */
-template<typename U>
+template <class T>
 struct tNode {
-  U data;             /**< struct data */
-  struct tNode<U>* next;  /**< struct next pointer */
+  tNode(T data) : data(data), next(nullptr) {}
+  tNode() : next(nullptr){}
+  T data;           /**< struct data */
+  tNode<T> *next;   /**< struct next pointer */
 };
-
-/**
- * @brief Address node untuk traversal linked list
- */
-template<typename V>
-using addr = tNode<V>*; /**<  */
 
 /**
  * @brief Kelas LinkedList yang mampu menyimpan tipe generic
@@ -35,7 +31,7 @@ using addr = tNode<V>*; /**<  */
 template <class T>
 class LinkedList {
 private:
-  addr<T> head; /**< head of linkedlist */
+  tNode<T>* head; /**< head of linkedlist */
 
 public:
   /**
@@ -45,10 +41,13 @@ public:
     head = NULLLinkedList;
   };
 
+  /**
+   * @brief Destroy the Linked List object
+   */
   ~LinkedList() {
     if (!isEmpty()) {
-      addr<T> pt = head;
-      addr<T> ptDel;
+      tNode<T>* pt = head;
+      tNode<T>* ptDel;
       while(pt != NULLLinkedList) {
         ptDel = pt;
         pt = pt->next;
@@ -67,7 +66,7 @@ public:
   int find(T el) const {
     if (!isEmpty()) {
       int i = 0;
-      addr<T> pt = head;
+      tNode<T>* pt = head;
       while (pt->next != nullptr && pt->data != el) {
         pt = pt->next;
         i++;
@@ -96,17 +95,17 @@ public:
    */
   void add(T el) {
     if (isEmpty()) {
-      head = new tNode<T>();
+      head = new tNode<T>(el);
       head->data = el;
       head->next = NULLLinkedList;
     } else {
-      addr<T> pt = head;
+      tNode<T>* pt = head;
       while(pt->next != NULLLinkedList){
         pt = pt->next;
       }
 
-      addr<T> pIns = new tNode<T>();
-      pIns->data = el;
+      tNode<T>* pIns = new tNode<T>(el);
+      // pIns->data = el;
       pIns->next = NULLLinkedList;
       pt->next = pIns;
     }
@@ -125,19 +124,19 @@ public:
           head = NULLLinkedList;
         } else {
           std::cout << "fuk" << std::endl;
-          addr<T> delPt = head;
+          tNode<T>* delPt = head;
           head = head->next;
           delete delPt;
         }
       } else {  // elemen yang ingin dihapus kemungkinan bukan di awal
         // cari elemen yang ingin dihapus
-        addr<T> fPt = head;
+        tNode<T>* fPt = head;
         while (fPt->next != NULLLinkedList && fPt->data != el) {
           fPt = fPt->next;
         }
 
         if (fPt->data == el) {  // elemen ketemu
-          addr<T> befPt = head;
+          tNode<T>* befPt = head;
           while (befPt->next != fPt) {
             befPt = befPt->next;
           }
@@ -158,7 +157,7 @@ public:
   T get(int idx) const {
     if (idx >= 0 && !isEmpty()) {
       int i = 0;
-      addr<T> pt = head;
+      tNode<T>* pt = head;
       while (i < idx && pt != NULLLinkedList){
         pt = pt->next;
         i++;
@@ -182,8 +181,8 @@ public:
    */
   int count() {
     if (head != nullptr) {
-      int i = 0;
-      addr<T> pt = head;
+      int i = 1;
+      tNode<T>* pt = head;
       while (pt->next != nullptr) {
         pt = pt->next;
         i++;
