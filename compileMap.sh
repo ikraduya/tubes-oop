@@ -1,0 +1,1 @@
+g++ driverMap.cpp Map.cpp "cell/Barn.cpp" "cell/Cell.cpp" "cell/Coop.cpp" "cell/Grassland.cpp" "cell/Land.cpp" "cell/Mixer.cpp" "cell/Truck.cpp" "cell/Well.cpp" "common/Coordinate.cpp" Ukuran.cpp -o driverMap

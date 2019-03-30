@@ -14,6 +14,7 @@ class Ukuran{
 private:
   int p, l; /**< p: panjang, l: tinggi */
 public:
+  Ukuran();
   /**
    * @brief ctor parameter
    *

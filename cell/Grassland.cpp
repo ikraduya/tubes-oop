@@ -6,7 +6,7 @@
    * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
 Grassland::Grassland(Coordinate coordinateCell, bool hasGrass){
-  setSymbol('x');
+  setSymbol('-');
   setCoordinate(coordinateCell);
   if(hasGrass) grow();
 }
@@ -16,7 +16,7 @@ Grassland::Grassland(Coordinate coordinateCell, bool hasGrass){
    */
 void Grassland::grow(){
   growGrass();
-  setSymbol('@');
+  setSymbol('#');
 }
 
   /**
@@ -24,5 +24,5 @@ void Grassland::grow(){
    */
 void Grassland::eaten(){
     removeGrass();
-    setSymbol('x');
+    setSymbol('-');
 }

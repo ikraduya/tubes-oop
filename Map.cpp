@@ -1,16 +1,11 @@
 #include "Map.h"
 #include <sstream>
-#include <string>
 
   /**
    * @brief ctor parameter
    *
    * @param mapFilename Nama file yang berisi map
    *
-   * contoh isi file:
-   * 2 3
-   * # - W
-   * P @
    */
 Map::Map(std::string mapFilename){
   std::ifstream file;
@@ -60,3 +55,6 @@ Map::~Map(){
   for(int i=0; i<px.getP(); i++) delete[] cell[i];
   delete[] cell;
 }
+
+Ukuran Map::getUkuran() const { return px; }
+Cell Map::getCell(int i, int j) const { return cell[i][j]; }

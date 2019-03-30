@@ -6,7 +6,7 @@
    * @param Coordinate coordinateCell berisi absis dan ordinat cell
    */
 Coop::Coop(Coordinate coordinateCell, bool hasGrass){
-  setSymbol('x');
+  setSymbol('o');
   setCoordinate(coordinateCell);
   if(hasGrass) grow();
 }
@@ -16,7 +16,7 @@ Coop::Coop(Coordinate coordinateCell, bool hasGrass){
    */
 void Coop::grow(){
   growGrass();
-  setSymbol('@');
+  setSymbol('*');
 }
 
   /**
@@ -24,5 +24,5 @@ void Coop::grow(){
    */
 void Coop::eaten(){
     removeGrass();
-    setSymbol('x');
+    setSymbol('o');
 }

@@ -8,4 +8,5 @@
   Well::Well(int x, int y){
     Coordinate place(x,y);
     setCoordinate(place);
+    setSymbol('W');
   }

@@ -10,7 +10,7 @@
 #include <string>
 #include <fstream>
 #include "Ukuran.h"
-#include "Coordinate.h"
+#include "common/Coordinate.h"
 #include "cell/Cell.h"
 #include "cell/Barn.h"
 #include "cell/Coop.h"
@@ -25,7 +25,7 @@
 class Map{
 private:
   Ukuran px;  /**< ukuran map */
-  static Cell** cell;  /**< array of array of Cell */
+  Cell** cell;  /**< array of array of Cell */
 public:
   /**
    * @brief ctor parameter
@@ -38,6 +38,9 @@ public:
    * @brief Destroy the Map object
    */
   ~Map();
+
+  Ukuran getUkuran() const;
+  Cell getCell(int i, int j) const;
 };
 
 #endif
