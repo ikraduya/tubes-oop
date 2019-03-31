@@ -20,6 +20,13 @@ public:
    * @param x absis petak, dan y ordinat petak
    */
   Well(int x, int y);
+
+  /**
+   * @brief Construct a new Well object
+   * 
+   * @param posisi Koordinat well
+   */
+  Well(Coordinate posisi);
 };
 
 #endif

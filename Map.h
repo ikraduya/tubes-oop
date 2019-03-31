@@ -26,6 +26,9 @@ class Map{
 private:
   Ukuran px;  /**< ukuran map */
   Cell** cell;  /**< array of array of Cell */
+  Coordinate mixerPos;
+  Coordinate truckPos;
+  Coordinate wellPos;
 public:
   /**
    * @brief ctor parameter
@@ -40,7 +43,19 @@ public:
   ~Map();
 
   Ukuran getUkuran() const;
+  
+  /**
+   * @brief Get the Cell object
+   * 
+   * @param i posisi sumbu x
+   * @param j posisi sumbu y
+   * @return Cell& 
+   */
   Cell getCell(int i, int j) const;
+  
+  Coordinate getMixerPosition() const;
+  Coordinate getTruckPosition() const;
+  Coordinate getWellPosition() const;
 };
 
 #endif

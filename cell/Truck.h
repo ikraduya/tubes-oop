@@ -8,6 +8,7 @@
 #define TRUCK_H
 
 #include "Facility.h"
+#include "../common/Coordinate.h"
 
 /**
  * @brief kelas Truck digunakan untuk menjual inventory
@@ -22,6 +23,13 @@ public:
    * @param x absis petak, dan y ordinat petak
    */
   Truck(int x, int y);
+
+  /**
+   * @brief Construct a new Truck object
+   * 
+   * @param koor koordinat truck
+   */
+  Truck(Coordinate posisi);
 
   /**
    * @brief Jual seluruh product pada inventory, menambah uang

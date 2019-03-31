@@ -41,16 +41,37 @@ Map::Map(std::string mapFilename){
         place = Coordinate(i,j); cell[i][j] = Grassland(place, false);
       }else if(mark == "#"){
         place = Coordinate(i,j); cell[i][j] = Grassland(place, true);
-      }else if(mark == "M") cell[i][j] = Mixer(i,j);
-      else if(mark == "T") cell[i][j] = Truck(i,j);
-      else if(mark == "W") cell[i][j] = Well(i,j);
+      }else if(mark == "M") {
+        cell[i][j] = Mixer(i,j);
+        mixerPos = Coordinate(i, j);
+      } else if(mark == "T") {
+        cell[i][j] = Truck(i,j);
+        truckPos = Coordinate(i, j);
+      } else if(mark == "W") {
+        cell[i][j] = Well(i,j);
+        wellPos = Coordinate(i, j);
+      } 
     }
   }
 }
 
-  /**
-   * @brief Destroy the Map object
-   */
+Cell Map::getCell(int x, int y) const{
+  return cell[x][y];
+}
+
+Coordinate Map::getMixerPosition() const {
+  return mixerPos;
+}
+Coordinate Map::getTruckPosition() const {
+  return truckPos;
+}
+Coordinate Map::getWellPosition() const {
+  return wellPos;
+}
+
+/**
+ * @brief Destroy the Map object
+ */
 Map::~Map(){
   for(int i=0; i<px.getP(); i++) delete[] cell[i];
   delete[] cell;

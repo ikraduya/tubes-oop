@@ -11,6 +11,11 @@
     setSymbol('T');
   }
 
+  Truck::Truck(Coordinate posisi) {
+    setCoordinate(posisi);
+    setSymbol('T');
+  }
+
   /**
    * @brief Jual seluruh product pada inventory, menambah uang
    */
