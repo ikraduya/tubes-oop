@@ -26,20 +26,24 @@ class Kambing : public FarmAnimal{
     /**
 	   * @brief Kambing bersuara
 	   */
-    void Bersuara();
+    void Bersuara() const;
 
     /**
      * @brief Kambing menghasilkan susu
      *
      * @return FarmProducts berupa susu kambing
      */
-    FarmProducts Interact();
+    FarmProducts& Interact();
 
     /**
      * @brief Kambing menghasilkan daging dan mati
      *
      * @return FarmProducts berupa daging kambing
      */
-    FarmProducts Kill();
+    FarmProducts& Kill();
+    /**
+     * Menggambar Kambing dengan K
+     */
+    void Render() const;
 };
 #endif
