@@ -195,8 +195,8 @@ FarmProducts& FarmAnimal::Interact(){throw "error";};
  */
 FarmProducts& FarmAnimal::Kill(){throw "error";}
 /**
- * pure virtual Menggambar Hewan
+ * Menggambar Hewan jadi-jadian
  */
-void FarmAnimal::Render() const{
-  cout << "-";
+char FarmAnimal::Render() const{
+  return '-';
 }

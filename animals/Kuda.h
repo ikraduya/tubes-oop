@@ -44,6 +44,6 @@ class Kuda : public FarmAnimal{
     /**
      * Menggambar Kuda dengan H
      */
-    void Render() const;
+    char Render() const;
 };
 #endif

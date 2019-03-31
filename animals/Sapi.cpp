@@ -45,6 +45,6 @@ FarmProducts& Sapi::Kill(){
 /**
  * Menggambar Sapi dengan S
  */
-void Sapi::Render() const{
-  cout << "S";
+char Sapi::Render() const{
+  return 'S';
 }

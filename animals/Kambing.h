@@ -44,6 +44,6 @@ class Kambing : public FarmAnimal{
     /**
      * Menggambar Kambing dengan K
      */
-    void Render() const;
+    char Render() const;
 };
 #endif

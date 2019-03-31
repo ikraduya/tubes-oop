@@ -44,6 +44,6 @@ class Sapi : public FarmAnimal{
     /**
      * Menggambar Sapi dengan S
      */
-    void Render() const;
+    char Render() const;
 };
 #endif

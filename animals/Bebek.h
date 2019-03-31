@@ -43,6 +43,6 @@ class Bebek : public FarmAnimal{
     /**
      * Menggambar Bebek dengan B
      */
-    void Render() const;
+    char Render() const;
 };
 #endif

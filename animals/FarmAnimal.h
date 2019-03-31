@@ -106,6 +106,6 @@ class FarmAnimal{
     /**
      * pure virtual Menggambar Hewan
      */
-    virtual void Render() const;
+    virtual char Render() const;
 };
 #endif

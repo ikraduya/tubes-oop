@@ -45,6 +45,6 @@ FarmProducts& Bebek::Kill(){
 /**
  * Menggambar Bebek dengan B
  */
-void Bebek::Render() const{
-  cout << "B";
+char Bebek::Render() const{
+  return 'B';
 }
