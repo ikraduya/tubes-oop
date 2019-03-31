@@ -1,5 +1,6 @@
 #include "Map.h"
 #include <sstream>
+#include <iostream>
 
   /**
    * @brief ctor parameter
@@ -18,8 +19,8 @@ Map::Map(std::string mapFilename){
   px = Ukuran(std::stoi(line.substr(0, line.find(" "))),
     std::stoi(line.substr(line.find(" ") + 1, line.find("\n"))));
 
-  cell = new Cell*[px.getP()];
-  for(int i=0; i<px.getP(); i++) cell[i] = new Cell[px.getL()];
+  cell = new Cell*[px.getL()];
+  for(int i=0; i<px.getL(); i++) cell[i] = new Cell[px.getP()];
 
   std::string mark;
   for(int i=0; i<px.getL(); i++){
@@ -55,10 +56,6 @@ Map::Map(std::string mapFilename){
   }
 }
 
-Cell Map::getCell(int x, int y) const{
-  return cell[x][y];
-}
-
 Coordinate Map::getMixerPosition() const {
   return mixerPos;
 }
@@ -73,7 +70,9 @@ Coordinate Map::getWellPosition() const {
  * @brief Destroy the Map object
  */
 Map::~Map(){
-  for(int i=0; i<px.getP(); i++) delete[] cell[i];
+  for(int i=0; i<px.getL(); i++) {
+    delete[] cell[i];
+  }
   delete[] cell;
 }
 
