@@ -42,7 +42,19 @@ public:
    */
   ~Map();
 
+  /**
+   * @brief Get the Ukuran map
+   * 
+   * @return Ukuran map
+   */
   Ukuran getUkuran() const;
+
+  /**
+   * @brief Get the Map Symbols
+   * 
+   * @return char** 
+   */
+  Cell*** getMapPtr();
   
   /**
    * @brief Get the Cell object
@@ -53,9 +65,47 @@ public:
    */
   Cell getCell(int i, int j) const;
   
+  /**
+   * @brief Get the Mixer Position object
+   * 
+   * @return Coordinate 
+   */
   Coordinate getMixerPosition() const;
+
+  /**
+   * @brief Get the Truck Position object
+   * 
+   * @return Coordinate 
+   */
   Coordinate getTruckPosition() const;
+
+  /**
+   * @brief Get the Well Position object
+   * 
+   * @return Coordinate 
+   */
   Coordinate getWellPosition() const;
+
+  /**
+   * @brief Get the Mixer Ptr object
+   * 
+   * @return Mixer* 
+   */
+  Facility* getMixerPtr();
+
+  /**
+   * @brief Get the Truck Ptr object
+   * 
+   * @return Truck* 
+   */
+  Facility* getTruckPtr();
+
+  /**
+   * @brief Get the Well Ptr object
+   * 
+   * @return Well* 
+   */
+  Facility* getWellPtr();
 };
 
 #endif

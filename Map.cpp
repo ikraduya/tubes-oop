@@ -2,12 +2,12 @@
 #include <sstream>
 #include <iostream>
 
-  /**
-   * @brief ctor parameter
-   *
-   * @param mapFilename Nama file yang berisi map
-   *
-   */
+/**
+ * @brief ctor parameter
+ *
+ * @param mapFilename Nama file yang berisi map
+ *
+ */
 Map::Map(std::string mapFilename){
   std::ifstream file;
   std::string line;
@@ -31,29 +31,33 @@ Map::Map(std::string mapFilename){
       ss >> mark;
 
       if(mark == "x"){
-        place = Coordinate(i,j); cell[i][j] = Barn(place, false);
+        place = Coordinate(j, i); cell[i][j] = Barn(place, false);
       }else if(mark == "@"){
-        place = Coordinate(i,j); cell[i][j] = Barn(place, true);
+        place = Coordinate(j, i); cell[i][j] = Barn(place, true);
       }else if(mark == "o"){
-        place = Coordinate(i,j); cell[i][j] = Coop(place, false);
+        place = Coordinate(j, i); cell[i][j] = Coop(place, false);
       }else if(mark == "*"){
-        place = Coordinate(i,j); cell[i][j] = Coop(place, true);
+        place = Coordinate(j, i); cell[i][j] = Coop(place, true);
       }else if(mark == "-"){
-        place = Coordinate(i,j); cell[i][j] = Grassland(place, false);
+        place = Coordinate(j, i); cell[i][j] = Grassland(place, false);
       }else if(mark == "#"){
-        place = Coordinate(i,j); cell[i][j] = Grassland(place, true);
+        place = Coordinate(j, i); cell[i][j] = Grassland(place, true);
       }else if(mark == "M") {
-        cell[i][j] = Mixer(i,j);
-        mixerPos = Coordinate(i, j);
+        cell[i][j] = Mixer(j, i);
+        mixerPos = Coordinate(j, i);
       } else if(mark == "T") {
-        cell[i][j] = Truck(i,j);
-        truckPos = Coordinate(i, j);
+        cell[i][j] = Truck(j, i);
+        truckPos = Coordinate(j, i);
       } else if(mark == "W") {
-        cell[i][j] = Well(i,j);
-        wellPos = Coordinate(i, j);
+        cell[i][j] = Well(j, i);
+        wellPos = Coordinate(j, i);
       } 
     }
   }
+}
+
+Cell*** Map::getMapPtr() {
+  return &cell;
 }
 
 Coordinate Map::getMixerPosition() const {
@@ -64,6 +68,19 @@ Coordinate Map::getTruckPosition() const {
 }
 Coordinate Map::getWellPosition() const {
   return wellPos;
+}
+
+
+Facility* Map::getMixerPtr() {
+  return (Facility*) &(cell[mixerPos.getY()][mixerPos.getX()]);
+} 
+
+Facility* Map::getTruckPtr() {
+  return (Facility*) &(cell[truckPos.getY()][truckPos.getX()]);
+}
+
+Facility* Map::getWellPtr() {
+  return (Facility*) &(cell[wellPos.getY()][wellPos.getX()]);
 }
 
 /**

@@ -11,7 +11,9 @@ using namespace std;
  * @param _posisi posisi hewan
  * @param _HungryTime Waktu lapar hewan
  */
-Ayam::Ayam(Coordinate _posisi, int _HungryTime): FarmAnimal(_posisi, _HungryTime, true, true, false){}
+Ayam::Ayam(Coordinate _posisi, int _HungryTime): FarmAnimal(_posisi, _HungryTime, true, true, false){
+  symbol = 'c';
+}
 
 /**
  * @brief Ayam bersuara

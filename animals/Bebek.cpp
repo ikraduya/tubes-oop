@@ -10,7 +10,9 @@ using namespace std;
  * @param _posisi posisi hewan
  * @param _HungryTime
  */
-Bebek::Bebek(Coordinate _posisi, int _HungryTime):FarmAnimal(_posisi, _HungryTime, true, true, false){}
+Bebek::Bebek(Coordinate _posisi, int _HungryTime):FarmAnimal(_posisi, _HungryTime, true, true, false){
+  symbol = 'b';
+}
 
 /**
  * Bebek bersuara

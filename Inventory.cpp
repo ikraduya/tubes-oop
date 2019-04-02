@@ -22,6 +22,7 @@ void Inventory::setJumlahInventori(int jumlah){
 		*/
 int Inventory::getJumlahInventori(){
 	return jumlahInventori;
+	// return inventori.count();
 }  
 
 Products Inventory::getProduct(int idx) {

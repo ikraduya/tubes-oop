@@ -44,6 +44,39 @@ void Coordinate::setX(int x) { this->x = x; }
    */
 void Coordinate::setY(int y) { this->y = y; }
 
+
+void Coordinate::goUp() {
+  y -= 1;
+}
+
+void Coordinate::goDown() {
+  y += 1;
+}
+
+void Coordinate::goLeft() {
+  x -= 1;
+}
+
+void Coordinate::goRight() {
+  x += 1;
+}
+
+Coordinate Coordinate::goUpRet() {
+  return Coordinate(x, y-1);
+}
+  
+Coordinate Coordinate::goDownRet() {
+  return Coordinate(x, y+1);
+}
+
+Coordinate Coordinate::goLeftRet() {
+  return Coordinate(x-1, y);
+}
+
+Coordinate Coordinate::goRightRet() {
+  return Coordinate(x+1, y);
+}
+
 /**
  * @brief operator overloading +
  *
@@ -55,3 +88,11 @@ Coordinate Coordinate::operator+(const Coordinate& c){
 //Coordinate operator+(const Coordinate& c1, const Coordinate& c2){
 //  return Coordinate(c1.getX()+c2.getX(), c1.getY()+c2.getY());
 //}
+
+bool Coordinate::operator==(const Coordinate& c) {
+  return (x == c.getX()) && (y == c.getY());
+}
+
+bool Coordinate::operator!=(const Coordinate& c) {
+  return (!operator==(c));
+}

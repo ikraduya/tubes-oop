@@ -8,6 +8,7 @@
 #define _FARM_H
 
 #include <string>
+#include "Display.h"
 #include "Player.h"
 #include "Map.h"
 #include "animals/FarmAnimal.h"
@@ -18,14 +19,32 @@
  */
 class Farm {
 private:
-  Player player;  /**< Objek player */  
-  Map map;  /**< Objek map */  
-  LinkedList<FarmAnimal> farmAnimals;  /**< List farmAnimals */  
-  Truck truckFacility;  /**< Objek Fasilitas Truck */  
-  Mixer mixerFacility;  /**< Objek Fasilitas Mixer */  
-  Well wellFacility;  /**< Objek Fasilitas Well */
+  Truck *truckFacility;  /**< Objek Fasilitas Truck */  
+  Mixer *mixerFacility;  /**< Objek Fasilitas Mixer */  
+  Well *wellFacility;  /**< Objek Fasilitas Well */
+
+  /**
+   * @brief Memeriksa apakah suatu cell sedang ditempati oleh seekor hewan
+   * 
+   * @param c cell yang ingin diperiksa
+   * @return true cell ditempati hewan
+   * @return false cell tidak ditempati hewan
+   */
+  bool isCellContainAnimal(Coordinate c);
+  
+  /**
+   * @brief memeriksa apakah suatu cell dapat dipijak oleh pemain
+   * 
+   * @param c cell yang ingin diperiksa
+   * @return true cell dapat dipijak
+   * @return false cell tidak dapat dipijak
+   */
+  bool isCellSteppableByPlayer(Coordinate c);
 
 public:
+  Map map;  /**< Objek map */  
+  Player player;  /**< Objek player */  
+  LinkedList<FarmAnimal> farmAnimals;  /**< List farmAnimals */  
   static int globalTick; /**< Variabel tick global */
 
   /**
@@ -36,9 +55,9 @@ public:
   Farm(std::string mapFilename);
 
   /**
-   * Me-render semua grafik (map, player, animal, facilities, jumlah uang, jumlah water)
+   * @brief Destroy the Farm object
    */
-  void renderAll() const;
+  ~Farm();
 
   /**
    * menghapus animal yang telah mati di farmAnimals
@@ -46,10 +65,17 @@ public:
   void removeDeadAnimal();
 
   /**
+   * @brief Get the Farm Animals Ptr object
+   * 
+   * @return LinkedList<FarmAnimal>* 
+   */
+  LinkedList<FarmAnimal>* getFarmAnimalsPtr();
+
+  /**
    * Dispatch tick
    * Menambah variabel tick
    */
-  void tickDispatcher();
+  void dispatchTick();
 
   /**
    * Menerima perintah
@@ -57,6 +83,33 @@ public:
    * @param cmd String perintah
    */
 	void terimaPerintah(std::string cmd);
+
+  /**
+   * @brief Get the Global Tick Ptr object
+   * 
+   * @return int* global tick pointer
+   */
+  static int* getGlobalTickPtr();
+
+  /**
+   * @brief memeriksa apakah player dapat bergerak ke atas
+   */
+  bool isPlayerPossibleUp();
+
+  /**
+   * @brief memeriksa apakah player dapat bergerak ke bawah
+   */
+  bool isPlayerPossibleDown();
+
+  /**
+   * @brief memeriksa apakah player dapat bergerak ke kiri
+   */
+  bool isPlayerPossibleLeft();
+
+  /**
+   * @brief memeriksa apakah player dapat bergerak ke kanan
+   */
+  bool isPlayerPossibleRight();
 };
 
 #endif

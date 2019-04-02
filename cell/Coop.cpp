@@ -1,5 +1,6 @@
 #include "Coop.h"
-
+#include <iostream>
+using namespace std;
   /**
    * @brief ctor parameter, inisialisasi simbol 'o'
    *
@@ -8,7 +9,7 @@
 Coop::Coop(Coordinate coordinateCell, bool hasGrass){
   setSymbol('o');
   setCoordinate(coordinateCell);
-  if(hasGrass) grow();
+  if (hasGrass) grow();
 }
 
   /**
@@ -23,6 +24,6 @@ void Coop::grow(){
    * @brief memanggil fungsi remove Grass, mengubah char symbol menjadi 'o'
    */
 void Coop::eaten(){
-    removeGrass();
-    setSymbol('o');
+  removeGrass();
+  setSymbol('o');
 }

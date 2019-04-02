@@ -6,8 +6,7 @@
    * @param x absis petak, dan y ordinat petak
    */
   Truck::Truck(int x, int y){
-    Coordinate place(x,y);
-    setCoordinate(place);
+    setCoordinate(Coordinate(x,y));
     setSymbol('T');
   }
 

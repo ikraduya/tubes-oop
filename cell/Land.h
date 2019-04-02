@@ -13,19 +13,19 @@
  * @brief Kelas Land adalah daerah untuk beternak hewan
  */
 class Land : public Cell{
-private:
+protected:
   bool hasGrass;  /**< bool ditumbuhi grass */
 public:
   
-    /**
-     * @brief mengubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. grow() saat hasGrass = false
-     */
-    virtual void grow() = 0;
+  /**
+   * @brief mengubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. grow() saat hasGrass = false
+   */
+  virtual void grow() = 0;
 
-    /**
-     * @brief mengubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. eaten() saat hasGrass = true
-     */
-    virtual void eaten() = 0;
+  /**
+   * @brief mengubah nilai symbol sesuai jenis land, asumsi pemanggilan sudah benar. eaten() saat hasGrass = true
+   */
+  virtual void eaten() = 0;
   /**
    * @brief getter hasGrass
    * @return bool hasGrass

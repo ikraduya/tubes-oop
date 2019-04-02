@@ -10,7 +10,9 @@ using namespace std;
  * @param _posisi posisi hewan
  * @param _HungryTime Waktu lapar hewan
  */
-Kambing::Kambing(Coordinate _posisi, int _HungryTime): FarmAnimal(_posisi, _HungryTime, false, true, true){}
+Kambing::Kambing(Coordinate _posisi, int _HungryTime): FarmAnimal(_posisi, _HungryTime, false, true, true){
+  symbol = 'g';
+}
 
 /**
  * @brief Kambing bersuara

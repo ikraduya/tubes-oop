@@ -6,11 +6,8 @@
 
 #include "Player.h"
 
-
-		/**
-		* default constructor
-		*/
-Player::Player() : posisi(0,0) {
+// posisi default (10, 6)
+Player::Player() : posisi(10,6), inventori() {
 	wadahAir = 0;
 	uang = 0;
 	arah = UP;
@@ -21,12 +18,17 @@ Player::Player() : posisi(0,0) {
 		*/
 Player::~Player(){}
 
-		/**
-		* Get inventori
-		*/
+/**
+* Get inventori
+*/
 Inventory& Player::getInventori() {
 	return inventori;
 }
+
+Inventory* Player::getInventoriPtr() {
+	return &inventori;
+}
+
 		/**
 		* Set jumlah air
 		*/
@@ -39,6 +41,10 @@ void Player::setWadahAir(int jumlah){
 int Player::getWadahAir(){
 	return wadahAir;
 } 
+
+int* Player::getAirPtr() {
+	return &wadahAir;
+}
 		/**
 		* Set nilai uang
 		*/
@@ -51,6 +57,10 @@ void Player::setUang(int nilai){
 int Player::getUang(){
 	return uang;
 } 
+
+int* Player::getUangPtr() {
+	return &uang;
+}
 		/**
 		* Set arah player menghadap
 		*/
@@ -63,6 +73,10 @@ void Player::setArah(ArahEnum _arah){
 ArahEnum Player::getArah(){
 	return arah;
 } 
+
+ArahEnum* Player::getArahPtr() {
+	return &arah;
+}
 		/**
 		* Set posisi player
 		*/
@@ -75,43 +89,35 @@ void Player::setCoordinate(Coordinate _posisi){
 Coordinate Player::getCoordinate(){
 	return posisi;
 } 
-		
+
+Coordinate* Player::getCoordinatePtr() {
+	return &posisi;
+}
+
 		/**
 		* Player bergerak
 		* Player pindah ke atas
 		*/
 void Player::up(){
-	Coordinate translate(0,-1);
-	if (getCoordinate().getY() != 0) {
-		posisi = posisi + translate;
-	}
+	posisi.goUp();
 } 
 		/**
 		* Player pindah ke bawah
 		*/
 void Player::down(){
-	Coordinate translate(0,1);
-	if (getCoordinate().getY() != 0) {
-		posisi = posisi + translate;
-	}
+	posisi.goDown();
 } 
 		/**
 		* Player pindah ke kiri
 		*/
 void Player::left(){
-	Coordinate translate(-1,0);
-	if (getCoordinate().getX() != 0) {
-		posisi = posisi + translate;
-	}
+	posisi.goLeft();
 } 
 		/**
 		* Player pindah ke kanan
 		*/
 void Player::right(){
-	Coordinate translate(1,0);
-	if (getCoordinate().getY() != 0) {
-		posisi = posisi + translate;
-	}
+	posisi.goRight();
 }
 
 		/**

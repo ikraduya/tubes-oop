@@ -11,9 +11,11 @@
 #include "common/LinkedList.h"
 #include "Inventory.h"
 #include "products/Products.h"
+#include "Player.h"
+#include "common/Coordinate.h"
 
-#define MAP_X_SIZE 21
-#define MAP_Y_SIZE 10
+#define MAP_X_DISP_SIZE 21
+#define MAP_Y_DISP_SIZE 10
 
 #define SIDE_BAR_X_SIZE 21
 
@@ -24,19 +26,6 @@
 
 class Display {
   private:
-    const char *map_hard[MAP_X_SIZE] = {
-      "o o o - x x x x - - T",
-      "o * * - x x x x - - M",
-      "o * o - x x @ @ - - -",
-      "- - - - x x x @ - - W",
-      "- - - - x x x x - - -",
-      "- - - - x x x x - - -",
-      "- - - - - - - - - - P",
-      "- - # - - - - - - - -",
-      "- - # # - - - - - - -",
-      "- - - # # - - - - - -"
-    };
-
     /**
      * @brief Hardcoded legend
      */
@@ -63,8 +52,15 @@ class Display {
     char **legend; /**< Tampilan legend */
     char *timeTick; /**< Tampilan time tick */
     char face; /**< Tampilan arah hadap pemain */
-
+    
     Inventory *inventoryPtr; /**< Product list pointer */
+    Cell*** mapPtr;
+    int* uangPtr;
+    int* airPtr;
+    ArahEnum* arahPtr;
+    int* tickPtr;
+    Coordinate* posisiPlayer;
+    LinkedList<FarmAnimal>* farmAnimals;
 
     /**
      * @brief Set the string To array of char object
@@ -74,6 +70,14 @@ class Display {
      * @param strLen panjang array of char maksimal
      */
     void setStrToArrChr(char * arrChr, std::string str, int strLen);
+
+    /**
+     * @brief Mengubah arah ke char
+     * 
+     * @param arah arah
+     * @return char char arah
+     */
+    char arahToChar(ArahEnum arah);
 
     /**
      * @brief Mengubah array of char ke strings
@@ -105,7 +109,8 @@ class Display {
      * 
      * @param _inventory alamat inventory pemain
      */
-    Display(Inventory *_inventory);
+    Display(Cell*** _map, Inventory *_inventory, int* _uang, int *_air, ArahEnum* _arah,
+      Coordinate* _posisiPlayer, LinkedList<FarmAnimal>* _farmAnimals, int* _tick);
 
     /**
      * @brief Destroy the Display object
@@ -121,6 +126,11 @@ class Display {
      * @brief merender tampilan ke layar
      */
     void renderAll();
+
+    /**
+     * @brief Update dan render tampilan
+     */
+    void updateAndRender();
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "FarmAnimal.h"
+#include "../common/LinkedList.h"
 #include "../cell/Barn.h"
 #include "../cell/Grassland.h"
 #include "../cell/Coop.h"
@@ -12,12 +13,16 @@ using namespace std;
 
 int FarmAnimal::jumlahHewan = 0; /**< Jumlah hewan di suatu waktu */
 int FarmAnimal::autoIncAnimalId = 0;
+bool FarmAnimal::srandExecuted = false;
 /**
  * @brief Construct a new Farm Animal object
  */
-FarmAnimal::FarmAnimal(){
+FarmAnimal::FarmAnimal() : posisi(){
+  if (!srandExecuted) {
+    srand(time(NULL));
+    srandExecuted = true;
+  }
   animalId = autoIncAnimalId++;
-  Coordinate posisi;
   isProduceEgg = false;
   isProduceMeat = false;
   isProduceMilk = false;
@@ -26,23 +31,6 @@ FarmAnimal::FarmAnimal(){
   canInteract = false;
   remainingTic = false;
   jumlahHewan++;
-  gerak= new Coordinate[8];
-  gerak[0].setX(0);
-  gerak[0].setY(1);
-  gerak[1].setX(0);
-  gerak[1].setY(-1);
-  gerak[2].setX(1);
-  gerak[2].setY(0);
-  gerak[3].setX(-1);
-  gerak[3].setY(0);
-  gerak[4].setX(-1);
-  gerak[4].setY(1);
-  gerak[5].setX(1);
-  gerak[5].setY(1);
-  gerak[6].setX(-1);
-  gerak[6].setY(1);
-  gerak[7].setX(-1);
-  gerak[7].setY(-1);
 }
 /**
  * @brief Construct a new Farm Animal object
@@ -53,8 +41,12 @@ FarmAnimal::FarmAnimal(){
  * @param _isProduceMeat menghasilkan daging atau tidak
  * @param _isProduceMilk menghasilkan susu atau tidak
  */
-FarmAnimal::FarmAnimal(Coordinate _posisi, int _HungryTime, bool _isProduceEgg, bool _isProduceMeat, bool _isProduceMilk){
-  Coordinate posisi(_posisi.getX(), _posisi.getY());
+FarmAnimal::FarmAnimal(Coordinate _posisi, int _HungryTime, bool _isProduceEgg, bool _isProduceMeat, bool _isProduceMilk) : posisi(_posisi.getX(), _posisi.getY()){
+  if (!srandExecuted) {
+    srand(time(NULL));
+    srandExecuted = true;
+  }
+  animalId = autoIncAnimalId++;
   HungryTime = _HungryTime;
   isProduceEgg = _isProduceEgg;
   isProduceMeat = _isProduceMeat;
@@ -64,31 +56,54 @@ FarmAnimal::FarmAnimal(Coordinate _posisi, int _HungryTime, bool _isProduceEgg, 
   canInteract = false;
   remainingTic = _HungryTime;
   jumlahHewan++;
-  gerak= new Coordinate[8];
-  gerak[0].setX(0);
-  gerak[0].setY(1);
-  gerak[1].setX(0);
-  gerak[1].setY(-1);
-  gerak[2].setX(1);
-  gerak[2].setY(0);
-  gerak[3].setX(-1);
-  gerak[3].setY(0);
-  gerak[4].setX(-1);
-  gerak[4].setY(1);
-  gerak[5].setX(1);
-  gerak[5].setY(1);
-  gerak[6].setX(-1);
-  gerak[6].setY(1);
-  gerak[7].setX(-1);
-  gerak[7].setY(-1);
 }
 
 /**
  * @brief dtor
  */
 FarmAnimal::~FarmAnimal(){
-  delete[] gerak;
   jumlahHewan--;
+}
+
+bool FarmAnimal::isCellContainAnimal(LinkedList<FarmAnimal>* farmAnimals, Coordinate &c) {
+  int animalsLen = farmAnimals->count();
+  int i;
+  for (i=0; i<animalsLen; i++) {
+    if (farmAnimals->get(i).getPos() == c) {
+      break;
+    }
+  }
+  return (i < animalsLen);
+}
+
+bool FarmAnimal::isCellSteppable(Cell * cell, LinkedList<FarmAnimal>* farmAnimals, Coordinate& playerPos) {
+  Coordinate c = (*cell).getCoordinate();  
+  // cek apakah berada di land yang diperbolehkan
+  if ((isProduceEgg && ((*cell).getSymbol() == 'o' || (*cell).getSymbol() == '*'))
+    ||(isProduceMeat && ((*cell).getSymbol() == 'x' || (*cell).getSymbol() == '@'))
+    ||(isProduceMilk && ((*cell).getSymbol() == '-' || (*cell).getSymbol() == '#'))) {
+
+    // cek apakah ada player atau animal di cell tersebut
+    return (playerPos != c) && !isCellContainAnimal(farmAnimals, c);
+  }
+  return false;
+}
+
+Coordinate FarmAnimal::gerakF(int c) {
+  switch (c) {
+    case 0:
+      return Coordinate(0, 1);
+      break;
+    case 1:
+      return Coordinate(0, -1);
+      break;
+    case 2:
+      return Coordinate(1, 0);
+      break;
+    case 3:
+      return Coordinate(-1, 0);
+      break;
+  }
 }
 
 /**
@@ -109,6 +124,11 @@ bool FarmAnimal::isInteractAble() const{
   return isProduceEgg || isProduceMilk;
 }
 
+bool FarmAnimal::getIsHungry() const {
+  return isHungry;
+}
+
+
 /**
  * Status hewan mati atau tidak
  */
@@ -119,47 +139,71 @@ bool FarmAnimal::isAlive() const{
 /**
  * Hewan makan
  */
-void FarmAnimal::Makan(Cell **cell){
-  if (isHungry && ((isProduceEgg && cell[posisi.getX()][posisi.getY()].getSymbol() == '*')
-               || (isProduceMeat && cell[posisi.getX()][posisi.getY()].getSymbol() == '@')
-               || (isProduceMilk && cell[posisi.getX()][posisi.getY()].getSymbol() == '#'))
-      ){
-    isHungry = false;
-  }
-  if (!isHungry){
-    remainingTic = HungryTime;
+void FarmAnimal::Makan(Cell ***cell){
+  if (isHungry) {
+    int x = posisi.getX(), y = posisi.getY();
+    
+    Land *land = (Land *) &((*cell)[y][x]);
+    if (land->getSymbol() == '*' || land->getSymbol() == '@' || land->getSymbol() == '#') {
+      land->removeGrass();
+      if (land->getSymbol() == '*') {
+        ((Coop*)land)->setSymbol('o');
+      } else if (land->getSymbol() == '@') {
+        ((Barn*)land)->setSymbol('x');
+      } else if (land->getSymbol() == '#') {
+        ((Grassland*)land)->setSymbol('-');
+      }
+      isHungry = false;
+      remainingTic = HungryTime;
+    } else {
+      remainingTic--;
+    }
     canInteract = true;
-    //cell[posisi.getX()][posisi.getY()].eaten();
+  } else {
+    remainingTic--;
   }
 }
 
 /**
  * Hewan bergerak
  */
-void FarmAnimal::Move(Cell** cell){
-  bool MasukPakEko = false;
-  int choice;
-  Coordinate test;
-  while (!MasukPakEko){
-    srand(time(NULL));
-    choice = rand() % 4;
-    test.setX(posisi.getX() + gerak[choice].getX());
-    test.setY(posisi.getY() + gerak[choice].getY());
-    MasukPakEko = (isProduceEgg && cell[test.getX()][test.getY()].getSymbol() == 'o')
-       ||(isProduceMeat && cell[test.getX()][test.getY()].getSymbol() == 'x')
-       ||(isProduceMilk && cell[test.getX()][test.getY()].getSymbol() == '-');
+void FarmAnimal::Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal>* farmAnimals){
+  const int MAP_SIZE_Y = 10;
+  const int MAP_SIZE_X = 11;
+
+  LinkedList<int> mvChoice;
+  // bawah, atas, kanan, kiri
+  int posX = posisi.getX(), posY = posisi.getY();
+  if (posY < MAP_SIZE_Y-1 && isCellSteppable(&(*cell)[posY+1][posX], farmAnimals, playerPos)) {
+    mvChoice.add(0);
   }
-  posisi.setX(test.getX());
-  posisi.setY(test.getY());
+  if (posY > 0 && isCellSteppable(&(*cell)[posY-1][posX], farmAnimals, playerPos)) {
+    mvChoice.add(1);
+  }
+  if (posX < MAP_SIZE_X-1 && isCellSteppable(&(*cell)[posY][posX+1], farmAnimals, playerPos)) {
+    mvChoice.add(2);
+  }
+  if (posX > 0 && isCellSteppable(&(*cell)[posY][posX-1], farmAnimals, playerPos)) {
+    mvChoice.add(3);
+  }
+
+  if (!mvChoice.isEmpty()) {
+    srand(time(NULL));
+    int choice = mvChoice.get(rand() % mvChoice.count());
+    posisi = posisi + gerakF(choice);
+  }
 }
 
 
 /**
  * Aksi hewan setiap Tic
  */
-void FarmAnimal::RespondToTic(Cell **cell){
-  Move(cell);
+void FarmAnimal::RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal>* farmAnimal){
   Makan(cell);
+  int r = rand() % 10;
+  if (r < 7) {
+    Move(cell, playerPos, farmAnimal);
+  }
   countHungry();
 }
 
@@ -169,10 +213,9 @@ void FarmAnimal::RespondToTic(Cell **cell){
 void FarmAnimal::countHungry(){
   if (remainingTic == 0){
     isHungry = true;
-  } else if (remainingTic == -5){
+  } else if (remainingTic <= -5){
     liveStatus = false;
   }
-  remainingTic--;
 }
 
 /**
@@ -197,11 +240,30 @@ FarmProducts& FarmAnimal::Interact(){throw "error";};
  * Menghasilkan daging
  */
 FarmProducts& FarmAnimal::Kill(){throw "error";}
+
+char FarmAnimal::getSymbol() const {
+  return symbol;
+}
 /**
  * Menggambar Hewan jadi-jadian
  */
 char FarmAnimal::Render() const{
   return '-';
+}
+
+FarmAnimal& FarmAnimal::operator=(const FarmAnimal& other) {
+  if (this != &other) {
+    animalId = other.autoIncAnimalId;
+    HungryTime = other.HungryTime;
+    isProduceEgg = other.isProduceEgg;
+    isProduceMeat = other.isProduceMeat;
+    isProduceMilk = other.isProduceMilk;
+    liveStatus = other.liveStatus;
+    isHungry = other.isHungry; //???
+    canInteract = other.canInteract;
+    remainingTic = other.remainingTic;
+  }
+  return *this;
 }
 
 bool FarmAnimal::operator==(const FarmAnimal& other) {

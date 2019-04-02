@@ -9,12 +9,38 @@
 
 #include "../products/FarmProducts.h"
 #include "../common/Coordinate.h"
+#include "../common/LinkedList.h"
 #include "../cell/Cell.h"
 
 /**
  * Kelas FarmAnimal menyimpan semua jenis hewan
  */
 class FarmAnimal{
+  private:
+    /**
+     * @brief menghasilkan opsi gerak sesuai choice
+     * 
+     * @param c 
+     * @return Coordinate 
+     */
+    Coordinate gerakF(int c);
+
+    /**
+     * @brief Memeriksa apakah di sebuah sel terdapat animal
+     */
+    bool isCellContainAnimal(LinkedList<FarmAnimal>* farmAnimals, Coordinate &c);
+
+    /**
+     * @brief memeriksa apakah suatu cell dapat dipijak oleh hewan
+     * 
+     * @param cell cell yang ingin diperiksa
+     * @param farmAnimals pointer to farm animals
+     * @param playerPos posisi player
+     * @return true jika cell bisa dipijak
+     * @return false jika cell tidak bisa dipijak
+     */
+    bool isCellSteppable(Cell * cell, LinkedList<FarmAnimal>* farmAnimals, Coordinate& playerPos) ;
+
   protected:
     int animalId; /**< ID hewan */
     bool isProduceEgg; /**< Mengahasilkan telur atau tidak */
@@ -26,11 +52,12 @@ class FarmAnimal{
     int remainingTic; /**< Ketika hewan lapar, akan memberitahu berapa lama lagi hewan itu lapar (HungryTime .. 0). Ketika hewan tidak lapar, akan memberitahu berapa lama lagi hewan itu akan mati (0 .. -5) */
     int HungryTime; /**< Waktu lapar */
     Coordinate posisi; /**< Posisi hewan pada cell */
-    Coordinate *gerak; /**< Gerak atas, bawah, kanan kiri */
+    char symbol; /**< Simbol hewan */
 
   public:
     static int jumlahHewan; /**< Jumlah hewan di suatu waktu */
     static int autoIncAnimalId;
+    static bool srandExecuted;
     /**
      * @brief Construct a new Farm Animal object
      */
@@ -64,13 +91,27 @@ class FarmAnimal{
     bool isInteractAble() const;
 
     /**
+     * @brief Get the Is Hungry object
+     * 
+     * @return true hewan lapar
+     * @return false hewan tidak lapar
+     */
+    bool getIsHungry() const;
+
+    /**
 	   * Hewan makan
 	   */
-    void Makan(Cell** cell);
+    void Makan(Cell*** cell);
+
     /**
-	   * Hewan bergerak
-	   */
-    void Move(Cell** cell);
+     * @brief Hewan bergerak
+     * 
+     * @param cell pointer ke map
+     * @param playerPos posisi player
+     * @param farmAnimals 
+     */
+    void Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal>* farmAnimals);
+
     /**
 	   * Pure virtual bersuara
 	   */
@@ -78,7 +119,7 @@ class FarmAnimal{
     /**
      * Aksi hewan setiap Tic
      */
-    void RespondToTic(Cell **cell);
+    void RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal>* farmAnimal);
     /**
 	   * Menghitung waktu hingga lapar
      * ======================Diubah dari int menjadi void karena tidak perlu return int
@@ -105,10 +146,26 @@ class FarmAnimal{
      * ================Diubah karena tidak ada getter
      */
     Coordinate getPos() const;
+
+    /**
+     * @brief Get the Symbol object
+     * 
+     * @return char simbol hewan
+     */
+    char getSymbol() const;
+
     /**
      * pure virtual Menggambar Hewan
      */
-    virtual void Render() const;
+    virtual char Render() const;
+
+    /**
+     * @brief Overloading =
+     * 
+     * @param other 
+     * @return FarmAnimal& 
+     */
+    FarmAnimal& operator=(const FarmAnimal& other);
 
     /**
      * @brief Overide operator==

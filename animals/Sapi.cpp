@@ -10,7 +10,9 @@ using namespace std;
  * @param _posisi posisi hewan
  * @param _HungryTime Waktu lapar hewan
  */
-Sapi::Sapi(Coordinate _posisi, int _HungryTime): FarmAnimal(_posisi, _HungryTime, false, true, true){}
+Sapi::Sapi(Coordinate _posisi, int _HungryTime): FarmAnimal(_posisi, _HungryTime, false, true, true){
+  symbol = 's';
+}
 
 /**
  * @brief Sapi bersuara

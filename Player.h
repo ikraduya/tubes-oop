@@ -71,6 +71,14 @@ class Player {
 		* Get inventori
 		*/
 		Inventory& getInventori();
+
+		/**
+		 * @brief Get the Inventori Ptr object, digunakan oleh kelas Display
+		 * 
+		 * @return Inventory* pointer ke inventory pemain
+		 */
+		Inventory* getInventoriPtr();
+		
 		/**
 		* Set jumlah air
 		*/
@@ -80,6 +88,12 @@ class Player {
 		*/
 		int getWadahAir(); 
 		/**
+		 * @brief Get the Air Ptr object
+		 * 
+		 * @return int* air
+		 */
+		int *getAirPtr();
+		/**
 		* Set nilai uang
 		*/
 		void setUang(int nilai); 
@@ -88,6 +102,13 @@ class Player {
 		*/
 		int getUang(); 
 		/**
+		 * @brief Get the Uang Ptr object
+		 * 
+		 * @return int* uang
+		 */
+		int* getUangPtr();
+
+		/**
 		* Set arah player menghadap
 		*/
 		void setArah(ArahEnum); 
@@ -95,6 +116,14 @@ class Player {
 		* Get arah player menghadap
 		*/
 		ArahEnum getArah(); 
+
+		/**
+		 * @brief Get the Arah Ptr object
+		 * 
+		 * @return ArahEnum* arah hadap pemain
+		 */
+		ArahEnum* getArahPtr();
+		
 		/**
 		* Set posisi player
 		*/
@@ -103,6 +132,13 @@ class Player {
 		* Get posisi absis player
 		*/
 		Coordinate getCoordinate(); 
+
+		/**
+		 * @brief Get the Coordinate Ptr object, digunakan di kelas display
+		 * 
+		 * @return Coordinate* pointer koordinat player
+		 */
+		Coordinate* getCoordinatePtr();
 		
 		/**
 		* Player bergerak

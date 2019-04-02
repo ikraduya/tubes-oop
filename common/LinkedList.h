@@ -52,7 +52,6 @@ public:
         ptDel = pt;
         pt = pt->next;
         delete ptDel;
-        std::cout << "hehe" << std::endl;
       }
     }
   };
@@ -103,10 +102,8 @@ public:
       while(pt->next != NULLLinkedList){
         pt = pt->next;
       }
-
       tNode<T>* pIns = new tNode<T>(el);
       // pIns->data = el;
-      pIns->next = NULLLinkedList;
       pt->next = pIns;
     }
   };
@@ -123,7 +120,6 @@ public:
           delete head;
           head = NULLLinkedList;
         } else {
-          std::cout << "fuk" << std::endl;
           tNode<T>* delPt = head;
           head = head->next;
           delete delPt;
@@ -163,7 +159,6 @@ public:
         i++;
       }
       if (i == idx && pt != NULLLinkedList) {
-        //std::cout << pt->data << std::endl;
         return pt->data;
       } else {
         throw LinkedListExp("Element tidak ditemukan");

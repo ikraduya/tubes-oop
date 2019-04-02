@@ -14,8 +14,9 @@
  */
 class Cell{
 private:
-  char symbol;  /**< Karaktek simbol disetiap petak */
   Coordinate coordinate; /**< Koordinat setiap petak */
+protected:
+  char symbol;  /**< Karaktek simbol disetiap petak */
 public:
   /**
    * @brief ctor default
