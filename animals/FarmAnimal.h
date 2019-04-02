@@ -16,6 +16,7 @@
  */
 class FarmAnimal{
   protected:
+    int animalId; /**< ID hewan */
     bool isProduceEgg; /**< Mengahasilkan telur atau tidak */
     bool isProduceMeat; /**< Menghasilkan daging atau tidak */
     bool isProduceMilk; /**< Menghasilkan susu atau tidak */
@@ -29,6 +30,7 @@ class FarmAnimal{
 
   public:
     static int jumlahHewan; /**< Jumlah hewan di suatu waktu */
+    static int autoIncAnimalId;
     /**
      * @brief Construct a new Farm Animal object
      */
@@ -107,5 +109,23 @@ class FarmAnimal{
      * pure virtual Menggambar Hewan
      */
     virtual void Render() const;
+
+    /**
+     * @brief Overide operator==
+     * 
+     * @param other FarmAnimal lain
+     * @return true Jika animalId sama
+     * @return false Jika animalId beda
+     */
+    bool operator==(const FarmAnimal& other);
+
+    /**
+     * @brief Overide operator!=
+     * 
+     * @param other FarmAnimal lain
+     * @return true Jika animalId beda
+     * @return false Jika animalId sama
+     */
+    bool operator!=(const FarmAnimal& other);
 };
 #endif

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "FarmAnimal.h"
 #include "../cell/Barn.h"
-#include "../cell/GrassLand.h"
+#include "../cell/Grassland.h"
 #include "../cell/Coop.h"
 #include "../cell/Cell.h"
 #include <stdlib.h>
@@ -11,10 +11,12 @@
 using namespace std;
 
 int FarmAnimal::jumlahHewan = 0; /**< Jumlah hewan di suatu waktu */
+int FarmAnimal::autoIncAnimalId = 0;
 /**
  * @brief Construct a new Farm Animal object
  */
 FarmAnimal::FarmAnimal(){
+  animalId = autoIncAnimalId++;
   Coordinate posisi;
   isProduceEgg = false;
   isProduceMeat = false;
@@ -85,6 +87,7 @@ FarmAnimal::FarmAnimal(Coordinate _posisi, int _HungryTime, bool _isProduceEgg, 
  * @brief dtor
  */
 FarmAnimal::~FarmAnimal(){
+  delete[] gerak;
   jumlahHewan--;
 }
 
@@ -200,3 +203,12 @@ FarmProducts& FarmAnimal::Kill(){throw "error";}
 void FarmAnimal::Render() const{
   cout << "-";
 }
+
+bool FarmAnimal::operator==(const FarmAnimal& other) {
+  return (this->animalId == other.animalId);
+}
+
+bool FarmAnimal::operator!=(const FarmAnimal& other) {
+  return (this->animalId != other.animalId);
+}
+

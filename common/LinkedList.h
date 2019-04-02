@@ -154,7 +154,7 @@ public:
    * @param idx Indeks yang diperiksa
    * @return T Elemen yang diperiksa
    */
-  T get(int idx) const {
+  T& get(int idx) const {
     if (idx >= 0 && !isEmpty()) {
       int i = 0;
       tNode<T>* pt = head;
