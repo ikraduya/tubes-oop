@@ -43,7 +43,7 @@ class Ayam : public FarmAnimal{
     /**
      * Menggambar Ayam dengan A
      */
-    void Render() const;
+    char Render() const;
 };
 
 #endif

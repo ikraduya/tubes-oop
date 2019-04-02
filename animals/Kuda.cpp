@@ -45,6 +45,6 @@ FarmProducts& Kuda::Kill(){
 /**
  * Menggambar Kuda dengan H
  */
-void Kuda::Render() const{
-  cout << "H";
+char Kuda::Render() const{
+  return 'H';
 }

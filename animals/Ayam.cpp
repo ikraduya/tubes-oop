@@ -45,6 +45,6 @@ FarmProducts& Ayam::Kill(){
 /**
  * Menggambar Ayam dengan A
  */
-void Ayam::Render() const{
-  cout << "A";
+char Ayam::Render() const{
+  return 'C';
 }

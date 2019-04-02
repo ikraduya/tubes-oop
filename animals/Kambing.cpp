@@ -45,6 +45,6 @@ FarmProducts& Kambing::Kill(){
 /**
  * Menggambar Kambing dengan K
  */
-void Kambing::Render() const{
-  cout << "K";
+char Kambing::Render() const{
+  return 'K';
 }
