@@ -6,9 +6,9 @@
 int printMainMenu() {
   // Layar awal
   system("clear");
-  std::cout << "----------------------------------------------------" << std::endl;
-  std::cout << "|          Selamat Datang di Engi's Farm           |" << std::endl;
-  std::cout << "----------------------------------------------------" << std::endl;
+  std::cout << "-------------------------------------------------------------" << std::endl;
+  std::cout << "|               Selamat Datang di Engi's Farm               |" << std::endl;
+  std::cout << "-------------------------------------------------------------" << std::endl;
   std::cout << "" << std::endl;
   std::cout << "Pilihan menu:" << std::endl;
   std::cout << "[1] Start Game" << std::endl;
@@ -27,21 +27,21 @@ int printMainMenu() {
 }
 
 void printExit() {
-  std::cout << "----------------------------------------------------" << std::endl;
-  std::cout << "|                Selamat Tinggal :)                |" << std::endl;
-  std::cout << "----------------------------------------------------" << std::endl;
+  std::cout << "-------------------------------------------------------------" << std::endl;
+  std::cout << "|                     Selamat Tinggal :)                    |" << std::endl;
+  std::cout << "-------------------------------------------------------------" << std::endl;
 }
 
 void gameOver() {
-  std::cout << "----------------------------------------------------" << std::endl;
-  std::cout << "|                    Game over!                    |" << std::endl;
-  std::cout << "----------------------------------------------------" << std::endl;
+  std::cout << "-------------------------------------------------------------" << std::endl;
+  std::cout << "|                        Game over!                         |" << std::endl;
+  std::cout << "-------------------------------------------------------------" << std::endl;
 }
 
 int main() {
   bool exitFlag = false;
+  
   // Initialize everything
-
   Farm farm("Map.txt");
   Display disp(farm.map.getMapPtr(), 
     farm.player.getInventoriPtr(), 
@@ -62,6 +62,7 @@ int main() {
     exitFlag = true;
   }
   if (!exitFlag) {
+    system("clear");
     disp.renderAll();
   }
 
@@ -116,18 +117,17 @@ int main() {
       continue;
     }
 
-    if (farm.farmAnimals.count() <= 0) {
-      exitFlag = true;
-      gameOver();
-      std::cin >> cmd;
-    }
     if (!exitFlag) {
       farm.dispatchTick();
+      system("clear");
       disp.updateAndRender();
+      if (farm.isGameOver()) {
+        exitFlag = true;
+        gameOver();
+      }
     }
   }
-
-  system("clear");
   printExit();
+
   return 0;
 }

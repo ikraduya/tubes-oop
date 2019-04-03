@@ -103,3 +103,7 @@ bool Farm::isPlayerPossibleRight() {
   return (isCellSteppableByPlayer(player.getCoordinate().goRightRet()));
 }
 
+bool Farm::isGameOver() {
+  return (farmAnimals.count() <= 0);
+}
+

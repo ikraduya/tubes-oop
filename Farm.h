@@ -110,6 +110,11 @@ public:
    * @brief memeriksa apakah player dapat bergerak ke kanan
    */
   bool isPlayerPossibleRight();
+
+  /**
+   * @brief Memeriksa apakah permainan telah berakhir
+   */
+  bool isGameOver();
 };
 
 #endif
