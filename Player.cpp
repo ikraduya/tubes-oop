@@ -4,11 +4,16 @@
  * @date 2019-03-16
  */
 
+#include <iostream>
 #include "Player.h"
+#include "cell/Land.h"
+#include "cell/Barn.h"
+#include "cell/Grassland.h"
+#include "cell/Coop.h"
 
 // posisi default (10, 6)
 Player::Player() : posisi(10,6), inventori() {
-	wadahAir = 0;
+	wadahAir = MaxWater;
 	uang = 0;
 	arah = UP;
 }
@@ -158,16 +163,38 @@ void Player::interact(FarmAnimal &animal){}
 		* User memberi perintah kill
 		*/
 void Player::cmdKill(){}
-		/**
-		* User memberi perintah grow
-		*/
-void Player::cmdGrow(){} 
-		/**
-		* Command dengan facility
-		* Melihat inventori
-		*/
-void Player::cekInventory(){
 
+void Player::cmdGrow(Cell*** map){
+	if (wadahAir > 0) {
+		int posX = posisi.getX(), posY = posisi.getY();
+		Land *land = (Land*) &((*map)[posY][posX]);
+		if (land->getSymbol() == 'o' || land->getSymbol() == 'x' || land->getSymbol() == '-') {
+			land->growGrass();
+			if (land->getSymbol() == 'o') {
+        ((Coop*)land)->setSymbol('*');
+      } else if (land->getSymbol() == 'x') {
+        ((Barn*)land)->setSymbol('@');
+      } else if (land->getSymbol() == '-') {
+        ((Grassland*)land)->setSymbol('#');
+      }
+			wadahAir--;
+		}
+	} else {
+		std::cout << "\nWadah air kosong!" << std::endl;
+	}
+} 
+
+void Player::cekInventory(){
+	if (inventori.getJumlahInventori() <= 0) {
+		std::cout << "Inventory kosong!" << std::endl;	
+	} else {
+		std::cout << "Inventory:" << std::endl;
+		int invLen = inventori.getJumlahInventori();
+		for (int i=0; i<invLen; i++) {
+			std::cout << "- " + inventori.getProduct(i).getName() << std::endl;
+		}
+		std::cout << std::endl;
+	}
 } 
 		/**
 		* Isi air

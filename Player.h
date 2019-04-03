@@ -191,7 +191,7 @@ class Player {
 		/**
 		* User memberi perintah grow
 		*/
-		void cmdGrow(); 
+		void cmdGrow(Cell*** map);
 		/**
 		* Command dengan facility
 		* Melihat inventori

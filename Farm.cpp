@@ -10,15 +10,15 @@ Farm::Farm(std::string mapFilename) : player(), map(mapFilename), farmAnimals() 
   wellFacility = (Well *) map.getWellPtr();
 
   // hardcode animal
-  const int hungryTimeAyam = 5;
+  const int hungryTimeAyam = 8;
   const int hungryTimeKambing = 8;
   const int hungryTimeKuda = 10;
   const int hungryTimeBebek = 6;
   const int hungryTimeSapi = 7;
   farmAnimals.add(Ayam(Coordinate(0, 0), hungryTimeAyam));
-  // farmAnimals.add(Ayam(Coordinate(2, 0), hungryTimeAyam));
-  // farmAnimals.add(Kambing(Coordinate(5, 0), hungryTimeKambing));
-  // farmAnimals.add(Kambing(Coordinate(6, 4), hungryTimeKambing));
+  farmAnimals.add(Ayam(Coordinate(2, 0), hungryTimeAyam));
+  farmAnimals.add(Kambing(Coordinate(5, 0), hungryTimeKambing));
+  farmAnimals.add(Kambing(Coordinate(6, 4), hungryTimeKambing));
   // farmAnimals.add(Kuda(Coordinate(7, 7), hungryTimeKuda));
   // farmAnimals.add(Kuda(Coordinate(5, 8), hungryTimeKuda));
 }
@@ -101,6 +101,22 @@ bool Farm::isPlayerPossibleLeft() {
 
 bool Farm::isPlayerPossibleRight() {
   return (isCellSteppableByPlayer(player.getCoordinate().goRightRet()));
+}
+
+void Farm::playerCmdGrow() {
+  player.cmdGrow(map.getMapPtr());
+}
+
+void Farm::playerCmdKill() {
+
+}
+
+void Farm::playerCmdTalk() {
+
+}
+
+void Farm::playerCmdIteract() {
+
 }
 
 bool Farm::isGameOver() {

@@ -58,7 +58,6 @@ int main() {
     pilihan = printMainMenu();
   }
   if (pilihan == 2) {
-    printExit();
     exitFlag = true;
   }
   if (!exitFlag) {
@@ -106,14 +105,13 @@ int main() {
     } else if (cmd == "mix") {  // mix
       
     } else if (cmd == "grow") { // menumbuhkan
-      
+      farm.playerCmdGrow();
     } else if (cmd == "kill") { // membunuh hewan
       
     } else if (cmd == "talk") {
       
     } else if (cmd == "inventory") {
-      
-    } else {
+      farm.player.cekInventory();
       continue;
     }
 

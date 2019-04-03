@@ -112,6 +112,26 @@ public:
   bool isPlayerPossibleRight();
 
   /**
+   * @brief Memerintahkan player untuk menyiram land
+   */
+  void playerCmdGrow();
+
+  /**
+   * @brief Memerintahkan player untuk menyembelih hewan
+   */
+  void playerCmdKill();
+
+  /**
+   * @brief Memerintahkan player untuk berbicara dengan hewan
+   */
+  void playerCmdTalk();
+
+  /**
+   * @brief memerintahkan player untuk berinteraksi dengan hewan atau fasilitas
+   */
+  void playerCmdIteract();
+
+  /**
    * @brief Memeriksa apakah permainan telah berakhir
    */
   bool isGameOver();
