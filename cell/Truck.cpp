@@ -8,11 +8,13 @@
   Truck::Truck(int x, int y){
     setCoordinate(Coordinate(x,y));
     setSymbol('T');
+    remainingTick = 5;
   }
 
   Truck::Truck(Coordinate posisi) {
     setCoordinate(posisi);
     setSymbol('T');
+    remainingTick = 5;
   }
 
   /**
