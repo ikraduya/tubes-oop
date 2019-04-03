@@ -8,7 +8,27 @@
 #define TRUCK_H
 
 #include "Facility.h"
+#include "../Inventory.h"
+#include "../products/Products.h"
+#include "../products/ChickenEgg.h"
+#include "../products/ChickenMeat.h"
+#include "../products/CowMeat.h"
+#include "../products/CowMilk.h"
+#include "../products/DuckEgg.h"
+#include "../products/DuckMeat.h"
+#include "../products/GoatMeat.h"
+#include "../products/GoatMilk.h"
+#include "../products/HorseMeat.h"
+#include "../products/HorseMilk.h"
+#include "../products/Keju.h"
+#include "../products/ObatSuperChenLong.h"
+#include "../products/RicaKuda.h"
+#include "../products/SopKambing.h"
+#include "../products/SuplemenSuper.h"
+#include "../products/SusuKudaLiar.h"
+#include "../products/TelorDadarWow.h"
 #include "../common/Coordinate.h"
+#include <string>
 
 /**
  * @brief kelas Truck digunakan untuk menjual inventory
@@ -26,7 +46,7 @@ public:
 
   /**
    * @brief Construct a new Truck object
-   * 
+   *
    * @param koor koordinat truck
    */
   Truck(Coordinate posisi);
@@ -34,7 +54,7 @@ public:
   /**
    * @brief Jual seluruh product pada inventory, menambah uang
    */
-  void jualBarangHasilTernak();
+  void jualBarangHasilTernak(Inventory *inventory, int *uang);
 
   /**
    * @brief getter remainingTick
