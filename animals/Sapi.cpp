@@ -5,6 +5,13 @@
 
 using namespace std;
 /**
+ * @brief default ctor
+ */
+Sapi::Sapi(): FarmAnimal(){
+  isProduceMeat = true;
+  isProduceMilk = true;
+}
+/**
  * @brief ctor dengan parameter
  *
  * @param _posisi posisi hewan
@@ -29,8 +36,7 @@ void Sapi::Bersuara() const{
 FarmProducts& Sapi::Interact(){
   if (canInteract){
     canInteract = false;
-    CowMilk *susu = new CowMilk();
-    return *susu;
+    return produceMilk();
   }
 }
 
@@ -41,12 +47,25 @@ FarmProducts& Sapi::Interact(){
  */
 FarmProducts& Sapi::Kill(){
   liveStatus = false;
-  CowMeat *daging = new CowMeat();
-  return *daging;
+  return produceMeat();
 }
 /**
  * Menggambar Sapi dengan S
  */
 char Sapi::Render() const{
   return 'S';
+}
+/**
+ * Menghasilkan daging sapi
+ */
+FarmProducts& Sapi::produceMeat(){
+  CowMeat *daging = new CowMeat();
+  return *daging;
+}
+/**
+ * Menghasilkan susu sapi
+ */
+FarmProducts& Sapi::produceMilk(){
+  CowMilk *susu = new CowMilk();
+  return *susu;
 }

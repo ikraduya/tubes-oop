@@ -9,12 +9,18 @@
 #define SAPI_H
 
 #include "FarmAnimal.h"
+#include "MeatProducing.h"
+#include "MilkProducing.h"
 
 /**
  * @brief Kelas Sapi diturunkan dari FarmAnimal
  */
-class Sapi : public FarmAnimal{
+class Sapi : public FarmAnimal, public MeatProducing, public MilkProducing{
   public:
+    /**
+	   * @brief default ctor
+	   */
+    Sapi();
     /**
      * @brief ctor dengan parameter
      *
@@ -45,5 +51,13 @@ class Sapi : public FarmAnimal{
      * Menggambar Sapi dengan S
      */
     char Render() const;
+    /**
+     * Menghasilkan daging sapi
+     */
+    FarmProducts& produceMeat();
+    /**
+     * Menghasilkan susu sapi
+     */
+    FarmProducts& produceMilk();
 };
 #endif

@@ -9,12 +9,18 @@
 #define KUDA_H
 
 #include "FarmAnimal.h"
+#include "MeatProducing.h"
+#include "MilkProducing.h"
 
 /**
  * @brief Kelas Kuda diturunkan dari FarmAnimal
  */
-class Kuda : public FarmAnimal{
+class Kuda : public FarmAnimal, public MeatProducing, public MilkProducing{
   public:
+    /**
+	   * @brief default ctor
+	   */
+    Kuda();
     /**
      * @brief ctor dengan parameter
      *
@@ -45,5 +51,13 @@ class Kuda : public FarmAnimal{
      * Menggambar Kuda dengan H
      */
     char Render() const;
+    /**
+     * Menghasilkan daging kuda
+     */
+    FarmProducts& produceMeat();
+    /**
+     * Menghasilkan susu kuda
+     */
+    FarmProducts& produceMilk();
 };
 #endif

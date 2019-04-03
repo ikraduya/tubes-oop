@@ -5,6 +5,13 @@
 
 using namespace std;
 /**
+ * @brief default ctor
+ */
+Kuda::Kuda(): FarmAnimal(){
+  isProduceMeat = true;
+  isProduceMilk = true;
+}
+/**
  * @brief ctor dengan parameter
  *
  * @param _posisi posisi hewan
@@ -29,8 +36,7 @@ void Kuda::Bersuara() const{
 FarmProducts& Kuda::Interact(){
   if (canInteract){
     canInteract = false;
-    HorseMilk *susu = new HorseMilk();
-    return *susu;
+    return produceMilk();
   }
 }
 
@@ -41,12 +47,25 @@ FarmProducts& Kuda::Interact(){
  */
 FarmProducts& Kuda::Kill(){
   liveStatus = false;
-  HorseMeat *daging = new HorseMeat();
-  return *daging;
+  return produceMeat();
 }
 /**
  * Menggambar Kuda dengan H
  */
 char Kuda::Render() const{
   return 'H';
+}
+/**
+ * Menghasilkan daging kuda
+ */
+FarmProducts& Kuda::produceMeat(){
+  HorseMeat *daging = new HorseMeat();
+  return *daging;
+}
+/**
+ * Menghasilkan susu kuda
+ */
+FarmProducts& Kuda::produceMilk(){
+  HorseMilk *susu = new HorseMilk();
+  return *susu; 
 }

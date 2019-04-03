@@ -6,5 +6,8 @@
 #include "Kambing.h"
 #include "Kuda.h"
 #include "Sapi.h"
+#include "EggProducing.h"
+#include "MeatProducing.h"
+#include "MilkProducing.h"
 
 #endif

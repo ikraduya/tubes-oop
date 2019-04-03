@@ -9,12 +9,18 @@
 #define KAMBING_H
 
 #include "FarmAnimal.h"
+#include "MilkProducing.h"
+#include "MeatProducing.h"
 
 /**
  * @brief Kelas Kambing diturunkan dari FarmAnimal
  */
-class Kambing : public FarmAnimal{
+class Kambing : public FarmAnimal, public MilkProducing, public MeatProducing{
   public:
+    /**
+	   * @brief default ctor
+	   */
+    Kambing();
     /**
      * @brief ctor dengan parameter
      *
@@ -45,5 +51,15 @@ class Kambing : public FarmAnimal{
      * Menggambar Kambing dengan K
      */
     char Render() const;
+    /**
+     * Menghasilkan daging kambing
+     */
+    FarmProducts& produceMeat();
+    /**
+     * Menghasilkan susu kambing
+     */
+    FarmProducts& produceMilk();
+
+    
 };
 #endif

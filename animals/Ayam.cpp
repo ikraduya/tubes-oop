@@ -4,7 +4,13 @@
 #include "../products/ChickenMeat.h"
 
 using namespace std;
-
+/**
+ * @brief default ctor
+ */
+Ayam::Ayam(): FarmAnimal(){
+  isProduceMeat = true;
+  isProduceMilk = true;
+}
 /**
  * @brief ctor dengan parameter
  *
@@ -30,8 +36,7 @@ void Ayam::Bersuara() const{
 FarmProducts& Ayam::Interact(){
   if (canInteract){
     canInteract = false;
-    ChickenEgg *telor = new ChickenEgg();
-    return *telor;
+    return produceEgg();
   }
 }
 /**
@@ -41,12 +46,25 @@ FarmProducts& Ayam::Interact(){
  */
 FarmProducts& Ayam::Kill(){
   liveStatus = false;
-  ChickenMeat *daging = new ChickenMeat();
-  return *daging;
+  return produceMeat();
 }
 /**
  * Menggambar Ayam dengan A
  */
 char Ayam::Render() const{
   return 'C';
+}
+/**
+ * Menghasilkan telur ayam
+ */
+FarmProducts& Ayam::produceEgg(){
+  ChickenEgg *telor = new ChickenEgg();
+  return *telor;
+}
+/**
+ * Menghasilkan daging ayam
+ */
+FarmProducts& Ayam::produceMeat(){
+  ChickenMeat *daging = new ChickenMeat();
+  return *daging;
 }
