@@ -45,6 +45,6 @@ const FarmProducts* ObatSuperChenLong::req[] = {new GoatMeat(), new HorseMeat()}
 	 */		
 		void ObatSuperChenLong::showReq(){
 			for (int i = 0; i <2; i++){
-				std::cout << req[i]->getName() << std::endl;
+				std::cout << "- " << req[i]->getName() << std::endl;
 			}
 		}

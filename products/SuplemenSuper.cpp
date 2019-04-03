@@ -43,9 +43,9 @@ const FarmProducts* SuplemenSuper::req[] = {new ChickenEgg(), new CowMilk(), new
 		long SuplemenSuper::getPrice(){return price;}
 	/**
 	 * @brief menunujukan resep pencampuran untuk produk
-	 */		
+	 */	
 		void SuplemenSuper::showReq(){
 			for (int i = 0; i <4; i++){
-				std::cout << req[i]->getName() << std::endl;
+				std::cout << "- " << req[i]->getName() << std::endl;
 			}
 		}

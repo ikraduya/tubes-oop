@@ -50,6 +50,6 @@ const FarmProducts* SopKambing::req[] = {new GoatMeat(), new GoatMeat()};
 	 */		
 		void SopKambing::showReq(){
 			for (int i = 0; i <2; i++){
-				std::cout << req[i]->getName() << std::endl;
+				std::cout << "- " << req[i]->getName() << std::endl;
 			}
 		}

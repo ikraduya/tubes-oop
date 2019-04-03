@@ -45,6 +45,6 @@ const FarmProducts* TelorDadarWow::req[] = {new HorseMeat(), new GoatMilk(), new
 	 */		
 		void TelorDadarWow::showReq(){
 			for (int i = 0; i <3; i++){
-				std::cout << req[i]->getName() << std::endl;
+				std::cout << "- " << req[i]->getName() << std::endl;
 			}
 		}
