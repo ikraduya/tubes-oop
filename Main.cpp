@@ -108,6 +108,14 @@ int main() {
         continue;
       }
     } else if (cmd == "mix") {  // mix
+    
+    } else if (cmd == "jual"){
+      try{
+        farm.useTruck();
+      } catch (char const *error){
+        cout << error << endl;
+        continue;
+      }
       
     } else if (cmd == "grow") { // menumbuhkan
       farm.playerCmdGrow();

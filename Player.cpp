@@ -12,6 +12,7 @@
 #include "cell/Coop.h"
 #include "animals/FarmAnimal.h"
 #include "common/LinkedList.h"
+#include "cell/Truck.h"
 
 // posisi default (10, 6)
 Player::Player() : posisi(10,6), inventori() {
@@ -218,13 +219,20 @@ void Player::fillWater(){
 		/**
 		* Mengosongkan bag dan jual 
 		*/
-void Player::truck(){}
+void Player::truck(Truck* truck){
+	Coordinate hadap = getHadap();
+	if (truck->getCoordinate() == hadap){
+		truck->jualBarangHasilTernak(&inventori, &uang);
+	} else {
+		throw "Tidak ada truck";
+	}
+}
 		/**
 		* Mix dengan mixer
 		*/
 void Player::mixProduct(){} 
 
-FarmAnimal* Player::getAnimal(LinkedList<FarmAnimal*> *animals){
+Coordinate Player::getHadap(){
 	int x,y;
 	switch(arah){
 		case UP :
@@ -245,6 +253,11 @@ FarmAnimal* Player::getAnimal(LinkedList<FarmAnimal*> *animals){
 			break;
 	}
 	Coordinate hadap(posisi.getX() + x, posisi.getY() + y);
+	return hadap;
+}
+
+FarmAnimal* Player::getAnimal(LinkedList<FarmAnimal*> *animals){
+	Coordinate hadap = getHadap();
 	for (int i = 0; i < animals->count(); i++){
 		if (animals->get(i)->getPos() == hadap){
 			return animals->get(i);

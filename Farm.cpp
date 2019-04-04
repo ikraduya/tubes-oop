@@ -129,3 +129,6 @@ bool Farm::isGameOver() {
   return (farmAnimals.count() <= 0);
 }
 
+void Farm::useTruck(){
+  player.truck(truckFacility);
+}

@@ -11,6 +11,7 @@
 #include "animals/FarmAnimal.h"
 #include "common/Coordinate.h"
 #include "common/LinkedList.h"
+#include "cell/Truck.h"
 #include <iostream>
 using namespace std;
 
@@ -205,7 +206,7 @@ class Player {
 		/**
 		* Mengosongkan bag dan jual 
 		*/
-		void truck();
+		void truck(Truck* truck);
 		/**
 		* Mix dengan mixer
 		*/
@@ -214,6 +215,10 @@ class Player {
 		 * Mengambil animal di depan player
 		 */
 		FarmAnimal* getAnimal(LinkedList<FarmAnimal*> *animals);  
+		/**
+		 * @brief get posisi hadap player
+		 */
+		Coordinate getHadap(); 
 };
 
 #endif

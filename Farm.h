@@ -142,6 +142,10 @@ public:
    * @brief Memeriksa apakah permainan telah berakhir
    */
   bool isGameOver();
+  /**
+   * @brief pakai fasilitas truck
+   */
+  void useTruck(); 
 };
 
 #endif
