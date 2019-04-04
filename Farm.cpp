@@ -14,17 +14,17 @@ Farm::Farm(std::string mapFilename) : player(), map(mapFilename), farmAnimals() 
   readAnimals();
 
   // hardcode animal
-  const int hungryTimeAyam = 8;
-  const int hungryTimeKambing = 8;
-  const int hungryTimeKuda = 10;
-  const int hungryTimeBebek = 6;
-  const int hungryTimeSapi = 7;
-  farmAnimals.add(new Ayam(Coordinate(0, 0), hungryTimeAyam));
-  farmAnimals.add(new Ayam(Coordinate(2, 0), hungryTimeAyam));
-  farmAnimals.add(new Kambing(Coordinate(5, 0), hungryTimeKambing));
-  farmAnimals.add(new Kambing(Coordinate(6, 4), hungryTimeKambing));
-  farmAnimals.add(new Kuda(Coordinate(7, 7), hungryTimeKuda));
-  farmAnimals.add(new Kuda(Coordinate(5, 8), hungryTimeKuda));
+  // const int hungryTimeAyam = 8;
+  // const int hungryTimeKambing = 8;
+  // const int hungryTimeKuda = 10;
+  // const int hungryTimeBebek = 6;
+  // const int hungryTimeSapi = 7;
+  // farmAnimals.add(new Ayam(Coordinate(0, 0), hungryTimeAyam));
+  // farmAnimals.add(new Ayam(Coordinate(2, 0), hungryTimeAyam));
+  // farmAnimals.add(new Kambing(Coordinate(5, 0), hungryTimeKambing));
+  // farmAnimals.add(new Kambing(Coordinate(6, 4), hungryTimeKambing));
+  // farmAnimals.add(new Kuda(Coordinate(7, 7), hungryTimeKuda));
+  // farmAnimals.add(new Kuda(Coordinate(5, 8), hungryTimeKuda));
 }
 
 Farm::~Farm() {
@@ -177,21 +177,27 @@ void Farm::readAnimals(){
     if (file.is_open()){
       filebenar = true;
       string line;
-      while (getline(file,line)){
+      //while (getline(file,line)){
+      do{
         file >> jenisHewan >> x >> y >> hungryTime;
-        Coordinate coord(x,y);
-        if (jenisHewan == "Ayam"){
+        cout << jenisHewan <<" "<< x<<" " << y<<" " << hungryTime;
+        if (strcmp(jenisHewan, "Ayam") == 0){
+          //cout << "Ayam" << endl;
           farmAnimals.add(new Ayam(Coordinate(x,y), hungryTime));
-        } else if (jenisHewan == "Bebek"){
+        } else if (strcmp(jenisHewan, "Bebek") == 0){
+          //cout << "Bebek" << endl;
           farmAnimals.add(new Bebek(Coordinate(x,y), hungryTime));
-        } else if (jenisHewan == "Kambing"){
+        } else if (strcmp(jenisHewan, "Kambing") == 0){
+          //cout << "Kambing" << endl;
           farmAnimals.add(new Kambing(Coordinate(x,y), hungryTime));
-        } else if (jenisHewan == "Kuda"){
+        } else if (strcmp(jenisHewan, "Kuda") == 0){
+          //cout << "Kuda" << endl;
           farmAnimals.add(new Kuda(Coordinate(x,y), hungryTime));
-        } else if (jenisHewan == "Sapi"){
+        } else if (strcmp(jenisHewan, "Sapi") == 0){
+          //cout << "Sapi" << endl;
           farmAnimals.add(new Sapi(Coordinate(x,y), hungryTime));
         }
-      }
+      } while (getline(file,line));
     } else cout << "Nama file salah" << endl;
   }
 }
