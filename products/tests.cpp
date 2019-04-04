@@ -41,7 +41,21 @@ struct ProductsTest : testing::Test{
 	ObatSuperChenLong* q = new ObatSuperChenLong();
 	SusuKudaLiar* skl = new SusuKudaLiar();
 	TelorDadarWow* tdw = new TelorDadarWow();
-	ProductsTest(){}
+	Inventory inv;
+	Inventory invkos;
+	ProductsTest(){
+			inv.addProduct(CowMilk());
+			inv.addProduct(CowMilk());
+			inv.addProduct(GoatMeat());
+			inv.addProduct(HorseMeat());
+			inv.addProduct(HorseMilk());
+			inv.addProduct(GoatMilk());
+			inv.addProduct(DuckEgg());
+			inv.addProduct(ChickenEgg());
+			inv.addProduct(DuckMeat());
+			inv.addProduct(CowMeat());
+			inv.addProduct(GoatMeat());
+		}
 	~ProductsTest(){
 		delete prod;
 	}
@@ -83,6 +97,20 @@ TEST_F(ProductsTest, ProductsName) {
 	EXPECT_EQ(150000, q->getPrice());
 	EXPECT_EQ(13444, skl->getPrice());
 	EXPECT_EQ(99999, tdw->getPrice());
+	EXPECT_EQ(true, Keju::isMixValid(inv));
+	EXPECT_EQ(false, Keju::isMixValid(invkos));
+	EXPECT_EQ(true, ObatSuperChenLong::isMixValid(inv));
+	EXPECT_EQ(false, ObatSuperChenLong::isMixValid(invkos));
+	EXPECT_EQ(true, SusuKudaLiar::isMixValid(inv));
+	EXPECT_EQ(false, SusuKudaLiar::isMixValid(invkos));
+	EXPECT_EQ(true, TelorDadarWow::isMixValid(inv));
+	EXPECT_EQ(false, TelorDadarWow::isMixValid(invkos));
+	EXPECT_EQ(true, SuplemenSuper::isMixValid(inv));
+	EXPECT_EQ(false, SuplemenSuper::isMixValid(invkos));
+	EXPECT_EQ(true, SopKambing::isMixValid(inv));
+	EXPECT_EQ(false, SopKambing::isMixValid(invkos));
+	EXPECT_EQ(true, RicaKuda::isMixValid(inv));
+	EXPECT_EQ(false, RicaKuda::isMixValid(invkos));
 }
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
