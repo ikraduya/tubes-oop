@@ -46,7 +46,7 @@ private:
 public:
   Map map;  /**< Objek map */  
   Player player;  /**< Objek player */  
-  LinkedList<FarmAnimal> farmAnimals;  /**< List farmAnimals */  
+  LinkedList<FarmAnimal*> farmAnimals;  /**< List farmAnimals */  
   static int globalTick; /**< Variabel tick global */
 
   /**
@@ -69,9 +69,9 @@ public:
   /**
    * @brief Get the Farm Animals Ptr object
    * 
-   * @return LinkedList<FarmAnimal>* 
+   * @return LinkedList<FarmAnimal*>* 
    */
-  LinkedList<FarmAnimal>* getFarmAnimalsPtr();
+  LinkedList<FarmAnimal*>* getFarmAnimalsPtr();
 
   /**
    * Dispatch tick

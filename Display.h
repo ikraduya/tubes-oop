@@ -60,7 +60,7 @@ class Display {
     ArahEnum* arahPtr;
     int* tickPtr;
     Coordinate* posisiPlayer;
-    LinkedList<FarmAnimal>* farmAnimals;
+    LinkedList<FarmAnimal*>* farmAnimals;
 
     /**
      * @brief Set the string To array of char object
@@ -110,7 +110,7 @@ class Display {
      * @param _inventory alamat inventory pemain
      */
     Display(Cell*** _map, Inventory *_inventory, int* _uang, int *_air, ArahEnum* _arah,
-      Coordinate* _posisiPlayer, LinkedList<FarmAnimal>* _farmAnimals, int* _tick);
+      Coordinate* _posisiPlayer, LinkedList<FarmAnimal*>* _farmAnimals, int* _tick);
 
     /**
      * @brief Destroy the Display object

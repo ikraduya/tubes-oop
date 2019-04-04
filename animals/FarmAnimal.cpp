@@ -65,18 +65,18 @@ FarmAnimal::~FarmAnimal(){
   jumlahHewan--;
 }
 
-bool FarmAnimal::isCellContainAnimal(LinkedList<FarmAnimal>* farmAnimals, Coordinate &c) {
+bool FarmAnimal::isCellContainAnimal(LinkedList<FarmAnimal*>* farmAnimals, Coordinate &c) {
   int animalsLen = farmAnimals->count();
   int i;
   for (i=0; i<animalsLen; i++) {
-    if (farmAnimals->get(i).getPos() == c) {
+    if (farmAnimals->get(i)->getPos() == c) {
       break;
     }
   }
   return (i < animalsLen);
 }
 
-bool FarmAnimal::isCellSteppable(Cell * cell, LinkedList<FarmAnimal>* farmAnimals, Coordinate& playerPos) {
+bool FarmAnimal::isCellSteppable(Cell * cell, LinkedList<FarmAnimal*>* farmAnimals, Coordinate& playerPos) {
   Coordinate c = (*cell).getCoordinate();  
   // cek apakah berada di land yang diperbolehkan
   if ((isProduceEgg && ((*cell).getSymbol() == 'o' || (*cell).getSymbol() == '*'))
@@ -167,7 +167,7 @@ void FarmAnimal::Makan(Cell ***cell){
 /**
  * Hewan bergerak
  */
-void FarmAnimal::Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal>* farmAnimals){
+void FarmAnimal::Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal*>* farmAnimals){
   const int MAP_SIZE_Y = 10;
   const int MAP_SIZE_X = 11;
 
@@ -198,7 +198,7 @@ void FarmAnimal::Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal
 /**
  * Aksi hewan setiap Tic
  */
-void FarmAnimal::RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal>* farmAnimal){
+void FarmAnimal::RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal*>* farmAnimal){
   Makan(cell);
   int r = rand() % 10;
   if (r < 6) {

@@ -51,7 +51,7 @@ std::string Display::makeHorizontalSpace(int n) {
 }
 
 Display::Display(Cell*** _map, Inventory *_inventory, int* _uang, int *_air, ArahEnum* _arah,
-      Coordinate* _posisiPlayer, LinkedList<FarmAnimal>* _farmAnimals, int* _tick) {   // CTOR
+      Coordinate* _posisiPlayer, LinkedList<FarmAnimal*>* _farmAnimals, int* _tick) {   // CTOR
   
   // Initialize map
   mapPtr = _map;
@@ -71,7 +71,7 @@ Display::Display(Cell*** _map, Inventory *_inventory, int* _uang, int *_air, Ara
   int animalCount = farmAnimals->count();
   FarmAnimal animal;
   for (int i=0; i<animalCount; i++) {
-    map[farmAnimals->get(i).getPos().getY()][farmAnimals->get(i).getPos().getX()*2] = farmAnimals->get(i).getSymbol();
+    map[farmAnimals->get(i)->getPos().getY()][farmAnimals->get(i)->getPos().getX()*2] = farmAnimals->get(i)->getSymbol();
   }
   // player
   posisiPlayer = _posisiPlayer;
@@ -180,9 +180,9 @@ void Display::updateDisplay() {
   int animalCount = farmAnimals->count();
   FarmAnimal animal;
   for (int i=0; i<animalCount; i++) {
-    int x = farmAnimals->get(i).getPos().getX(), y = farmAnimals->get(i).getPos().getY();
-    char animalSym = farmAnimals->get(i).getSymbol();
-    map[y][x*2] = (farmAnimals->get(i).getIsHungry()) ? toupper(animalSym) : animalSym;
+    int x = farmAnimals->get(i)->getPos().getX(), y = farmAnimals->get(i)->getPos().getY();
+    char animalSym = farmAnimals->get(i)->getSymbol();
+    map[y][x*2] = (farmAnimals->get(i)->getIsHungry()) ? toupper(animalSym) : animalSym;
   }
   // player
   map[posisiPlayer->getY()][posisiPlayer->getX()*2] = 'P';

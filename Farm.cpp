@@ -15,23 +15,27 @@ Farm::Farm(std::string mapFilename) : player(), map(mapFilename), farmAnimals() 
   const int hungryTimeKuda = 10;
   const int hungryTimeBebek = 6;
   const int hungryTimeSapi = 7;
-  farmAnimals.add(Ayam(Coordinate(0, 0), hungryTimeAyam));
-  farmAnimals.add(Ayam(Coordinate(2, 0), hungryTimeAyam));
-  farmAnimals.add(Kambing(Coordinate(5, 0), hungryTimeKambing));
-  farmAnimals.add(Kambing(Coordinate(6, 4), hungryTimeKambing));
+  // farmAnimals.add(Ayam(Coordinate(0, 0), hungryTimeAyam));
+  // farmAnimals.add(Ayam(Coordinate(2, 0), hungryTimeAyam));
+  // farmAnimals.add(Kambing(Coordinate(5, 0), hungryTimeKambing));
+  // farmAnimals.add(Kambing(Coordinate(6, 4), hungryTimeKambing));
   // farmAnimals.add(Kuda(Coordinate(7, 7), hungryTimeKuda));
   // farmAnimals.add(Kuda(Coordinate(5, 8), hungryTimeKuda));
 }
 
-Farm::~Farm() {}
+Farm::~Farm() {
+  while (farmAnimals.count() > 0) {
+    delete farmAnimals.get(0);
+  }
+}
 
 void Farm::removeDeadAnimal() {
   int animalsLen = farmAnimals.count();
   int i = 0;
   while (i < animalsLen) {
-    FarmAnimal *animal = &(farmAnimals.get(i));
-    if (!farmAnimals.get(i).isAlive()) {
-      farmAnimals.remove(*animal);
+    FarmAnimal *animal = farmAnimals.get(i);
+    if (!farmAnimals.get(i)->isAlive()) {
+      farmAnimals.remove(animal);
       animalsLen--;
       i--;
     }
@@ -39,7 +43,7 @@ void Farm::removeDeadAnimal() {
   }
 };
 
-LinkedList<FarmAnimal>* Farm::getFarmAnimalsPtr() {
+LinkedList<FarmAnimal*>* Farm::getFarmAnimalsPtr() {
   return &farmAnimals;
 }
 
@@ -48,7 +52,7 @@ bool Farm::isCellContainAnimal(Coordinate c) {
   int animalsLen = farmAnimals.count();
   int i;
   for (i=0; i<animalsLen; i++) {
-    if (farmAnimals.get(i).getPos() == c) {
+    if (farmAnimals.get(i)->getPos() == c) {
       break;
     }
   }
@@ -79,7 +83,7 @@ void Farm::dispatchTick() {
   removeDeadAnimal();
   int animalLen = farmAnimals.count();
   for (int i=0; i<animalLen; i++) {
-    farmAnimals.get(i).RespondToTic(map.getMapPtr(), player.getCoordinate(), &farmAnimals);
+    farmAnimals.get(i)->RespondToTic(map.getMapPtr(), player.getCoordinate(), &farmAnimals);
   }
 };
 
@@ -112,7 +116,7 @@ void Farm::playerCmdKill() {
 }
 
 void Farm::playerCmdTalk() {
-
+  
 }
 
 void Farm::playerCmdIteract() {

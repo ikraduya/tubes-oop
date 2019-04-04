@@ -28,7 +28,7 @@ class FarmAnimal{
     /**
      * @brief Memeriksa apakah di sebuah sel terdapat animal
      */
-    bool isCellContainAnimal(LinkedList<FarmAnimal>* farmAnimals, Coordinate &c);
+    bool isCellContainAnimal(LinkedList<FarmAnimal*>* farmAnimals, Coordinate &c);
 
     /**
      * @brief memeriksa apakah suatu cell dapat dipijak oleh hewan
@@ -39,7 +39,7 @@ class FarmAnimal{
      * @return true jika cell bisa dipijak
      * @return false jika cell tidak bisa dipijak
      */
-    bool isCellSteppable(Cell * cell, LinkedList<FarmAnimal>* farmAnimals, Coordinate& playerPos) ;
+    bool isCellSteppable(Cell * cell, LinkedList<FarmAnimal*>* farmAnimals, Coordinate& playerPos) ;
 
   protected:
     int animalId; /**< ID hewan */
@@ -110,7 +110,7 @@ class FarmAnimal{
      * @param playerPos posisi player
      * @param farmAnimals 
      */
-    void Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal>* farmAnimals);
+    void Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal*>* farmAnimals);
 
     /**
 	   * Pure virtual bersuara
@@ -119,7 +119,7 @@ class FarmAnimal{
     /**
      * Aksi hewan setiap Tic
      */
-    void RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal>* farmAnimal);
+    void RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal*>* farmAnimal);
     /**
 	   * Menghitung waktu hingga lapar
      * ======================Diubah dari int menjadi void karena tidak perlu return int
