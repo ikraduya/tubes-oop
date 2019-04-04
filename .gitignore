@@ -10,3 +10,7 @@ latex
 *.out
 *.gch
 *.exe
+
+# cmake files
+CMakeFiles/
+CMakeCache.txt

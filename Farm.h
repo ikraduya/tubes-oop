@@ -8,6 +8,7 @@
 #define _FARM_H
 
 #include <string>
+#include <gtest/gtest_prod.h>
 #include "Display.h"
 #include "Player.h"
 #include "Map.h"
@@ -19,6 +20,7 @@
  */
 class Farm {
 private:
+  FRIEND_TEST(FarmTest, FarmSteppableByPlayer);
   Truck *truckFacility;  /**< Objek Fasilitas Truck */  
   Mixer *mixerFacility;  /**< Objek Fasilitas Mixer */  
   Well *wellFacility;  /**< Objek Fasilitas Well */
@@ -130,6 +132,11 @@ public:
    * @brief memerintahkan player untuk berinteraksi dengan hewan atau fasilitas
    */
   void playerCmdIteract();
+
+  /**
+   * @brief Menghandle perintah mixing
+   */
+  void handleMixer();
 
   /**
    * @brief Memeriksa apakah permainan telah berakhir
