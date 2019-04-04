@@ -13,29 +13,30 @@
 #include <gtest/gtest.h>
 
 //additional include
-#include "Inventory.h"
-#include "products/Products.h"
-#include "products/ChickenEgg.h"
-#include "products/ChickenMeat.h"
-#include "products/CowMeat.h"
-#include "products/CowMilk.h"
-#include "products/DuckEgg.h"
-#include "products/DuckMeat.h"
-#include "products/GoatMeat.h"
-#include "products/GoatMilk.h"
-#include "products/HorseMeat.h"
-#include "products/HorseMilk.h"
-#include "products/Keju.h"
-#include "products/ObatSuperChenLong.h"
-#include "products/RicaKuda.h"
-#include "products/SopKambing.h"
-#include "products/SuplemenSuper.h"
-#include "products/SusuKudaLiar.h"
-#include "products/TelorDadarWow.h"
+#include "Inventory.cpp"
+#include "products/Products.cpp"
+#include "products/ChickenEgg.cpp"
+#include "products/ChickenMeat.cpp"
+#include "products/CowMeat.cpp"
+#include "products/CowMilk.cpp"
+#include "products/DuckEgg.cpp"
+#include "products/DuckMeat.cpp"
+#include "products/GoatMeat.cpp"
+#include "products/GoatMilk.cpp"
+#include "products/HorseMeat.cpp"
+#include "products/HorseMilk.cpp"
+#include "products/Keju.cpp"
+#include "products/ObatSuperChenLong.cpp"
+#include "products/RicaKuda.cpp"
+#include "products/SopKambing.cpp"
+#include "products/SuplemenSuper.cpp"
+#include "products/SusuKudaLiar.cpp"
+#include "products/TelorDadarWow.cpp"
 
 struct MapTest : testing::Test{
+	Map* map = new Map("Map.txt");
 	Ukuran* ukuran = new Ukuran();
-  Ukuran* ukuranParam = new Ukuran(1,2);
+  Ukuran* ukuranParam = new Ukuran(10,11);
 	Coordinate* coordinate = new Coordinate();
   Coordinate* coordinateParam = new Coordinate(1,2);
 	Barn* barn = new Barn(*coordinateParam, false);
@@ -68,17 +69,27 @@ struct MapTest : testing::Test{
 };
 
 TEST_F(MapTest, MapName) {
+	//Map.h
+	EXPECT_EQ(10, map->getUkuran().getL());
+	EXPECT_EQ('o', map->getCell(0,0).getSymbol());
+	EXPECT_EQ(10, map->getMixerPosition().getX());
+	EXPECT_EQ(10, map->getTruckPosition().getX());
+	EXPECT_EQ(10, map->getWellPosition().getX());
+	EXPECT_EQ('T', map->getTruckPtr()->getSymbol());
+	EXPECT_EQ('W', map->getWellPtr()->getSymbol());
+	EXPECT_EQ('M', map->getMixerPtr()->getSymbol());
+
   //Ukuran.h
 	EXPECT_EQ(-1, ukuran->getL());
   EXPECT_EQ(-1, ukuran->getP());
-  EXPECT_EQ(2, ukuranParam->getL());
-  EXPECT_EQ(1, ukuranParam->getP());
+  EXPECT_EQ(11, ukuranParam->getL());
+  EXPECT_EQ(10, ukuranParam->getP());
 
   //Coordinate.h
   EXPECT_EQ(-1, coordinate->getX());
   EXPECT_EQ(-1, coordinate->getY());
   EXPECT_EQ(1, coordinateParam->getX());
-  EXPECT_EQ(2, coordinate->getY());
+  EXPECT_EQ(2, coordinateParam->getY());
   EXPECT_EQ(false, *coordinate==*coordinateParam);
   EXPECT_EQ(true, *coordinate!=*coordinateParam);
 
@@ -96,17 +107,7 @@ TEST_F(MapTest, MapName) {
 
 /* blm di test:
   Map.h
-  Map(std::string mapFilename);
-  ~Map();
-  Ukuran getUkuran() const;
   Cell*** getMapPtr();
-  Cell getCell(int i, int j) const;
-  Coordinate getMixerPosition() const;
-  Coordinate getTruckPosition() const;
-  Coordinate getWellPosition() const;
-  Facility* getMixerPtr();
-  Facility* getTruckPtr();
-  Facility* getWellPtr();
 
   Ukuran.h
   void setP(int x);
@@ -131,7 +132,6 @@ TEST_F(MapTest, MapName) {
 
   Cell.h
   void Cell::setSymbol(char symbol);
-  Coordinate getCoordinate() const;
   void setCoordinate(Coordinate coordinate);
 
   Coop.h
