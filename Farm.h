@@ -146,6 +146,10 @@ public:
    * @brief pakai fasilitas truck
    */
   void useTruck(); 
+  /**
+   * @brief read file eksternal animals
+   */
+  void readAnimals(); 
 };
 
 #endif

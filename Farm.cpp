@@ -1,6 +1,8 @@
 #include "Farm.h"
 #include "animals/AnimalsHeader.h"
 #include "common/Coordinate.h"
+#include <fstream>
+#include <iostream>
 
 int Farm::globalTick = 0;
 
@@ -8,6 +10,8 @@ Farm::Farm(std::string mapFilename) : player(), map(mapFilename), farmAnimals() 
   mixerFacility = (Mixer*) map.getMixerPtr();
   truckFacility = (Truck *) map.getTruckPtr();
   wellFacility = (Well *) map.getWellPtr();
+
+  readAnimals();
 
   // hardcode animal
   const int hungryTimeAyam = 8;
@@ -131,4 +135,38 @@ bool Farm::isGameOver() {
 
 void Farm::useTruck(){
   player.truck(truckFacility);
+}
+
+/**
+ * @brief read file eksternal animals
+ */
+void Farm::readAnimals(){
+  bool filebenar = false;
+  char *filename = new char[100];
+  char *jenisHewan = new char[15];
+  int hungryTime,x,y;
+  while (!filebenar){
+    cout << "Masukkan nama file animals :";
+    scanf("%s",filename);
+    ifstream file(filename);
+    if (file.is_open()){
+      filebenar = true;
+      string line;
+      while (getline(file,line)){
+        file >> jenisHewan >> x >> y >> hungryTime;
+        Coordinate coord(x,y);
+        if (jenisHewan == "Ayam"){
+          farmAnimals.add(new Ayam(Coordinate(x,y), hungryTime));
+        } else if (jenisHewan == "Bebek"){
+          farmAnimals.add(new Bebek(Coordinate(x,y), hungryTime));
+        } else if (jenisHewan == "Kambing"){
+          farmAnimals.add(new Kambing(Coordinate(x,y), hungryTime));
+        } else if (jenisHewan == "Kuda"){
+          farmAnimals.add(new Kuda(Coordinate(x,y), hungryTime));
+        } else if (jenisHewan == "Sapi"){
+          farmAnimals.add(new Sapi(Coordinate(x,y), hungryTime));
+        }
+      }
+    } else cout << "Nama file salah" << endl;
+  }
 }
