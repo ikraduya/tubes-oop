@@ -12,24 +12,20 @@ Inventory::Inventory() {
 }
 		/**
 		* Getter dan setter
-		* Set jumlah inventori
 		*/
-void Inventory::setJumlahInventori(int jumlah){
-	jumlahInventori = jumlah;
-} 
 		/**
 		* Get jumlah inventori
 		*/
 int Inventory::getJumlahInventori(){
 	return inventori.count();
-}  
+}
 
 Products Inventory::getProduct(int idx) {
 	return (inventori.get(idx));
 }
 
 bool Inventory::isProductExist(Products p) {
-	return (inventori.find(p) != 1);
+	return (inventori.find(p) != -1);
 }
 
 void Inventory::addProduct(Products p) {
