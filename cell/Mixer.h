@@ -8,6 +8,24 @@
 #define MIXER_H
 
 #include "Facility.h"
+#include "../Inventory.h"
+#include "../products/ChickenEgg.h"
+#include "../products/ChickenMeat.h"
+#include "../products/CowMeat.h"
+#include "../products/CowMilk.h"
+#include "../products/DuckEgg.h"
+#include "../products/DuckMeat.h"
+#include "../products/GoatMeat.h"
+#include "../products/GoatMilk.h"
+#include "../products/HorseMeat.h"
+#include "../products/HorseMilk.h"
+#include "../products/Keju.h"
+#include "../products/ObatSuperChenLong.h"
+#include "../products/RicaKuda.h"
+#include "../products/SopKambing.h"
+#include "../products/SuplemenSuper.h"
+#include "../products/SusuKudaLiar.h"
+#include "../products/TelorDadarWow.h"
 #include "../common/Coordinate.h"
 
 /**
@@ -24,10 +42,12 @@ public:
 
   /**
    * @brief Construct a new Mixer object
-   * 
+   *
    * @param posisi Koordinat mixer
    */
   Mixer(Coordinate posisi);
+
+  void mixProducts(Inventory* inventory, std::string name);
 };
 
 #endif
