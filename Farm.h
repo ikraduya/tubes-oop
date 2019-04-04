@@ -154,6 +154,11 @@ public:
    * @return false di depan player tidak terdapat fasilitas
    */
   bool isFacilityAheadPlayer();
+  
+  /**
+   * @brief read file eksternal animals
+   */
+  void readAnimals(); 
 };
 
 #endif
