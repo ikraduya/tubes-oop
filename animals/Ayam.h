@@ -9,12 +9,18 @@
 #define AYAM_H
 
 #include "FarmAnimal.h"
+#include "EggProducing.h"
+#include "MeatProducing.h"
 
 /**
  * @brief Kelas Ayam diturunkan dari FarmAnimal
  */
-class Ayam : public FarmAnimal{
+class Ayam : public FarmAnimal, public EggProducing, public MeatProducing{
   public:
+    /**
+	   * @brief default ctor
+	   */
+    Ayam();
     /**
      * @brief ctor dengan parameter
      *
@@ -44,6 +50,14 @@ class Ayam : public FarmAnimal{
      * Menggambar Ayam dengan A
      */
     char Render() const;
+    /**
+     * Menghasilkan telur ayam
+     */
+    FarmProducts& produceEgg();
+    /**
+     * Menghasilkan daging ayam
+     */
+    FarmProducts& produceMeat();
 };
 
 #endif

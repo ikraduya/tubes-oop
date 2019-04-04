@@ -5,6 +5,13 @@
 
 using namespace std;
 /**
+ * @brief default ctor
+ */
+Kambing::Kambing(): FarmAnimal(){
+  isProduceMeat = true;
+  isProduceMilk = true;
+}
+/**
  * @brief ctor dengan parameter
  *
  * @param _posisi posisi hewan
@@ -29,8 +36,7 @@ void Kambing::Bersuara() const{
 FarmProducts& Kambing::Interact(){
   if (canInteract){
     canInteract = false;
-    GoatMilk *susu = new GoatMilk();
-    return *susu;
+    return produceMilk();
   }
 }
 
@@ -41,12 +47,25 @@ FarmProducts& Kambing::Interact(){
  */
 FarmProducts& Kambing::Kill(){
   liveStatus = false;
-  GoatMeat *daging = new GoatMeat();
-  return *daging;
+  return produceMeat();
 }
 /**
  * Menggambar Kambing dengan K
  */
 char Kambing::Render() const{
   return 'K';
+}
+/**
+ * Menghasilkan daging kambing
+ */
+FarmProducts& Kambing::produceMeat(){
+  GoatMeat *daging = new GoatMeat();
+  return *daging;
+}
+/**
+ * Menghasilkan susu kambing
+ */
+FarmProducts& Kambing::produceMilk(){
+  GoatMilk *susu = new GoatMilk();
+  return *susu;
 }

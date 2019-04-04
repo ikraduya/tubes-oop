@@ -5,6 +5,13 @@
 
 using namespace std;
 /**
+ * @brief default ctor
+ */
+Bebek::Bebek(): FarmAnimal(){
+  isProduceMeat = true;
+  isProduceEgg = true;
+}
+/**
  * @brief ctor dengan parameter
  *
  * @param _posisi posisi hewan
@@ -29,8 +36,7 @@ void Bebek::Bersuara() const{
 FarmProducts& Bebek::Interact(){
   if (canInteract){
     canInteract = false;
-    DuckEgg *telor = new DuckEgg();
-    return *telor;
+    return produceEgg();
   }
 }
 
@@ -41,12 +47,25 @@ FarmProducts& Bebek::Interact(){
  */
 FarmProducts& Bebek::Kill(){
   liveStatus = false;
-  DuckMeat *daging = new DuckMeat();
-  return *daging;
+  return produceMeat();
 }
 /**
  * Menggambar Bebek dengan B
  */
 char Bebek::Render() const{
   return 'B';
+}
+/**
+ * Menghasilkan telur bebek
+ */
+FarmProducts& Bebek::produceEgg(){
+  DuckEgg *telor = new DuckEgg();
+  return *telor;
+}
+/**
+ * Menghasilkan daging bebek
+ */
+FarmProducts& Bebek::produceMeat(){
+  DuckMeat *daging = new DuckMeat();
+  return *daging;
 }

@@ -5,7 +5,6 @@
 #include "Kambing.h"
 #include "Sapi.h"
 #include "Kuda.h"
-#include <iostream>
 
 using namespace std;
 

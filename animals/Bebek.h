@@ -8,12 +8,18 @@
 #define BEBEK_H
 
 #include "FarmAnimal.h"
+#include "MeatProducing.h"
+#include "EggProducing.h"
 
 /**
  * @brief Kelas Bebek diturunkan dari FarmAnimal
  */
-class Bebek : public FarmAnimal{
+class Bebek : public FarmAnimal, public EggProducing, public MeatProducing{
   public:
+    /**
+	   * @brief default ctor
+	   */
+    Bebek();
     /**
      * @brief ctor dengan parameter
      *
@@ -44,5 +50,13 @@ class Bebek : public FarmAnimal{
      * Menggambar Bebek dengan B
      */
     char Render() const;
+    /**
+    * Menghasilkan telur bebek
+    */
+    FarmProducts& produceEgg();
+    /**
+    * Menghasilkan daging bebek
+    */
+    FarmProducts& produceMeat();
 };
 #endif
