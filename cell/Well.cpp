@@ -15,3 +15,8 @@ Well::Well(Coordinate posisi) {
   setCoordinate(posisi);
   setSymbol('W');
 } 
+
+void Well::interact(int *wadahAir) {
+  const int MaxWater = 20;
+  *wadahAir = MaxWater;
+}

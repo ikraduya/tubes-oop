@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include "Mixer.h"
 
 /**
@@ -16,35 +18,47 @@ Mixer::Mixer(Coordinate posisi) {
   setSymbol('M');
 }
 
-void Mixer::mixProducts(Inventory* inventory, std::string name){
+void mixProducts(Inventory* inventory, std::string name) {
   if(name == "Keju"){
       if(Keju::isMixValid(*inventory)){
         inventory->removeProduct(*(new CowMilk()));
         inventory->removeProduct(*(new CowMilk()));
         inventory->addProduct(*(new Keju()));
-      }else
+      }else {
+        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
         Keju::showReq();
+        return;
+      }
   }else if(name == "Obat Super Chen Long"){
       if(ObatSuperChenLong::isMixValid(*inventory)){
         inventory->removeProduct(*(new HorseMeat()));
         inventory->removeProduct(*(new GoatMeat()));
         inventory->addProduct(*(new ObatSuperChenLong()));
-      }else
+      }else {
+        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
         ObatSuperChenLong::showReq();
+        return;
+      }
   }else if(name == "Rica Kuda"){
       if(RicaKuda::isMixValid(*inventory)){
         inventory->removeProduct(*(new CowMeat()));
         inventory->removeProduct(*(new HorseMeat()));
         inventory->addProduct(*(new RicaKuda()));
-      }else
+      }else {
+        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
         RicaKuda::showReq();
+        return;
+      }
   }else if(name == "Sop Kambing"){
       if(SopKambing::isMixValid(*inventory)){
         inventory->removeProduct(*(new GoatMeat()));
         inventory->removeProduct(*(new GoatMeat()));
         inventory->addProduct(*(new SopKambing()));
-      }else
+      }else {
+        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
         SopKambing::showReq();
+        return;
+      }
   }else if(name == "Suplemen Super"){
       if(SuplemenSuper::isMixValid(*inventory)){
         inventory->removeProduct(*(new ChickenEgg()));
@@ -52,22 +66,34 @@ void Mixer::mixProducts(Inventory* inventory, std::string name){
         inventory->removeProduct(*(new DuckMeat()));
         inventory->removeProduct(*(new HorseMeat()));
         inventory->addProduct(*(new SuplemenSuper()));
-      }else
+      }else {
+        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
         SuplemenSuper::showReq();
+        return;
+      }
   }else if(name == "Susu Kuda Liar"){
       if(SusuKudaLiar::isMixValid(*inventory)){
         inventory->removeProduct(*(new HorseMeat()));
         inventory->removeProduct(*(new HorseMilk()));
         inventory->addProduct(*(new SusuKudaLiar()));
-      }else
+      }else {
+        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
         SusuKudaLiar::showReq();
+        return;
+      }
   }else if(name == "Telor Dadar Wow"){
       if(TelorDadarWow::isMixValid(*inventory)){
         inventory->removeProduct(*(new HorseMeat()));
         inventory->removeProduct(*(new GoatMilk()));
         inventory->removeProduct(*(new DuckEgg()));
         inventory->addProduct(*(new TelorDadarWow()));
-      }else
+      }else {
+        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
         TelorDadarWow::showReq();
+        return;
+      }
+  } else {
+    std::cout << name << " tidak terdapat pada resep!" << std::endl;
   }
+  std::cout << name << " berhasil dibuat :)" << std::endl;
 }

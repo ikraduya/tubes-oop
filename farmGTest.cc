@@ -4,7 +4,7 @@
 struct FarmTest : testing::Test{
   Farm* farm = new Farm("Map.txt");
 	FarmTest(){
-			
+
 	}
 	~FarmTest(){
 		delete farm;
@@ -12,7 +12,10 @@ struct FarmTest : testing::Test{
 };
 
 TEST_F(FarmTest, FarmSteppableByPlayer) {
-  EXPECT_EQ(true, farm->isCellSteppableByPlayer(Coordinate(0,0)));
+	EXPECT_EQ(false, farm->isCellSteppableByPlayer(Coordinate(10,0)));
+	EXPECT_EQ(true, farm->isCellSteppableByPlayer(Coordinate(10,5)));
+	EXPECT_EQ(false, farm->isCellSteppableByPlayer(Coordinate(10,1)));
+	EXPECT_EQ(false, farm->isCellSteppableByPlayer(Coordinate(10,3)));
 }
 
 int main(int argc, char **argv) {

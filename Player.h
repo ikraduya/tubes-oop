@@ -202,7 +202,7 @@ class Player {
 		/**
 		* Isi air
 		*/
-		void fillWater(); 
+		void fillWater();
 		/**
 		* Mengosongkan bag dan jual 
 		*/

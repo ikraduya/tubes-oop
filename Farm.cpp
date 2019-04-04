@@ -122,13 +122,39 @@ void Farm::playerCmdTalk() {
 }
 
 void Farm::playerCmdIteract() {
-  player.interact(&farmAnimals);
+  if (isFacilityAheadPlayer()) { 
+    if (player.getHadap() == truckFacility->getCoordinate()) {
+      player.truck(truckFacility);
+    } else if (player.getHadap() == wellFacility->getCoordinate()) {   
+      wellFacility->interact(player.getAirPtr());
+    }
+  } else {  // animals
+    player.interact(&farmAnimals);
+  }
+}
+
+void Farm::playerCmdMix(std::string prod) {
+  if (player.getHadap() == mixerFacility->getCoordinate()) {
+    mixerFacility->mixProducts(player.getInventoriPtr(), prod);
+  }
 }
 
 bool Farm::isGameOver() {
   return (farmAnimals.count() <= 0);
 }
 
-void Farm::useTruck(){
-  player.truck(truckFacility);
+bool Farm::isFacilityAheadPlayer() {
+  Coordinate c = player.getHadap();
+
+  const int MAP_Y_SIZE = 10;
+  const int MAP_X_SIZE = 11;
+  if (c.getY() < 0 || c.getY() >= MAP_Y_SIZE || c.getX() < 0 || c.getX() >= MAP_X_SIZE) {
+    return false;
+  }
+  if (c == mixerFacility->getCoordinate() || c == truckFacility->getCoordinate() || c == wellFacility->getCoordinate()) {
+    return true;
+  }
+  
+  return false;
 }
+

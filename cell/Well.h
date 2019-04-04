@@ -27,6 +27,11 @@ public:
    * @param posisi Koordinat well
    */
   Well(Coordinate posisi);
+
+  /**
+   * @brief Mengisi wadah air pemain
+   */
+  void interact(int *wadahAir);
 };
 
 #endif

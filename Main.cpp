@@ -101,11 +101,15 @@ int main() {
     } else if (cmd == "exit") { // exit
       exitFlag = true;
     } else if (cmd == "interact") { // interaksi
-      try{
-        farm.playerCmdIteract();
-      } catch(char const *error){
-        cout << error << endl;
-        continue;
+      if (farm.isFacilityAheadPlayer()) {
+        
+      } else {
+        try{
+          farm.playerCmdIteract();
+        } catch(char const *error){
+          cout << error << endl;
+          continue;
+        }
       }
     } else if (cmd == "mix") {  // mix
     
@@ -129,6 +133,7 @@ int main() {
     } else if (cmd == "talk") {
       try{
         farm.playerCmdTalk();
+        continue;
       } catch(char const *error){
         cout << error << endl;
         continue;

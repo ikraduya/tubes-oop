@@ -65,5 +65,16 @@ int main(){
 	std::cout << SusuKudaLiar::getPrice() << skl->getName() << std::endl;
 	std::cout << TelorDadarWow::getPrice() << tdw->getName() << std::endl;
 	if (*a==*o){std::cout << "true" << std::endl;}
+
+	Inventory inv;
+	inv.addProduct(CowMilk());
+	inv.addProduct(CowMilk());
+	std::cout << "jumlahnya sekarang = " << inv.getJumlahInventori() << std::endl;
+	if (Keju::isMixValid(&inv)) {
+		std::cout << "noice" << std::endl;
+	} else {
+		std::cout << "tidak noice" << std::endl;
+	}
+
 	return 0;
 }

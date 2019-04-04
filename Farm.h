@@ -136,7 +136,7 @@ public:
   /**
    * @brief Menghandle perintah mixing
    */
-  void handleMixer();
+  void playerCmdMix(std::string prod);
 
   /**
    * @brief Memeriksa apakah permainan telah berakhir
@@ -146,6 +146,14 @@ public:
    * @brief pakai fasilitas truck
    */
   void useTruck(); 
+
+  /**
+   * @brief Memeriksa apakah di depan player ada fasilitas
+   * 
+   * @return true di depan player ada fasilitas
+   * @return false di depan player tidak terdapat fasilitas
+   */
+  bool isFacilityAheadPlayer();
 };
 
 #endif

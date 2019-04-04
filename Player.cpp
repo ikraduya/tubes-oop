@@ -210,15 +210,12 @@ void Player::cekInventory(){
 		std::cout << std::endl;
 	}
 } 
-		/**
-		* Isi air
-		*/
+
 void Player::fillWater(){
 	wadahAir = MaxWater;
 } 
-		/**
-		* Mengosongkan bag dan jual 
-		*/
+
+
 void Player::truck(Truck* truck){
 	Coordinate hadap = getHadap();
 	if (truck->getCoordinate() == hadap){

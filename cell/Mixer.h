@@ -7,6 +7,7 @@
 #ifndef MIXER_H
 #define MIXER_H
 
+#include <string>
 #include "Facility.h"
 #include "../Inventory.h"
 #include "../products/ChickenEgg.h"
