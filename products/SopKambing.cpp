@@ -30,14 +30,15 @@ const FarmProducts* SopKambing::req[] = {new GoatMeat(), new GoatMeat()};
 				return false;
 			}else{
 				for(int i = 0; i < a.getJumlahInventori(); i++){
-					if (count >= 2){
-						return true;
-					}
 					if (a.getProduct(i) == *req[0]){
 						count++;
 					}
+					if (count >= 2){
+						return true;
+					}
 				}
 			}
+			return false;
 		}
 	/**
 	 * @brief getter price
