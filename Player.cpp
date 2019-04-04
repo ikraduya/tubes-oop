@@ -10,6 +10,8 @@
 #include "cell/Barn.h"
 #include "cell/Grassland.h"
 #include "cell/Coop.h"
+#include "animals/FarmAnimal.h"
+#include "common/LinkedList.h"
 
 // posisi default (10, 6)
 Player::Player() : posisi(10,6), inventori() {
@@ -150,19 +152,30 @@ void Player::lookRight(){
 	arah = RIGHT;
 } 
 
-		/**
-		* Command dengan animal
-		* Berbicara dengan hewan
-		*/
-void Player::talk(){}
-		/**
-		* Berinteraksi dengan Farm Animal
-		*/
-void Player::interact(FarmAnimal &animal){}
-		/**
-		* User memberi perintah kill
-		*/
-void Player::cmdKill(){}
+/**
+* Command dengan animal
+* Berbicara dengan hewan
+*/
+void Player::talk(LinkedList<FarmAnimal> *animals){
+	FarmAnimal *animal = getAnimal(animals);
+	animal->Bersuara();
+}
+/**
+* Berinteraksi dengan Farm Animal
+*/
+void Player::interact(LinkedList<FarmAnimal> *animals){
+	FarmAnimal *animal = getAnimal(animals);
+	animal->Interact();
+	
+}
+/**
+* User memberi perintah kill
+*/
+void Player::cmdKill(LinkedList<FarmAnimal> *animals){
+	FarmAnimal *animal = getAnimal(animals);
+	animal->Kill();
+
+}
 
 void Player::cmdGrow(Cell*** map){
 	if (wadahAir > 0) {
@@ -210,6 +223,35 @@ void Player::truck(){}
 		* Mix dengan mixer
 		*/
 void Player::mixProduct(){} 
+
+FarmAnimal* Player::getAnimal(LinkedList<FarmAnimal> *animals){
+	int x,y;
+	switch(arah){
+		case UP :
+			x = 0;
+			y = -1;
+			break;
+		case DOWN :
+			x = 0;
+			y = 1;
+			break;
+		case LEFT :
+			x = -1;
+			y = 0;
+			break;
+		case RIGHT :
+			x = 1;
+			y = 0;
+			break;
+	}
+	Coordinate hadap(posisi.getX() + x, posisi.getY() + y);
+	for (int i = 0; i < animals->count(); i++){
+		if (animals->get(i).getPos() == hadap){
+			return &animals->get(i);
+		}
+	}
+	throw "Tidak ada animal";
+}
 
 /**
 		int jumlahInventori; 

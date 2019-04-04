@@ -201,7 +201,7 @@ void FarmAnimal::Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal
 void FarmAnimal::RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal>* farmAnimal){
   Makan(cell);
   int r = rand() % 10;
-  if (r < 6) {
+  if (r < 1) {
     Move(cell, playerPos, farmAnimal);
   }
   countHungry();
@@ -234,12 +234,12 @@ void FarmAnimal::Bersuara() const{
  * Pure virtual interract.
  * Menghasilkan susu atau telur
  */
-FarmProducts& FarmAnimal::Interact(){throw "error";};
+FarmProducts& FarmAnimal::Interact(){throw "error interact";}
 /**
  * Pure virtual kill.
  * Menghasilkan daging
  */
-FarmProducts& FarmAnimal::Kill(){throw "error";}
+FarmProducts& FarmAnimal::Kill(){throw "error kill";}
 
 char FarmAnimal::getSymbol() const {
   return symbol;

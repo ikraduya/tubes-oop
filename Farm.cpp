@@ -108,15 +108,15 @@ void Farm::playerCmdGrow() {
 }
 
 void Farm::playerCmdKill() {
-
+  player.cmdKill(&farmAnimals);
 }
 
 void Farm::playerCmdTalk() {
-
+  player.talk(&farmAnimals);
 }
 
 void Farm::playerCmdIteract() {
-
+  player.interact(&farmAnimals);
 }
 
 bool Farm::isGameOver() {
