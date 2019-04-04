@@ -101,15 +101,30 @@ int main() {
     } else if (cmd == "exit") { // exit
       exitFlag = true;
     } else if (cmd == "interact") { // interaksi
-      
+      try{
+        farm.playerCmdIteract();
+      } catch(char const *error){
+        cout << error << endl;
+        continue;
+      }
     } else if (cmd == "mix") {  // mix
       
     } else if (cmd == "grow") { // menumbuhkan
       farm.playerCmdGrow();
     } else if (cmd == "kill") { // membunuh hewan
-      
+      try{
+        farm.playerCmdKill();
+      } catch(char const *error){
+        cout << error << endl;
+        continue;
+      }
     } else if (cmd == "talk") {
-      
+      try{
+        farm.playerCmdTalk();
+      } catch(char const *error){
+        cout << error << endl;
+        continue;
+      }
     } else if (cmd == "inventory") {
       farm.player.cekInventory();
       continue;

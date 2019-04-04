@@ -10,6 +10,7 @@
 #include "Inventory.h"
 #include "animals/FarmAnimal.h"
 #include "common/Coordinate.h"
+#include "common/LinkedList.h"
 #include <iostream>
 using namespace std;
 
@@ -179,15 +180,15 @@ class Player {
 		* Command dengan animal
 		* Berbicara dengan hewan
 		*/
-		void talk();
+		void talk(LinkedList<FarmAnimal*> *animals);
 		/**
 		* Berinteraksi dengan Farm Animal
 		*/
-		void interact(FarmAnimal &animal);
+		void interact(LinkedList<FarmAnimal*> *animals);
 		/**
 		* User memberi perintah kill
 		*/
-		void cmdKill();
+		void cmdKill(LinkedList<FarmAnimal*> *animals);
 		/**
 		* User memberi perintah grow
 		*/
@@ -208,7 +209,11 @@ class Player {
 		/**
 		* Mix dengan mixer
 		*/
-		void mixProduct(); 
+		void mixProduct();
+		/**
+		 * Mengambil animal di depan player
+		 */
+		FarmAnimal* getAnimal(LinkedList<FarmAnimal> *animals);  
 };
 
 #endif
