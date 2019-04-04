@@ -213,7 +213,7 @@ class Player {
 		/**
 		 * Mengambil animal di depan player
 		 */
-		FarmAnimal* getAnimal(LinkedList<FarmAnimal> *animals);  
+		FarmAnimal* getAnimal(LinkedList<FarmAnimal*> *animals);  
 };
 
 #endif

@@ -156,14 +156,14 @@ void Player::lookRight(){
 * Command dengan animal
 * Berbicara dengan hewan
 */
-void Player::talk(LinkedList<FarmAnimal> *animals){
+void Player::talk(LinkedList<FarmAnimal*> *animals){
 	FarmAnimal *animal = getAnimal(animals);
 	animal->Bersuara();
 }
 /**
 * Berinteraksi dengan Farm Animal
 */
-void Player::interact(LinkedList<FarmAnimal> *animals){
+void Player::interact(LinkedList<FarmAnimal*> *animals){
 	FarmAnimal *animal = getAnimal(animals);
 	animal->Interact();
 	
@@ -171,7 +171,7 @@ void Player::interact(LinkedList<FarmAnimal> *animals){
 /**
 * User memberi perintah kill
 */
-void Player::cmdKill(LinkedList<FarmAnimal> *animals){
+void Player::cmdKill(LinkedList<FarmAnimal*> *animals){
 	FarmAnimal *animal = getAnimal(animals);
 	animal->Kill();
 
@@ -224,7 +224,7 @@ void Player::truck(){}
 		*/
 void Player::mixProduct(){} 
 
-FarmAnimal* Player::getAnimal(LinkedList<FarmAnimal> *animals){
+FarmAnimal* Player::getAnimal(LinkedList<FarmAnimal*> *animals){
 	int x,y;
 	switch(arah){
 		case UP :
@@ -246,8 +246,8 @@ FarmAnimal* Player::getAnimal(LinkedList<FarmAnimal> *animals){
 	}
 	Coordinate hadap(posisi.getX() + x, posisi.getY() + y);
 	for (int i = 0; i < animals->count(); i++){
-		if (animals->get(i).getPos() == hadap){
-			return &animals->get(i);
+		if (animals->get(i)->getPos() == hadap){
+			return animals->get(i);
 		}
 	}
 	throw "Tidak ada animal";

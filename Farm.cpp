@@ -15,12 +15,12 @@ Farm::Farm(std::string mapFilename) : player(), map(mapFilename), farmAnimals() 
   const int hungryTimeKuda = 10;
   const int hungryTimeBebek = 6;
   const int hungryTimeSapi = 7;
-  // farmAnimals.add(Ayam(Coordinate(0, 0), hungryTimeAyam));
-  // farmAnimals.add(Ayam(Coordinate(2, 0), hungryTimeAyam));
-  // farmAnimals.add(Kambing(Coordinate(5, 0), hungryTimeKambing));
-  // farmAnimals.add(Kambing(Coordinate(6, 4), hungryTimeKambing));
-  // farmAnimals.add(Kuda(Coordinate(7, 7), hungryTimeKuda));
-  // farmAnimals.add(Kuda(Coordinate(5, 8), hungryTimeKuda));
+  farmAnimals.add(new Ayam(Coordinate(0, 0), hungryTimeAyam));
+  farmAnimals.add(new Ayam(Coordinate(2, 0), hungryTimeAyam));
+  farmAnimals.add(new Kambing(Coordinate(5, 0), hungryTimeKambing));
+  farmAnimals.add(new Kambing(Coordinate(6, 4), hungryTimeKambing));
+  farmAnimals.add(new Kuda(Coordinate(7, 7), hungryTimeKuda));
+  farmAnimals.add(new Kuda(Coordinate(5, 8), hungryTimeKuda));
 }
 
 Farm::~Farm() {
