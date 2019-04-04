@@ -38,6 +38,7 @@ FarmProducts& Bebek::Interact(){
     canInteract = false;
     return produceEgg();
   }
+  throw "belum makan";
 }
 
 /**

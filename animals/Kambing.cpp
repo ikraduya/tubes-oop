@@ -38,6 +38,7 @@ FarmProducts& Kambing::Interact(){
     canInteract = false;
     return produceMilk();
   }
+  throw "belum makan";
 }
 
 /**

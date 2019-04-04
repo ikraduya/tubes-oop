@@ -38,6 +38,7 @@ FarmProducts& Ayam::Interact(){
     canInteract = false;
     return produceEgg();
   }
+  throw "belum makan";
 }
 /**
  * @brief Ayam menghasilkan daging dan mati

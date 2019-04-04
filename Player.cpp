@@ -165,7 +165,7 @@ void Player::talk(LinkedList<FarmAnimal*> *animals){
 */
 void Player::interact(LinkedList<FarmAnimal*> *animals){
 	FarmAnimal *animal = getAnimal(animals);
-	animal->Interact();
+	inventori.addProduct(animal->Interact());//return FarmProducts
 	
 }
 /**
@@ -173,7 +173,7 @@ void Player::interact(LinkedList<FarmAnimal*> *animals){
 */
 void Player::cmdKill(LinkedList<FarmAnimal*> *animals){
 	FarmAnimal *animal = getAnimal(animals);
-	animal->Kill();
+	inventori.addProduct(animal->Kill());
 
 }
 
