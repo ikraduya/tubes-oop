@@ -12,11 +12,7 @@ Inventory::Inventory() {
 }
 		/**
 		* Getter dan setter
-		* Set jumlah inventori
 		*/
-void Inventory::setJumlahInventori(int jumlah){
-	jumlahInventori = jumlah;
-} 
 		/**
 		* Get jumlah inventori
 		*/
