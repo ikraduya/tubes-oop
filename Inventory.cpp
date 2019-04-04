@@ -20,18 +20,18 @@ int Inventory::getJumlahInventori(){
 	return inventori.count();
 }
 
-Products Inventory::getProduct(int idx) {
+Products* Inventory::getProduct(int idx) {
 	return (inventori.get(idx));
 }
 
-bool Inventory::isProductExist(Products p) {
+bool Inventory::isProductExist(Products *p) {
 	return (inventori.find(p) != -1);
 }
 
-void Inventory::addProduct(Products p) {
+void Inventory::addProduct(Products *p) {
 	inventori.add(p);
 }
 
-void Inventory::removeProduct(Products p) {
+void Inventory::removeProduct(Products *p) {
 	inventori.remove(p);
 }

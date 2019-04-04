@@ -25,7 +25,7 @@ class Inventory {
 		* Array Inventori
 		*/
 
-		LinkedList<Products> inventori; 
+		LinkedList<Products*> inventori; 
 
 		/**
 		* Wadah air yang sudah terisi
@@ -48,18 +48,18 @@ class Inventory {
 		/**
 		* Get Product
 		*/
-		Products getProduct(int idx);
+		Products* getProduct(int idx);
 		/**
 		* Is Product exist
 		*/
-		bool isProductExist(Products p);
+		bool isProductExist(Products *p);
 		/**
 		* Add Product
 		*/
-		void addProduct(Products p);
+		void addProduct(Products *p);
 		/**
 		* Is Product exist
 		*/
-		void removeProduct(Products p);
+		void removeProduct(Products *p);
 };
 #endif
