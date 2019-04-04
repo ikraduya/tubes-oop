@@ -26,6 +26,7 @@ Farm::Farm(std::string mapFilename) : player(), map(mapFilename), farmAnimals() 
 Farm::~Farm() {
   while (farmAnimals.count() > 0) {
     delete farmAnimals.get(0);
+    farmAnimals.remove(farmAnimals.get(0));
   }
 }
 
@@ -35,6 +36,7 @@ void Farm::removeDeadAnimal() {
   while (i < animalsLen) {
     FarmAnimal *animal = farmAnimals.get(i);
     if (!farmAnimals.get(i)->isAlive()) {
+      delete farmAnimals.get(i);
       farmAnimals.remove(animal);
       animalsLen--;
       i--;
