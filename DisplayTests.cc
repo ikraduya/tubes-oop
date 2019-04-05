@@ -30,16 +30,16 @@ struct DispTest : testing::Test{
 	}
 };
 TEST_F(DispTest, TestDisp) { 
-	EXPECT_EQ('U', disp->arahToChar(UP));
-	EXPECT_EQ('D', disp->arahToChar(DOWN));
-	EXPECT_EQ('R', disp->arahToChar(RIGHT));
-	EXPECT_EQ('L', disp->arahToChar(LEFT));
+	EXPECT_EQ('^', disp->arahToChar(UP));
+	EXPECT_EQ('V', disp->arahToChar(DOWN));
+	EXPECT_EQ('>', disp->arahToChar(RIGHT));
+	EXPECT_EQ('<', disp->arahToChar(LEFT));
 	EXPECT_EQ(str, disp->convertArrCharToStr(chararr));
 	EXPECT_EQ(line, disp->makeHorizontalLine(5));
 	EXPECT_EQ(space, disp->makeHorizontalSpace(5));
-	char* arrtest;
-	disp->setStrToArrChr(arrtest, strtest, 7);
-	EXPECT_EQ(arrtest, strtest);
+	char arrtest[6];
+	disp->setStrToArrChr(arrtest, strtest, 6);
+	EXPECT_TRUE(strcmp(arrtest,strtest.c_str()) == 0);
 }
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);

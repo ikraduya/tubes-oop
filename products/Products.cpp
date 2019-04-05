@@ -7,9 +7,5 @@
 #include <iostream>
 using namespace std;
 
-
-/**
- * @brief Kelas Products untuk menyediakan abstrak kelas bagi side products dan farm products
- */
-		Products::Products(std::string _name){name = _name;}
-		Products::Products(){name = "NULL";}
+Products::Products(std::string _name){name = _name;}
+Products::Products(){name = "NULL";}

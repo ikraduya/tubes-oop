@@ -1,4 +1,4 @@
-// mapGoogleTest.cpp
+// MapTests.cpp
 #include "Map.cpp"
 #include "Ukuran.cpp"
 #include "common/Coordinate.cpp"
@@ -100,8 +100,8 @@ TEST_F(MapTest, MapName) {
   EXPECT_EQ(false, barn->getHasGrass());
 
   //Truck.h
-  EXPECT_EQ(5, truck->getRemainingTick());
-  EXPECT_EQ(5, truckCoordinate->getRemainingTick());
+  EXPECT_EQ(0, truck->getRemainingTick());
+  EXPECT_EQ(0, truckCoordinate->getRemainingTick());
 
 }
 

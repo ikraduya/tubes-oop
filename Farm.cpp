@@ -169,35 +169,24 @@ bool Farm::isFacilityAheadPlayer() {
  * @brief read file eksternal animals
  */
 void Farm::readAnimals(std::string animalFilename){
-  bool filebenar = false;
   char *jenisHewan = new char[15];
   int hungryTime,x,y;
-  while (!filebenar){
-    ifstream file(animalFilename);
-    if (file.is_open()){
-      filebenar = true;
-      string line;
-      //while (getline(file,line)){
-      do{
-        file >> jenisHewan >> x >> y >> hungryTime;
-        // cout << jenisHewan <<" "<< x<<" " << y<<" " << hungryTime;
-        if (strcmp(jenisHewan, "Ayam") == 0){
-          //cout << "Ayam" << endl;
-          farmAnimals.add(new Ayam(Coordinate(x,y), hungryTime));
-        } else if (strcmp(jenisHewan, "Bebek") == 0){
-          //cout << "Bebek" << endl;
-          farmAnimals.add(new Bebek(Coordinate(x,y), hungryTime));
-        } else if (strcmp(jenisHewan, "Kambing") == 0){
-          //cout << "Kambing" << endl;
-          farmAnimals.add(new Kambing(Coordinate(x,y), hungryTime));
-        } else if (strcmp(jenisHewan, "Kuda") == 0){
-          //cout << "Kuda" << endl;
-          farmAnimals.add(new Kuda(Coordinate(x,y), hungryTime));
-        } else if (strcmp(jenisHewan, "Sapi") == 0){
-          //cout << "Sapi" << endl;
-          farmAnimals.add(new Sapi(Coordinate(x,y), hungryTime));
-        }
-      } while (getline(file,line));
-    } else cout << "Nama file salah" << endl;
+  ifstream file(animalFilename);
+  if (file.is_open()){
+    string line;
+    do{
+      file >> jenisHewan >> x >> y >> hungryTime;
+      if (strcmp(jenisHewan, "Ayam") == 0){
+        farmAnimals.add(new Ayam(Coordinate(x,y), hungryTime));
+      } else if (strcmp(jenisHewan, "Bebek") == 0){
+        farmAnimals.add(new Bebek(Coordinate(x,y), hungryTime));
+      } else if (strcmp(jenisHewan, "Kambing") == 0){
+        farmAnimals.add(new Kambing(Coordinate(x,y), hungryTime));
+      } else if (strcmp(jenisHewan, "Kuda") == 0){
+        farmAnimals.add(new Kuda(Coordinate(x,y), hungryTime));
+      } else if (strcmp(jenisHewan, "Sapi") == 0){
+        farmAnimals.add(new Sapi(Coordinate(x,y), hungryTime));
+      }
+    } while (getline(file,line));
   }
 }

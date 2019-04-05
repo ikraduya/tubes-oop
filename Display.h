@@ -8,6 +8,7 @@
 #define _DISPLAY_H
 
 #include <string>
+#include <gtest/gtest_prod.h>
 #include "common/LinkedList.h"
 #include "Inventory.h"
 #include "products/Products.h"
@@ -26,6 +27,7 @@
 
 class Display {
   private:
+    FRIEND_TEST(DispTest, TestDisp);
     /**
      * @brief Hardcoded legend
      */
