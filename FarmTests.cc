@@ -2,9 +2,8 @@
 #include "TestHeaders.h"
 
 struct FarmTest : testing::Test{
-  Farm* farm = new Farm("Map.txt");
+	Farm* farm = new Farm("Map.txt", "Animlas.txt");
 	FarmTest(){
-
 	}
 	~FarmTest(){
 		delete farm;

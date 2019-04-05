@@ -133,6 +133,8 @@ void Farm::playerCmdIteract() {
 void Farm::playerCmdMix(std::string prod) {
   if (player.getHadap() == mixerFacility->getCoordinate()) {
     mixerFacility->mixProducts(player.getInventoriPtr(), prod);
+  } else {
+    throw "Mixer tidak berada dalam jangkauan";
   }
 }
 

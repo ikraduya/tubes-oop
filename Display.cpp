@@ -13,13 +13,13 @@ void Display::setStrToArrChr(char * arrChr, std::string str, int strLen) {
 
 char Display::arahToChar(ArahEnum arah) {
   if (arah == UP) {
-    return 'U';
+    return '^';
   } else if (arah == DOWN) {
-    return 'D';
+    return 'V';
   } else if (arah == RIGHT) {
-    return 'R';
+    return '>';
   } else {
-    return 'L';
+    return '<';
   }
 }
 
