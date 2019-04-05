@@ -10,6 +10,7 @@ using namespace std;
 Kuda::Kuda(): FarmAnimal(){
   isProduceMeat = true;
   isProduceMilk = true;
+  symbol = 'h';
 }
 /**
  * @brief ctor dengan parameter

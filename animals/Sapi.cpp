@@ -10,6 +10,7 @@ using namespace std;
 Sapi::Sapi(): FarmAnimal(){
   isProduceMeat = true;
   isProduceMilk = true;
+  symbol = 's';
 }
 /**
  * @brief ctor dengan parameter

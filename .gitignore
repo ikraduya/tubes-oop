@@ -13,5 +13,7 @@ latex
 mainGame
 
 # cmake files
-CMakeFiles/
+*CMakeFiles/
 CMakeCache.txt
+*Makefile
+cmake_install.cmake

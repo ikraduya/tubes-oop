@@ -10,6 +10,7 @@ using namespace std;
 Ayam::Ayam(): FarmAnimal(){
   isProduceMeat = true;
   isProduceMilk = true;
+  symbol = 'c';
 }
 /**
  * @brief ctor dengan parameter
