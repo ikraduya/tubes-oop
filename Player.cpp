@@ -142,8 +142,8 @@ void Player::cmdGrow(Cell*** map){
       } else if (land->getSymbol() == '-') {
         ((Grassland*)land)->setSymbol('#');
       }
-			wadahAir--;
 		}
+		wadahAir--;
 	} else {
 		std::cout << "\nWadah air kosong!" << std::endl;
 	}
