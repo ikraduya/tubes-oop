@@ -1,30 +1,19 @@
 #include "Farm.h"
 #include "animals/AnimalsHeader.h"
 #include "common/Coordinate.h"
+#include "cell/Well.h"
+#include "cell/Truck.h"
 #include <fstream>
 #include <iostream>
 
 int Farm::globalTick = 0;
 
-Farm::Farm(std::string mapFilename) : player(), map(mapFilename), farmAnimals() {
+Farm::Farm(std::string mapFilename, std::string animalFilename) : player(), map(mapFilename), farmAnimals() {
   mixerFacility = (Mixer*) map.getMixerPtr();
   truckFacility = (Truck *) map.getTruckPtr();
   wellFacility = (Well *) map.getWellPtr();
 
-  readAnimals();
-
-  // hardcode animal
-  // const int hungryTimeAyam = 8;
-  // const int hungryTimeKambing = 8;
-  // const int hungryTimeKuda = 10;
-  // const int hungryTimeBebek = 6;
-  // const int hungryTimeSapi = 7;
-  // farmAnimals.add(new Ayam(Coordinate(0, 0), hungryTimeAyam));
-  // farmAnimals.add(new Ayam(Coordinate(2, 0), hungryTimeAyam));
-  // farmAnimals.add(new Kambing(Coordinate(5, 0), hungryTimeKambing));
-  // farmAnimals.add(new Kambing(Coordinate(6, 4), hungryTimeKambing));
-  // farmAnimals.add(new Kuda(Coordinate(7, 7), hungryTimeKuda));
-  // farmAnimals.add(new Kuda(Coordinate(5, 8), hungryTimeKuda));
+  readAnimals(animalFilename);
 }
 
 Farm::~Farm() {
@@ -91,6 +80,7 @@ void Farm::dispatchTick() {
   for (int i=0; i<animalLen; i++) {
     farmAnimals.get(i)->RespondToTic(map.getMapPtr(), player.getCoordinate(), &farmAnimals);
   }
+  truckFacility->respondToTick();
 };
 
 int* Farm::getGlobalTickPtr() {
@@ -143,6 +133,14 @@ void Farm::playerCmdMix(std::string prod) {
   }
 }
 
+void Farm::playerCmdShowSideProducts() {
+  mixerFacility->showSideProducts();
+}
+
+void Farm::playerCmdShowReq(std::string name) {
+  mixerFacility->showReqSideProducts(name);
+}
+
 bool Farm::isGameOver() {
   return (farmAnimals.count() <= 0);
 }
@@ -165,22 +163,19 @@ bool Farm::isFacilityAheadPlayer() {
 /**
  * @brief read file eksternal animals
  */
-void Farm::readAnimals(){
+void Farm::readAnimals(std::string animalFilename){
   bool filebenar = false;
-  char *filename = new char[100];
   char *jenisHewan = new char[15];
   int hungryTime,x,y;
   while (!filebenar){
-    cout << "Masukkan nama file animals :";
-    scanf("%s",filename);
-    ifstream file(filename);
+    ifstream file(animalFilename);
     if (file.is_open()){
       filebenar = true;
       string line;
       //while (getline(file,line)){
       do{
         file >> jenisHewan >> x >> y >> hungryTime;
-        cout << jenisHewan <<" "<< x<<" " << y<<" " << hungryTime;
+        // cout << jenisHewan <<" "<< x<<" " << y<<" " << hungryTime;
         if (strcmp(jenisHewan, "Ayam") == 0){
           //cout << "Ayam" << endl;
           farmAnimals.add(new Ayam(Coordinate(x,y), hungryTime));

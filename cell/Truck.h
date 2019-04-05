@@ -35,8 +35,9 @@
  */
 class Truck : public Facility{
 private:
-  int remainingTick;  /**< Tick > 0 apabila Truck tidak berada di tempat */
+  int remainingTick;  /**< Tick (remainingTick > 0) apabila Truck tidak berada di tempat */
 public:
+  static const int maxRemainingTick;
   /**
    * @brief ctor parameter, inisialisasi simbol 'T'
    *
@@ -67,6 +68,11 @@ public:
    * @brief setter remainingTick
    */
   void setRemainingTick(int remainingTick);
+
+  /**
+   * @brief respond pada tick
+   */
+  void respondToTick();
 };
 
 #endif

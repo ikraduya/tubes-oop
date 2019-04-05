@@ -53,8 +53,9 @@ public:
    * Konstruktor dengan parameter
    * 
    * @param mapFilename Nama file input eksternal untuk konstruksi map
+   * @param animalFilename nama file input eksternal untuk farmAnimals
    */
-  Farm(std::string mapFilename);
+  Farm(std::string mapFilename, std::string animalFilename);
 
   /**
    * @brief Destroy the Farm object
@@ -139,13 +140,21 @@ public:
   void playerCmdMix(std::string prod);
 
   /**
+   * @brief Menghandle perintah showproducts
+   */
+  void playerCmdShowSideProducts();
+
+  /**
+   * @brief Menghandle perintah showreq
+   * 
+   * @param name Nama side product
+   */
+  void playerCmdShowReq(std::string name);
+
+  /**
    * @brief Memeriksa apakah permainan telah berakhir
    */
   bool isGameOver();
-  /**
-   * @brief pakai fasilitas truck
-   */
-  void useTruck(); 
 
   /**
    * @brief Memeriksa apakah di depan player ada fasilitas
@@ -157,8 +166,10 @@ public:
   
   /**
    * @brief read file eksternal animals
+   * 
+   * @param animalFilename nama file eksternal
    */
-  void readAnimals(); 
+  void readAnimals(std::string animalFilename); 
 };
 
 #endif

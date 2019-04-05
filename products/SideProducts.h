@@ -9,7 +9,7 @@
 
 #include "Products.h"
 #include "FarmProducts.h"
-#include <cstring>
+#include <string>
 #include <iostream>
 
 /**

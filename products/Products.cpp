@@ -4,7 +4,6 @@
  * @date 2019-03-15
  */
 #include "Products.h"
-#include <string.h>
 #include <iostream>
 using namespace std;
 

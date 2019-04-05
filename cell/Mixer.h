@@ -48,7 +48,25 @@ public:
    */
   Mixer(Coordinate posisi);
 
+  /**
+   * @brief Menggabungkan products menjadi side product
+   * 
+   * @param inventory inventori pemain
+   * @param name nama produk yang ingin dibuat
+   */
   void mixProducts(Inventory* inventory, std::string name);
+
+  /**
+   * @brief Menampilkan daftar side product
+   */
+  void showSideProducts();
+
+  /**
+   * @brief Menampilkan requirement side product untuk product yang diinginkan
+   * 
+   * @param name nama side product
+   */
+  void showReqSideProducts(std::string name);
 };
 
 #endif

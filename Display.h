@@ -7,7 +7,7 @@
 #ifndef _DISPLAY_H
 #define _DISPLAY_H
 
-#include <string.h>
+#include <string>
 #include "common/LinkedList.h"
 #include "Inventory.h"
 #include "products/Products.h"

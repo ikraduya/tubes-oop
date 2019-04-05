@@ -1,4 +1,5 @@
 #include "Well.h"
+#include <iostream>
 
 /**
  * Konstruktor dengan parameter, inisialisasi simbol 'W'
@@ -19,4 +20,5 @@ Well::Well(Coordinate posisi) {
 void Well::interact(int *wadahAir) {
   const int MaxWater = 20;
   *wadahAir = MaxWater;
+  std::cout << "sampe" << std::endl;
 }

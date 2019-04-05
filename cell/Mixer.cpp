@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "Mixer.h"
 
 /**
@@ -18,82 +17,99 @@ Mixer::Mixer(Coordinate posisi) {
   setSymbol('M');
 }
 
-void mixProducts(Inventory* inventory, std::string name) {
+void Mixer::mixProducts(Inventory* inventory, std::string name) {
   if(name == "Keju"){
-      if(Keju::isMixValid(*inventory)){
-        inventory->removeProduct(*(new CowMilk()));
-        inventory->removeProduct(*(new CowMilk()));
-        inventory->addProduct(*(new Keju()));
-      }else {
-        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
-        Keju::showReq();
-        return;
-      }
+    if(Keju::isMixValid(*inventory)){
+      inventory->removeProduct(*(new CowMilk()));
+      inventory->removeProduct(*(new CowMilk()));
+      inventory->addProduct(*(new Keju()));
+    } else {
+      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+    }
   }else if(name == "Obat Super Chen Long"){
-      if(ObatSuperChenLong::isMixValid(*inventory)){
-        inventory->removeProduct(*(new HorseMeat()));
-        inventory->removeProduct(*(new GoatMeat()));
-        inventory->addProduct(*(new ObatSuperChenLong()));
-      }else {
-        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
-        ObatSuperChenLong::showReq();
-        return;
-      }
+    if(ObatSuperChenLong::isMixValid(*inventory)){
+      inventory->removeProduct(*(new HorseMeat()));
+      inventory->removeProduct(*(new GoatMeat()));
+      inventory->addProduct(*(new ObatSuperChenLong()));
+    } else {
+      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+    }
   }else if(name == "Rica Kuda"){
-      if(RicaKuda::isMixValid(*inventory)){
-        inventory->removeProduct(*(new CowMeat()));
-        inventory->removeProduct(*(new HorseMeat()));
-        inventory->addProduct(*(new RicaKuda()));
-      }else {
-        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
-        RicaKuda::showReq();
-        return;
-      }
+    if(RicaKuda::isMixValid(*inventory)){
+      inventory->removeProduct(*(new CowMeat()));
+      inventory->removeProduct(*(new HorseMeat()));
+      inventory->addProduct(*(new RicaKuda()));
+    } else {
+      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+    }
   }else if(name == "Sop Kambing"){
-      if(SopKambing::isMixValid(*inventory)){
-        inventory->removeProduct(*(new GoatMeat()));
-        inventory->removeProduct(*(new GoatMeat()));
-        inventory->addProduct(*(new SopKambing()));
-      }else {
-        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
-        SopKambing::showReq();
-        return;
-      }
+    if(SopKambing::isMixValid(*inventory)){
+      inventory->removeProduct(*(new GoatMeat()));
+      inventory->removeProduct(*(new GoatMeat()));
+      inventory->addProduct(*(new SopKambing()));
+    } else {
+      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+    }
   }else if(name == "Suplemen Super"){
-      if(SuplemenSuper::isMixValid(*inventory)){
-        inventory->removeProduct(*(new ChickenEgg()));
-        inventory->removeProduct(*(new CowMilk()));
-        inventory->removeProduct(*(new DuckMeat()));
-        inventory->removeProduct(*(new HorseMeat()));
-        inventory->addProduct(*(new SuplemenSuper()));
-      }else {
-        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
-        SuplemenSuper::showReq();
-        return;
-      }
+    if(SuplemenSuper::isMixValid(*inventory)){
+      inventory->removeProduct(*(new ChickenEgg()));
+      inventory->removeProduct(*(new CowMilk()));
+      inventory->removeProduct(*(new DuckMeat()));
+      inventory->removeProduct(*(new HorseMeat()));
+      inventory->addProduct(*(new SuplemenSuper()));
+    } else {
+      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+    }
   }else if(name == "Susu Kuda Liar"){
-      if(SusuKudaLiar::isMixValid(*inventory)){
-        inventory->removeProduct(*(new HorseMeat()));
-        inventory->removeProduct(*(new HorseMilk()));
-        inventory->addProduct(*(new SusuKudaLiar()));
-      }else {
-        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
-        SusuKudaLiar::showReq();
-        return;
-      }
+    if(SusuKudaLiar::isMixValid(*inventory)){
+      inventory->removeProduct(*(new HorseMeat()));
+      inventory->removeProduct(*(new HorseMilk()));
+      inventory->addProduct(*(new SusuKudaLiar()));
+    } else {
+      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+    }
   }else if(name == "Telor Dadar Wow"){
-      if(TelorDadarWow::isMixValid(*inventory)){
-        inventory->removeProduct(*(new HorseMeat()));
-        inventory->removeProduct(*(new GoatMilk()));
-        inventory->removeProduct(*(new DuckEgg()));
-        inventory->addProduct(*(new TelorDadarWow()));
-      }else {
-        std::cout << name << " tidak berhasil dibuat :(" << std::endl;
-        TelorDadarWow::showReq();
-        return;
-      }
+    if(TelorDadarWow::isMixValid(*inventory)){
+      inventory->removeProduct(*(new HorseMeat()));
+      inventory->removeProduct(*(new GoatMilk()));
+      inventory->removeProduct(*(new DuckEgg()));
+      inventory->addProduct(*(new TelorDadarWow()));
+    } else {
+      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+    }
   } else {
-    std::cout << name << " tidak terdapat pada resep!" << std::endl;
+    throw name + " tidak terdapat pada resep!";
   }
-  std::cout << name << " berhasil dibuat :)" << std::endl;
+}
+
+void Mixer::showSideProducts() {
+  std::cout << "Daftar side products:" << std::endl;
+  std::cout << "- Keju" << std::endl;
+  std::cout << "- Obat Super Chen Long" << std::endl;
+  std::cout << "- Rica Kuda" << std::endl;
+  std::cout << "- Sop Kambing" << std::endl;
+  std::cout << "- Suplemen Super" << std::endl;
+  std::cout << "- Susu Kuda Liar" << std::endl;
+  std::cout << "- Telor Dadar Wow" << std::endl;
+  std::cout << "Jalankan perintah 'showreq' untuk melihat requirements side product" << std::endl;
+}
+
+void Mixer::showReqSideProducts(std::string name) {
+  if(name == "Keju"){
+    Keju::showReq();
+  }else if(name == "Obat Super Chen Long"){
+    ObatSuperChenLong::showReq();
+  }else if(name == "Rica Kuda"){
+    RicaKuda::showReq();
+  }else if(name == "Sop Kambing"){
+    SopKambing::showReq();
+  }else if(name == "Suplemen Super"){
+    SuplemenSuper::showReq();
+  }else if(name == "Susu Kuda Liar"){
+    SusuKudaLiar::showReq();
+  }else if(name == "Telor Dadar Wow"){
+    TelorDadarWow::showReq();
+  } else {
+    std::cout << "Tidak terdapat side product bernama " << name << std::endl;
+  }
 }

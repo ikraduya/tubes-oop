@@ -7,7 +7,7 @@
 
 #ifndef _PRODUCTS_H_
 #define _PRODUCTS_H_
-#include <string.h>
+#include <string>
 #include <iostream>
 
 /**
