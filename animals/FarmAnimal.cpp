@@ -246,12 +246,6 @@ FarmProducts& FarmAnimal::Kill(){throw "error kill";}
 char FarmAnimal::getSymbol() const {
   return symbol;
 }
-/**
- * Menggambar Hewan jadi-jadian
- */
-char FarmAnimal::Render() const{
-  return '-';
-}
 
 FarmAnimal& FarmAnimal::operator=(const FarmAnimal& other) {
   if (this != &other) {

@@ -113,7 +113,7 @@ class FarmAnimal{
     void Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal*>* farmAnimals);
 
     /**
-	   * Pure virtual bersuara
+	   * virtual bersuara
 	   */
     virtual void Bersuara() const;
     /**
@@ -153,11 +153,6 @@ class FarmAnimal{
      * @return char simbol hewan
      */
     char getSymbol() const;
-
-    /**
-     * pure virtual Menggambar Hewan
-     */
-    virtual char Render() const;
 
     /**
      * @brief Overloading =
