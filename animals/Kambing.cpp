@@ -10,6 +10,7 @@ using namespace std;
 Kambing::Kambing(): FarmAnimal(){
   isProduceMeat = true;
   isProduceMilk = true;
+  symbol = 'g';
 }
 /**
  * @brief ctor dengan parameter

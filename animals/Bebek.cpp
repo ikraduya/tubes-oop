@@ -10,6 +10,7 @@ using namespace std;
 Bebek::Bebek(): FarmAnimal(){
   isProduceMeat = true;
   isProduceEgg = true;
+  symbol = 'b';
 }
 /**
  * @brief ctor dengan parameter
