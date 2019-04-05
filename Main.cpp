@@ -138,7 +138,7 @@ int main() {
     } else if (cmd == "mix") {  // mix
       std::string prod;
       cout << "Product apa yang ingin dibuat? ";
-      cin >> prod;
+      getline(cin, prod);
       try {
         farm.playerCmdMix(prod);
         beforeCmd = prod + " berhasil dibuat";

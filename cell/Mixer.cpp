@@ -20,11 +20,11 @@ Mixer::Mixer(Coordinate posisi) {
 void Mixer::mixProducts(Inventory* inventory, std::string name) {
   if(name == "Keju"){
     if(Keju::isMixValid(*inventory)){
-      inventory->removeProduct(*(new CowMilk()));
-      inventory->removeProduct(*(new CowMilk()));
-      inventory->addProduct(*(new Keju()));
+      inventory->removeProduct(CowMilk());
+      inventory->removeProduct(CowMilk());
+      inventory->addProduct(Keju());
     } else {
-      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+      throw "tidak berhasil dibuat, requirement tidak mencukupi";
     }
   }else if(name == "Obat Super Chen Long"){
     if(ObatSuperChenLong::isMixValid(*inventory)){
@@ -32,7 +32,7 @@ void Mixer::mixProducts(Inventory* inventory, std::string name) {
       inventory->removeProduct(*(new GoatMeat()));
       inventory->addProduct(*(new ObatSuperChenLong()));
     } else {
-      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+      throw " tidak berhasil dibuat, requirement tidak mencukupi";
     }
   }else if(name == "Rica Kuda"){
     if(RicaKuda::isMixValid(*inventory)){
@@ -40,7 +40,7 @@ void Mixer::mixProducts(Inventory* inventory, std::string name) {
       inventory->removeProduct(*(new HorseMeat()));
       inventory->addProduct(*(new RicaKuda()));
     } else {
-      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+      throw "tidak berhasil dibuat, requirement tidak mencukupi";
     }
   }else if(name == "Sop Kambing"){
     if(SopKambing::isMixValid(*inventory)){
@@ -48,7 +48,7 @@ void Mixer::mixProducts(Inventory* inventory, std::string name) {
       inventory->removeProduct(*(new GoatMeat()));
       inventory->addProduct(*(new SopKambing()));
     } else {
-      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+      throw " tidak berhasil dibuat, requirement tidak mencukupi";
     }
   }else if(name == "Suplemen Super"){
     if(SuplemenSuper::isMixValid(*inventory)){
@@ -58,15 +58,15 @@ void Mixer::mixProducts(Inventory* inventory, std::string name) {
       inventory->removeProduct(*(new HorseMeat()));
       inventory->addProduct(*(new SuplemenSuper()));
     } else {
-      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+      throw " tidak berhasil dibuat, requirement tidak mencukupi";
     }
   }else if(name == "Susu Kuda Liar"){
     if(SusuKudaLiar::isMixValid(*inventory)){
-      inventory->removeProduct(*(new HorseMeat()));
-      inventory->removeProduct(*(new HorseMilk()));
-      inventory->addProduct(*(new SusuKudaLiar()));
+      inventory->removeProduct(HorseMeat());
+      inventory->removeProduct(HorseMilk());
+      inventory->addProduct(SusuKudaLiar());
     } else {
-      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+      throw " tidak berhasil dibuat, requirement tidak mencukupi";
     }
   }else if(name == "Telor Dadar Wow"){
     if(TelorDadarWow::isMixValid(*inventory)){
@@ -75,10 +75,10 @@ void Mixer::mixProducts(Inventory* inventory, std::string name) {
       inventory->removeProduct(*(new DuckEgg()));
       inventory->addProduct(*(new TelorDadarWow()));
     } else {
-      throw name + " tidak berhasil dibuat, requirement tidak mencukupi";
+      throw "tidak berhasil dibuat, requirement tidak mencukupi";
     }
   } else {
-    throw name + " tidak terdapat pada resep!";
+    throw "tidak terdapat pada resep!";
   }
 }
 

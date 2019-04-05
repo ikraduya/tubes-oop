@@ -201,7 +201,9 @@ void FarmAnimal::Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal
 void FarmAnimal::RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal*>* farmAnimal){
   Makan(cell);
   int r = rand() % 10;
-  if (r < 1) {
+  if (isHungry) {
+    Move(cell, playerPos, farmAnimal);
+  } else if (r < 3) {
     Move(cell, playerPos, farmAnimal);
   }
   countHungry();

@@ -14,6 +14,9 @@ Farm::Farm(std::string mapFilename, std::string animalFilename) : player(), map(
   wellFacility = (Well *) map.getWellPtr();
 
   readAnimals(animalFilename);
+
+  player.getInventori().addProduct(GoatMeat());
+  player.getInventori().addProduct(GoatMeat());
 }
 
 Farm::~Farm() {
