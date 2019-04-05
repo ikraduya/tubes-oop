@@ -1,0 +1,24 @@
+kelas FarmAnimal
+
+Atribut:
++int animalId //ID masing-masing hewan
++char symbol //Symbol masing-masing hewan
++static int jumlahHewan // jumlah hewan hidup
++static int autoIncAnimalId //Id untuk masing-masing hewan unik
++static bool srandExecuted //cek apakah sudah dilakukan seeding untuk random move
+
+Method:
++FarmAnimal() //defualt constructor untuk FarmAnimal
++Coordinate gerakF(int c) //menghasilkan opsi gerak sesuai choice
++bool isCellContainAnimal(LinkedList<FarmAnimal*>* farmAnimals, Coordinate &c) //memerika apakah di sebuah sel terdapat animal
++bool isCellSteppable(Cell * cell, LinkedList<FarmAnimal*>* farmAnimals, Coordinate& playerPos) //memeriksa apakah suatu cell dapat dipijak oleh hewan
++bool getIsHungry() const //getter isHungry
+M void Makan(Cell ***cell) //parameter menjadi Cell ***cell agar bisa polimorfism
+M void Move(Cell*** cell, Coordinate& playerPos, LinkedList<FarmAnimal*>* farmAnimals) //parameter diganti agar fungsi bekerja
+M virtual void Bersuara() const //menjadi tidak pure virtual agar bisa construct FarmAnimal
++bool operator!=(const FarmAnimal& other) //operator !=
++bool operator==(const FarmAnimal& other) //operator ==
++FarmAnimal& operator=(const FarmAnimal& other) //operator assignment
+M virtual FarmProducts& Kill() //menjadi tidak pure virtual agar bisa construct FarmAnimal
+M virtual FarmProducts& Interact() //menjadi tidak pure virtual agar bisa construct FarmAnimal
++RespondToTic(Cell ***cell, Coordinate playerPos, LinkedList<FarmAnimal*>* farmAnimal) //Menambah parameter yang 

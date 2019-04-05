@@ -1,0 +1,6 @@
+Ayam 0 0 20
+Ayam 2 0 20
+Kambing 5 0 15
+Kambing 6 4 15
+Kuda 7 7 30
+Kuda 5 8 30
